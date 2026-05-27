@@ -1,0 +1,22 @@
+import { Html, Head, Main, NextScript } from 'next/document';
+
+export default function Document() {
+  return (
+    <Html lang="en">
+      <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@200;300;400;500&family=Space+Mono:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer />
+        <meta name="theme-color" content="#8b5cf6" />
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
+}
