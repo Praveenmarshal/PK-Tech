@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Proofs | ZILIST Admin</title>
+  <meta name="description" content="Manage private ZILIST payment proofs.">
+  <meta name="robots" content="noindex,nofollow">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet" href="assets/css/admin-payments.css">
+</head>
+<body data-page="admin-payments" data-admin="payments">
+  <div data-navbar></div>
+  <main class="admin-shell">
+    <div data-admin-sidebar></div>
+    <section class="admin-content">
+      <div class="admin-topbar"><div><p class="eyebrow">Proofs</p><h1 class="admin-title">Payment proofs.</h1></div></div>
+      <div class="admin-grid project-manager-grid">
+        <form class="admin-card form-stack" data-payment-form enctype="multipart/form-data">
+          <h2 class="card-title">Upload proof record</h2>
+          <input class="form-field" name="clientName" placeholder="Client name" required>
+          <input class="form-field" name="projectName" placeholder="Project name" required>
+          <input class="form-field" name="amount" placeholder="Amount">
+          <label class="payment-drop">
+            <span>Attach payment screenshot</span>
+            <input class="sr-only" type="file" name="screenshot" accept="image/*">
+          </label>
+          <button class="btn btn-primary" type="submit">Save Proof</button>
+        </form>
+        <article class="admin-card">
+          <h2 class="card-title">Recent proofs</h2>
+          <table class="admin-table"><thead><tr><th>Client</th><th>Project</th><th>Status</th></tr></thead><tbody data-payment-list></tbody></table>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/admin.js"></script>
+  <script src="assets/js/admin-payments.js"></script>
+</body>
+</html>

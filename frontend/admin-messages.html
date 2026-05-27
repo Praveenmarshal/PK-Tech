@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages | ZILIST Admin</title>
+  <meta name="description" content="Manage ZILIST contact messages privately.">
+  <meta name="robots" content="noindex,nofollow">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet" href="assets/css/admin-messages.css">
+</head>
+<body data-page="admin-messages" data-admin="messages">
+  <div data-navbar></div>
+  <main class="admin-shell">
+    <div data-admin-sidebar></div>
+    <section class="admin-content">
+      <div class="admin-topbar"><div><p class="eyebrow">Inbox</p><h1 class="admin-title">Client messages.</h1></div></div>
+      <article class="admin-card message-preview">
+        <table class="admin-table"><thead><tr><th>Name</th><th>Email</th><th>Subject</th><th>Status</th></tr></thead><tbody data-admin-messages></tbody></table>
+      </article>
+    </section>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/admin.js"></script>
+  <script src="assets/js/admin-messages.js"></script>
+</body>
+</html>
+

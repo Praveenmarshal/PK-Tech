@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Management | ZILIST Admin</title>
+  <meta name="description" content="Manage ZILIST projects privately.">
+  <meta name="robots" content="noindex,nofollow">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet" href="assets/css/admin-projects.css">
+</head>
+<body data-page="admin-projects" data-admin="projects">
+  <div data-navbar></div>
+  <main class="admin-shell">
+    <div data-admin-sidebar></div>
+    <section class="admin-content">
+      <div class="admin-topbar"><div><p class="eyebrow">Projects</p><h1 class="admin-title">Project management.</h1></div></div>
+      <div class="admin-grid project-manager-grid">
+        <form class="admin-card form-stack" data-project-form>
+          <h2 class="card-title">Create project</h2>
+          <input class="form-field" name="title" placeholder="Project title" required>
+          <input class="form-field" name="category" placeholder="Category" required>
+          <input class="form-field" name="slug" placeholder="Slug">
+          <textarea class="form-field" name="summary" placeholder="Summary"></textarea>
+          <button class="btn btn-primary" type="submit">Save Project</button>
+        </form>
+        <article class="admin-card">
+          <h2 class="card-title">Published projects</h2>
+          <table class="admin-table"><thead><tr><th>Title</th><th>Category</th><th>Status</th></tr></thead><tbody data-admin-projects></tbody></table>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/admin.js"></script>
+  <script src="assets/js/admin-projects.js"></script>
+</body>
+</html>
+

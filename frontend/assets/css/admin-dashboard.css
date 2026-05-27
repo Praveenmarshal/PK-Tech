@@ -1,0 +1,17 @@
+.dashboard-metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.chart-line {
+  min-height: 230px;
+  background:
+    linear-gradient(180deg, rgba(139,92,246,0.08), transparent),
+    repeating-linear-gradient(90deg, rgba(15,23,42,0.05) 0 1px, transparent 1px 64px),
+    repeating-linear-gradient(0deg, rgba(15,23,42,0.05) 0 1px, transparent 1px 48px);
+}
+
+.chart-line svg {
+  width: 100%;
+  height: 230px;
+}
+

@@ -1,0 +1,22 @@
+.contact-methods {
+  display: grid;
+  gap: 12px;
+}
+
+.contact-method {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.contact-method .icon-badge {
+  flex: 0 0 auto;
+  margin-bottom: 0;
+}
+
+.form-status {
+  min-height: 22px;
+  color: #6d28d9;
+  font-weight: 750;
+}
+

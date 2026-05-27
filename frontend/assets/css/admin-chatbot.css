@@ -1,0 +1,10 @@
+.knowledge-grid {
+  grid-template-columns: 0.9fr 1.2fr;
+}
+
+.chatbot-test-window {
+  height: 320px;
+  overflow: auto;
+  padding: 16px;
+}
+
