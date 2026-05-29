@@ -1,0 +1,16 @@
+.home-hero {
+  min-height: 86vh;
+}
+
+.home-hero .hero-copy {
+  max-width: 570px;
+}
+
+.home-showcase {
+  margin-top: -22px;
+}
+
+.home-service-band {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+

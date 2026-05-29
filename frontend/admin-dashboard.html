@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | ZILIST</title>
+  <meta name="description" content="ZILIST private admin dashboard for analytics and management.">
+  <meta name="robots" content="noindex,nofollow">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet" href="assets/css/admin-dashboard.css">
+</head>
+<body data-page="admin-dashboard" data-admin="dashboard">
+  <div data-navbar></div>
+  <main class="admin-shell">
+    <div data-admin-sidebar></div>
+    <section class="admin-content">
+      <div class="admin-topbar"><div><p class="eyebrow">Overview</p><h1 class="admin-title">Welcome back, Praveen.</h1></div><a class="btn btn-primary" href="admin-projects.html">New Project</a></div>
+      <div class="admin-grid dashboard-metrics" data-dashboard-metrics></div>
+      <section class="section admin-grid" style="grid-template-columns: 1.4fr .9fr;">
+        <article class="admin-card">
+          <h2 class="card-title">Visitors Overview</h2>
+          <div class="chart-line">
+            <svg viewBox="0 0 600 230" role="img" aria-label="Visitors chart"><polyline points="10,190 80,150 140,162 210,102 280,130 350,78 420,118 490,62 580,96" fill="none" stroke="#8b5cf6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </article>
+        <article class="admin-card">
+          <h2 class="card-title">Top Services</h2>
+          <div class="tag-row"><span class="tag">AI Solutions 40%</span><span class="tag">Automation 25%</span><span class="tag">Dashboards 20%</span><span class="tag">Others 15%</span></div>
+        </article>
+      </section>
+    </section>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/admin.js"></script>
+  <script src="assets/js/admin-dashboard.js"></script>
+</body>
+</html>
+

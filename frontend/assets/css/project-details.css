@@ -1,0 +1,20 @@
+.project-detail-hero {
+  min-height: 62vh;
+}
+
+.project-screen-row {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 0.8fr;
+  gap: 14px;
+}
+
+.project-screen-row .visual-card:first-child {
+  min-height: 360px;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+

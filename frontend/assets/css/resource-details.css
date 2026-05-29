@@ -1,0 +1,18 @@
+.article-hero {
+  min-height: auto;
+}
+
+.toc {
+  position: sticky;
+  top: 96px;
+  align-self: start;
+}
+
+.article-body {
+  font-size: 1rem;
+}
+
+.article-body h2 {
+  margin-top: 28px;
+}
+
