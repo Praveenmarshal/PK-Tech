@@ -1565,33 +1565,138 @@ textarea.form-field {
 
 /* ════════════════════════════════════════════════════════════════
    GLOBAL ADAPTIVE FONTS — mix-blend-mode: difference
-   White text inverts against any background (video or solid).
-   Dark backgrounds → text reads as bright. Light backgrounds →
-   text reads as dark. Fully automatic. No JS needed.
+   Applied ONLY to standalone text elements that sit directly
+   over the video background. NOT applied to elements inside
+   cards/panels/buttons (they have white backgrounds which would
+   make difference-blended white text invisible).
 ════════════════════════════════════════════════════════════════ */
+
+/* Top-level text elements that sit over the video */
 .display-title,
 .page-title,
 .section-title,
 .eyebrow,
 .hero-copy,
 .section-copy,
-.body-copy,
-.card-title,
-.card-copy,
 .trust-label,
 .logo-mark,
 .gradient-word,
-.stat,
 .footer-heading,
-.footer-links a,
-.footer-copy,
-.card-copy,
-.tag,
-.filter-pill,
-.floating-chip,
-h1, h2, h3, h4, h5, h6,
-p {
+.footer-copy {
   color: #ffffff;
   mix-blend-mode: difference;
   text-shadow: none;
+}
+
+/* Footer links */
+.footer-links a {
+  mix-blend-mode: difference;
+  color: #ffffff;
+}
+
+/* Card text — NO blend mode. Cards have white/glass backgrounds.
+   Use dark ink so text is always readable on the card surface. */
+.card-title,
+.card-copy,
+.body-copy,
+.stat {
+  color: var(--ink);
+  mix-blend-mode: normal;
+}
+
+/* Tags and pills — dark text on their own background, no blend */
+.tag,
+.filter-pill,
+.floating-chip {
+  mix-blend-mode: normal;
+}
+
+/* Headings and paragraphs inside glass panels/cards — dark ink */
+.glass-panel h1, .glass-panel h2, .glass-panel h3,
+.glass-panel h4, .glass-panel h5, .glass-panel h6,
+.glass-panel p,
+.feature-card h1, .feature-card h2, .feature-card h3,
+.feature-card h4, .feature-card h5, .feature-card h6,
+.feature-card p,
+.solution-card h1, .solution-card h2, .solution-card h3,
+.solution-card p,
+.project-card h1, .project-card h2, .project-card h3,
+.project-card p,
+.resource-card h1, .resource-card h2, .resource-card h3,
+.resource-card p,
+.metric-card h1, .metric-card h2, .metric-card h3,
+.metric-card p,
+.timeline-item h1, .timeline-item h2, .timeline-item h3,
+.timeline-item p,
+.form-panel h1, .form-panel h2, .form-panel h3,
+.form-panel p,
+.admin-card h1, .admin-card h2, .admin-card h3,
+.admin-card p,
+.admin-sidebar h1, .admin-sidebar h2, .admin-sidebar h3,
+.admin-sidebar p {
+  color: var(--ink);
+  mix-blend-mode: normal;
+  text-shadow: none;
+}
+
+/* Buttons — always readable, no blend */
+.btn,
+.btn * {
+  mix-blend-mode: normal !important;
+}
+
+/* ── Visibility guarantee: buttons, tags, cards never invisible ─
+   Overrides any accidental opacity:0 or blend-mode side-effects.
+─────────────────────────────────────────────────────────────── */
+.btn {
+  opacity: revert !important;
+  mix-blend-mode: normal !important;
+  visibility: visible !important;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-ghost {
+  mix-blend-mode: normal !important;
+}
+
+.btn-primary *,
+.btn-secondary *,
+.btn-ghost * {
+  mix-blend-mode: normal !important;
+  color: inherit !important;
+}
+
+.tag,
+.filter-pill {
+  mix-blend-mode: normal !important;
+  opacity: revert !important;
+  visibility: visible !important;
+}
+
+.feature-card,
+.solution-card,
+.project-card,
+.resource-card,
+.metric-card,
+.glass-panel,
+.timeline-item,
+.form-panel,
+.admin-card,
+.admin-sidebar {
+  visibility: visible !important;
+}
+
+/* Inside any card or panel: always dark readable text */
+.feature-card *:not(.icon-badge),
+.solution-card *:not(.icon-badge),
+.project-card *:not(.icon-badge),
+.resource-card *:not(.icon-badge),
+.metric-card *,
+.glass-panel *:not(.section-title):not(.page-title):not(.display-title):not(.eyebrow),
+.timeline-item *,
+.form-panel *,
+.admin-card *,
+.admin-sidebar * {
+  mix-blend-mode: normal !important;
 }

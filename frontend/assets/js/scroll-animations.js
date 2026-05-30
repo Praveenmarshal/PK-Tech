@@ -19,12 +19,17 @@
   function initGSAP() {
     gsap.registerPlugin(ScrollTrigger);
 
+    // Ensure any element already in viewport starts fully visible
+    // before ScrollTrigger scrub can touch it
+    ScrollTrigger.normalizeScroll(false);
+
     /* ── 1. Headings: slide in from left, unalign back left on reverse ── */
     gsap.utils.toArray('.display-title, .page-title, .section-title').forEach(function (el) {
       gsap.fromTo(el,
         { x: -80, opacity: 0 },
         {
           x: 0, opacity: 1,
+          immediateRender: false,
           ease: 'none',
           scrollTrigger: {
             trigger: el,
@@ -42,6 +47,7 @@
         { x: 60, opacity: 0 },
         {
           x: 0, opacity: 1,
+          immediateRender: false,
           ease: 'none',
           scrollTrigger: {
             trigger: el,
@@ -59,6 +65,7 @@
         { y: 50, opacity: 0 },
         {
           y: 0, opacity: 1,
+          immediateRender: false,
           ease: 'none',
           scrollTrigger: {
             trigger: el,
@@ -78,6 +85,7 @@
         { y: 70, opacity: 0 },
         {
           y: 0, opacity: 1,
+          immediateRender: false,
           ease: 'none',
           scrollTrigger: {
             trigger: el,
@@ -96,6 +104,7 @@
         { scale: 0.9, opacity: 0 },
         {
           scale: 1, opacity: 1,
+          immediateRender: false,
           ease: 'none',
           scrollTrigger: {
             trigger: el,
@@ -113,6 +122,7 @@
         { y: 40, opacity: 0 },
         {
           y: 0, opacity: 1,
+          immediateRender: false,
           ease: 'none',
           scrollTrigger: {
             trigger: el,
@@ -130,6 +140,7 @@
         { y: 30, opacity: 0 },
         {
           y: 0, opacity: 1,
+          immediateRender: false,
           ease: 'none',
           scrollTrigger: {
             trigger: el,
@@ -147,6 +158,7 @@
         { x: -30, opacity: 0 },
         {
           x: 0, opacity: 1,
+          immediateRender: false,
           ease: 'none',
           scrollTrigger: {
             trigger: el,
@@ -166,6 +178,7 @@
           { y: 20, opacity: 0 },
           {
             y: 0, opacity: 1,
+            immediateRender: false,
             ease: 'none',
             scrollTrigger: {
               trigger: row,
@@ -185,6 +198,7 @@
         { y: 50, opacity: 0 },
         {
           y: 0, opacity: 1,
+          immediateRender: false,
           ease: 'none',
           scrollTrigger: {
             trigger: footer,
@@ -195,6 +209,36 @@
         }
       );
     }
+  }
+
+  /* ── After init: show elements already in viewport ── */
+  function showInViewport() {
+    ScrollTrigger.getAll().forEach(function (st) {
+      // If the trigger element is already past its start point, complete the tween
+      if (st.progress === 0 && st.start <= window.scrollY + window.innerHeight) {
+        st.animation && gsap.set(st.animation.targets(), {
+          clearProps: 'opacity,transform,x,y,scale'
+        });
+      }
+    });
+
+    // Also brute-force: any element with opacity 0 that's in viewport → show it
+    var sel = '.display-title, .page-title, .section-title, .eyebrow, ' +
+              '.hero-copy, .section-copy, .body-copy, ' +
+              '.feature-card, .solution-card, .project-card, .resource-card, ' +
+              '.metric-card, .glass-panel, .stat, .button-row, .icon-badge, ' +
+              '.timeline-item, .form-panel, .btn, .tag, .filter-pill';
+    document.querySelectorAll(sel).forEach(function (el) {
+      var rect = el.getBoundingClientRect();
+      var inView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (inView) {
+        var style = window.getComputedStyle(el);
+        if (parseFloat(style.opacity) < 0.1) {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }
+      }
+    });
   }
 
   /* ── Fallback: IntersectionObserver if GSAP not available ── */
@@ -225,10 +269,23 @@
     if (window.gsap && !window.ScrollTrigger) {
       var s = document.createElement('script');
       s.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
-      s.onload = function () { waitForGSAP(initGSAP); };
+      s.onload = function () {
+        waitForGSAP(function () {
+          initGSAP();
+          requestAnimationFrame(function () {
+            setTimeout(showInViewport, 120);
+          });
+        });
+      };
       document.head.appendChild(s);
     } else {
-      waitForGSAP(initGSAP);
+      waitForGSAP(function () {
+        initGSAP();
+        // Run after a frame so ScrollTrigger positions are calculated
+        requestAnimationFrame(function () {
+          setTimeout(showInViewport, 120);
+        });
+      });
     }
   });
 })();
