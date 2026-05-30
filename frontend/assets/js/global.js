@@ -7,7 +7,8 @@
     ["About", "about.html", "about"],
     ["Resources", "resources.html", "resources"],
     ["Contact", "contact.html", "contact"],
-    ["Portfolio", "portfolio.html", "portfolio"]
+    ["Portfolio", "portfolio.html", "portfolio"],
+    ["Feedback", "feedback.html", "feedback"]
   ];
 
   const owner = {

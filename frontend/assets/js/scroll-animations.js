@@ -1,16 +1,14 @@
 /**
- * ZILIST — Scroll-driven 3D animations
- * Uses GSAP + ScrollTrigger for all scroll animations.
- * Falls back gracefully to IntersectionObserver if GSAP is unavailable.
+ * ZILIST — Scroll-driven animations
+ * Elements align (slide in) scrolling down, unalign (slide out) scrolling back up.
+ * Uses GSAP ScrollTrigger scrub for smooth bidirectional scroll tracking.
  */
 (function () {
   'use strict';
 
-  /* ── Respect reduced-motion preference ── */
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReduced) return;
 
-  /* ── Wait for GSAP + ScrollTrigger then init ── */
   function waitForGSAP(cb, tries) {
     tries = tries || 0;
     if (window.gsap && window.ScrollTrigger) { cb(); return; }
@@ -18,245 +16,212 @@
     setTimeout(function () { waitForGSAP(cb, tries + 1); }, 100);
   }
 
-  /* ══════════════════════════════════════════
-     GSAP + ScrollTrigger path
-  ══════════════════════════════════════════ */
   function initGSAP() {
     gsap.registerPlugin(ScrollTrigger);
 
-    /* ── 1. Section headings: slide + fade from left ── */
-    gsap.utils.toArray('.section-title, .page-title, .display-title').forEach(function (el) {
+    /* ── 1. Headings: slide in from left, unalign back left on reverse ── */
+    gsap.utils.toArray('.display-title, .page-title, .section-title').forEach(function (el) {
       gsap.fromTo(el,
-        { x: -60, opacity: 0, rotateY: 18 },
+        { x: -80, opacity: 0 },
         {
-          x: 0, opacity: 1, rotateY: 0,
-          duration: 0.9, ease: 'power3.out',
-          clearProps: 'all',
+          x: 0, opacity: 1,
+          ease: 'none',
           scrollTrigger: {
             trigger: el,
-            start: 'top 88%',
-            toggleActions: 'play none none reverse'
+            start: 'top 90%',
+            end: 'top 55%',
+            scrub: 0.6
           }
         }
       );
     });
 
-    /* ── 2. Eyebrow labels: pop up with slight 3D tilt ── */
+    /* ── 2. Eyebrows: slide in from right ── */
     gsap.utils.toArray('.eyebrow').forEach(function (el) {
       gsap.fromTo(el,
-        { y: 20, opacity: 0, rotateX: -30, transformOrigin: 'bottom center' },
+        { x: 60, opacity: 0 },
         {
-          y: 0, opacity: 1, rotateX: 0,
-          duration: 0.6, ease: 'back.out(1.6)',
-          clearProps: 'all',
+          x: 0, opacity: 1,
+          ease: 'none',
           scrollTrigger: {
             trigger: el,
-            start: 'top 90%',
-            toggleActions: 'play none none reverse'
+            start: 'top 92%',
+            end: 'top 60%',
+            scrub: 0.5
           }
         }
       );
     });
 
-    /* ── 3. Cards: staggered 3D lift from below ── */
+    /* ── 3. Body copy / hero copy: fade + slide up ── */
+    gsap.utils.toArray('.hero-copy, .section-copy, .body-copy').forEach(function (el) {
+      gsap.fromTo(el,
+        { y: 50, opacity: 0 },
+        {
+          y: 0, opacity: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 92%',
+            end: 'top 60%',
+            scrub: 0.6
+          }
+        }
+      );
+    });
+
+    /* ── 4. Cards: stagger each card individually, slide up from below ── */
     gsap.utils.toArray(
       '.feature-card, .solution-card, .project-card, .resource-card, .metric-card, .timeline-item'
-    ).forEach(function (el) {
+    ).forEach(function (el, i) {
       gsap.fromTo(el,
-        { y: 60, opacity: 0, rotateX: 20, scale: 0.94, transformOrigin: 'top center' },
+        { y: 70, opacity: 0 },
         {
-          y: 0, opacity: 1, rotateX: 0, scale: 1,
-          duration: 0.75, ease: 'power3.out',
-          clearProps: 'all',
+          y: 0, opacity: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 95%',
+            end: 'top 58%',
+            scrub: 0.7
+          }
+        }
+      );
+    });
+
+    /* ── 5. Glass panels / form panels: scale + fade ── */
+    gsap.utils.toArray('.glass-panel, .form-panel').forEach(function (el) {
+      if (el.closest('.feature-card, .solution-card, .project-card, .resource-card')) return;
+      gsap.fromTo(el,
+        { scale: 0.9, opacity: 0 },
+        {
+          scale: 1, opacity: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 92%',
+            end: 'top 58%',
+            scrub: 0.7
+          }
+        }
+      );
+    });
+
+    /* ── 6. Stats: slide up ── */
+    gsap.utils.toArray('.stat').forEach(function (el) {
+      gsap.fromTo(el,
+        { y: 40, opacity: 0 },
+        {
+          y: 0, opacity: 1,
+          ease: 'none',
           scrollTrigger: {
             trigger: el,
             start: 'top 90%',
-            toggleActions: 'play none none reverse'
+            end: 'top 60%',
+            scrub: 0.5
           }
         }
       );
     });
 
-    /* ── 4. Glass panels: scale + fade ── */
-    gsap.utils.toArray('.glass-panel, .form-panel').forEach(function (el) {
-      // skip if it's a card (already handled)
-      if (el.closest('.feature-card, .solution-card, .project-card, .resource-card')) return;
-      gsap.fromTo(el,
-        { scale: 0.92, opacity: 0, rotateY: -8, transformOrigin: 'center center' },
-        {
-          scale: 1, opacity: 1, rotateY: 0,
-          duration: 0.85, ease: 'power3.out',
-          clearProps: 'all',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 88%',
-            toggleActions: 'play none none reverse'
-          }
-        }
-      );
-    });
-
-    /* ── 5. Hero copy paragraphs: stagger slide up ── */
-    gsap.utils.toArray('.hero-copy, .section-copy, .body-copy').forEach(function (el, i) {
+    /* ── 7. Button rows: slide up ── */
+    gsap.utils.toArray('.button-row').forEach(function (el) {
       gsap.fromTo(el,
         { y: 30, opacity: 0 },
         {
           y: 0, opacity: 1,
-          duration: 0.7, ease: 'power2.out',
-          delay: i * 0.05,
-          clearProps: 'all',
+          ease: 'none',
           scrollTrigger: {
             trigger: el,
-            start: 'top 90%',
-            toggleActions: 'play none none reverse'
+            start: 'top 93%',
+            end: 'top 65%',
+            scrub: 0.5
           }
         }
       );
     });
 
-    /* ── 6. Stat numbers: count up with 3D flip ── */
-    gsap.utils.toArray('.stat').forEach(function (el) {
-      gsap.fromTo(el,
-        { rotateX: 90, opacity: 0, transformOrigin: 'bottom center' },
-        {
-          rotateX: 0, opacity: 1,
-          duration: 0.7, ease: 'back.out(1.4)',
-          clearProps: 'all',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 88%',
-            toggleActions: 'play none none reverse'
-          }
-        }
-      );
-    });
-
-    /* ── 7. Buttons: pop in from below ── */
-    gsap.utils.toArray('.button-row').forEach(function (el) {
-      gsap.fromTo(el,
-        { y: 24, opacity: 0, scale: 0.95 },
-        {
-          y: 0, opacity: 1, scale: 1,
-          duration: 0.6, ease: 'back.out(1.5)',
-          clearProps: 'all',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 92%',
-            toggleActions: 'play none none reverse'
-          }
-        }
-      );
-    });
-
-    /* ── 8. Icon badges: spin-flip in ── */
+    /* ── 8. Icon badges: slide in from left ── */
     gsap.utils.toArray('.icon-badge').forEach(function (el) {
       gsap.fromTo(el,
-        { rotateY: 180, opacity: 0, scale: 0.5 },
+        { x: -30, opacity: 0 },
         {
-          rotateY: 0, opacity: 1, scale: 1,
-          duration: 0.6, ease: 'back.out(1.7)',
-          clearProps: 'all',
+          x: 0, opacity: 1,
+          ease: 'none',
           scrollTrigger: {
             trigger: el,
-            start: 'top 90%',
-            toggleActions: 'play none none reverse'
-          }
-        }
-      );
-    });
-
-    /* ── 9. Tags / filter pills: scatter-in ── */
-    gsap.utils.toArray('.tag-row, .filter-row').forEach(function (row) {
-      gsap.fromTo(row.querySelectorAll('.tag, .filter-pill'),
-        { y: 16, opacity: 0, scale: 0.8 },
-        {
-          y: 0, opacity: 1, scale: 1,
-          duration: 0.45, stagger: 0.05, ease: 'back.out(1.6)',
-          clearProps: 'all',
-          scrollTrigger: {
-            trigger: row,
             start: 'top 92%',
-            toggleActions: 'play none none reverse'
+            end: 'top 65%',
+            scrub: 0.5
           }
         }
       );
     });
 
-    /* ── 10. Footer: rise up as a whole ── */
+    /* ── 9. Tags + filter pills: stagger slide up ── */
+    gsap.utils.toArray('.tag-row, .filter-row').forEach(function (row) {
+      var pills = row.querySelectorAll('.tag, .filter-pill');
+      pills.forEach(function (pill, i) {
+        gsap.fromTo(pill,
+          { y: 20, opacity: 0 },
+          {
+            y: 0, opacity: 1,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: row,
+              start: 'top 93%',
+              end: 'top 68%',
+              scrub: 0.4 + i * 0.05
+            }
+          }
+        );
+      });
+    });
+
+    /* ── 10. Footer: slide up ── */
     var footer = document.querySelector('.site-footer');
     if (footer) {
       gsap.fromTo(footer,
-        { y: 40, opacity: 0 },
+        { y: 50, opacity: 0 },
         {
           y: 0, opacity: 1,
-          duration: 0.9, ease: 'power3.out',
-          clearProps: 'all',
+          ease: 'none',
           scrollTrigger: {
             trigger: footer,
-            start: 'top 95%',
-            toggleActions: 'play none none reverse'
+            start: 'top 98%',
+            end: 'top 70%',
+            scrub: 0.8
           }
         }
       );
     }
-
-    /* ── 11. Parallax depth on section backgrounds ── */
-    gsap.utils.toArray('.section').forEach(function (el) {
-      gsap.to(el, {
-        yPercent: -6,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1.5
-        }
-      });
-    });
-
-    /* ── 12. Nav: shrink + glass deepen on scroll ── */
-    var navWrap = document.querySelector('.site-nav-wrap');
-    if (navWrap) {
-      ScrollTrigger.create({
-        start: 80,
-        onEnter: function () { navWrap.classList.add('nav-scrolled'); },
-        onLeaveBack: function () { navWrap.classList.remove('nav-scrolled'); }
-      });
-    }
   }
 
-  /* ══════════════════════════════════════════
-     IntersectionObserver fallback
-  ══════════════════════════════════════════ */
+  /* ── Fallback: IntersectionObserver if GSAP not available ── */
   function initFallback() {
-    var targets = document.querySelectorAll(
-      '.section-title, .page-title, .display-title, .eyebrow, ' +
-      '.feature-card, .solution-card, .project-card, .resource-card, ' +
-      '.metric-card, .glass-panel, .hero-copy, .stat, .button-row, .icon-badge'
-    );
+    var sel = '.display-title, .page-title, .section-title, .eyebrow, ' +
+              '.hero-copy, .section-copy, .body-copy, ' +
+              '.feature-card, .solution-card, .project-card, .resource-card, ' +
+              '.metric-card, .glass-panel, .stat, .button-row, .icon-badge';
 
-    targets.forEach(function (el) {
+    document.querySelectorAll(sel).forEach(function (el) {
       el.style.opacity = '0';
       el.style.transform = 'translateY(32px)';
-      el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     });
 
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '';
-          entry.target.style.transform = '';
-          observer.unobserve(entry.target);
-        }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        e.target.style.opacity = e.isIntersecting ? '' : '0';
+        e.target.style.transform = e.isIntersecting ? '' : 'translateY(32px)';
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
 
-    targets.forEach(function (el) { observer.observe(el); });
+    document.querySelectorAll(sel).forEach(function (el) { io.observe(el); });
   }
 
   /* ── Boot ── */
   document.addEventListener('DOMContentLoaded', function () {
-    // Load ScrollTrigger if not already present
     if (window.gsap && !window.ScrollTrigger) {
       var s = document.createElement('script');
       s.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
