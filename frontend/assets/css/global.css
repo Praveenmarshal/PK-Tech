@@ -1500,3 +1500,50 @@ textarea.form-field {
   opacity: revert;
   visibility: visible;
 }
+
+/* ── Pages video background (all pages except home & admin) ─── */
+.pages-video-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.pages-video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Adaptive text for pages with video background */
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .display-title,
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .page-title,
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .section-title,
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .eyebrow,
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .hero-copy,
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .card-title,
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .card-copy,
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .section-copy,
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .body-copy,
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .trust-label,
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .logo-mark {
+  color: #ffffff;
+  mix-blend-mode: difference;
+  text-shadow: none;
+}
+
+/* Cards/panels: semi-transparent so video shows through */
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .glass-panel,
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .feature-card,
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .project-card,
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .resource-card,
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .solution-card,
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .metric-card,
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .form-panel,
+[data-page]:not([data-page="home"]):not([data-page^="admin"]) .timeline-item {
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}

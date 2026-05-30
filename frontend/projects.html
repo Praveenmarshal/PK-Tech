@@ -6,12 +6,31 @@
   <title>Projects | ZILIST AI</title>
   <meta name="description" content="Explore ZILIST AI projects including chatbot platforms, analytics dashboards, automation platforms, cybersecurity dashboards, and portfolio systems.">
   <meta name="keywords" content="ZILIST Projects, AI Chatbot Platform, Analytics Dashboard, AI Automation Platform, Cybersecurity Dashboard">
+  <link rel="preload" href="assets/videos/pages-bg.mp4" as="video" type="video/mp4">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/projects.css">
 </head>
 <body data-page="projects">
+  <!-- Pages video background -->
+  <div class="pages-video-bg" aria-hidden="true">
+    <video id="pages-bg-video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/videos/pages-bg.mp4" type="video/mp4">
+    </video>
+  </div>
+  <script>
+    (function () {
+      var v = document.getElementById('pages-bg-video');
+      if (!v) return;
+      v.load();
+      var played = false;
+      function tryPlay() { if (played) return; played = true; v.play().catch(function(){}); }
+      v.addEventListener('canplay', tryPlay);
+      v.addEventListener('loadeddata', tryPlay);
+      tryPlay();
+    })();
+  </script>
   <div data-navbar></div>
   <main class="page-shell">
     <section class="page-hero compact projects-hero">

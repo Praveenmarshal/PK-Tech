@@ -3,6 +3,7 @@
   inset: 0;
   z-index: -1;
   overflow: hidden;
+  background: #0a0a0a; /* dark placeholder — hides white flash before video starts */
 }
 
 .home-video-bg video {
@@ -22,10 +23,32 @@
   -webkit-backdrop-filter: blur(12px);
 }
 
+/* ── Adaptive text: inverts against the video behind it ─────────
+   mix-blend-mode: difference + white = auto-contrast on any bg.
+   Text appears light on dark video frames, dark on bright ones.
+──────────────────────────────────────────────────────────────── */
 [data-page="home"] .display-title,
+[data-page="home"] .page-title,
+[data-page="home"] .gradient-word,
+[data-page="home"] .eyebrow,
 [data-page="home"] .hero-copy,
-[data-page="home"] .eyebrow {
-  text-shadow: 0 1px 8px rgba(255,255,255,0.6);
+[data-page="home"] .section-title,
+[data-page="home"] .card-title,
+[data-page="home"] .card-copy,
+[data-page="home"] .trust-label,
+[data-page="home"] .logo-mark,
+[data-page="home"] .section-copy {
+  color: #ffffff;
+  mix-blend-mode: difference;
+  text-shadow: none;
+}
+
+/* Cards: text inside also adapts to whatever the video shows behind the card */
+[data-page="home"] .feature-card .card-title,
+[data-page="home"] .feature-card .card-copy,
+[data-page="home"] .feature-card .icon-badge {
+  mix-blend-mode: difference;
+  color: #ffffff;
 }
 
 .home-hero {

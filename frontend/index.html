@@ -6,6 +6,7 @@
   <title>ZILIST | Futuristic AI Systems by Praveen Kannan</title>
   <meta name="description" content="ZILIST by Praveen Kannan builds futuristic AI systems, AI chatbots, automation platforms, dashboards, and premium full-stack digital experiences.">
   <meta name="keywords" content="ZILIST, Praveen Kannan, AI Developer, Full Stack Developer, AI Automation, AI Chatbots, Premium Web Development">
+  <link rel="preload" href="assets/videos/home-bg.mp4" as="video" type="video/mp4">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/index.css">
@@ -13,10 +14,28 @@
 <body data-page="home">
   <!-- Home-page video background -->
   <div class="home-video-bg" aria-hidden="true">
-    <video autoplay muted loop playsinline>
+    <video id="home-bg-video" autoplay muted loop playsinline preload="auto">
       <source src="assets/videos/home-bg.mp4" type="video/mp4">
     </video>
   </div>
+  <script>
+    // Force video to load and play as early as possible — before any other scripts
+    (function () {
+      var v = document.getElementById('home-bg-video');
+      if (!v) return;
+      v.load();
+      var played = false;
+      function tryPlay() {
+        if (played) return;
+        played = true;
+        v.play().catch(function () {});
+      }
+      v.addEventListener('canplay', tryPlay);
+      v.addEventListener('loadeddata', tryPlay);
+      // Fallback: try immediately in case already cached
+      tryPlay();
+    })();
+  </script>
   <div data-navbar></div>
   <main class="page-shell">
     <section class="page-hero home-hero">

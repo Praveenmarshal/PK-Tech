@@ -6,11 +6,30 @@
   <title>Contact | ZILIST AI</title>
   <meta name="description" content="Contact Praveen Kannan directly for AI systems, chatbots, automation platforms, dashboards, cybersecurity, analytics, and full-stack apps.">
   <meta name="keywords" content="Contact Praveen Kannan, ZILIST Contact, AI Developer, Full Stack Developer, AI Automation">
+  <link rel="preload" href="assets/videos/pages-bg.mp4" as="video" type="video/mp4">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/contact.css">
 </head>
 <body data-page="contact">
+  <!-- Pages video background -->
+  <div class="pages-video-bg" aria-hidden="true">
+    <video id="pages-bg-video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/videos/pages-bg.mp4" type="video/mp4">
+    </video>
+  </div>
+  <script>
+    (function () {
+      var v = document.getElementById('pages-bg-video');
+      if (!v) return;
+      v.load();
+      var played = false;
+      function tryPlay() { if (played) return; played = true; v.play().catch(function(){}); }
+      v.addEventListener('canplay', tryPlay);
+      v.addEventListener('loadeddata', tryPlay);
+      tryPlay();
+    })();
+  </script>
   <div data-navbar></div>
   <main class="page-shell">
     <section class="page-hero compact">
