@@ -104,23 +104,198 @@
         <span class="robot-arm arm-right"></span>
       </div>
       <div class="ocean-scene" aria-hidden="true">
-        <div class="wave wave-1"></div>
-        <div class="wave wave-2"></div>
-        <div class="wave wave-3"></div>
-        <div class="wave wave-4"></div>
+        <canvas id="ocean-canvas"></canvas>
       </div>
       <div class="crystal-cluster" aria-hidden="true">
-        <span class="crystal-sparkle"></span>
-        <span class="crystal-sparkle"></span>
-        <span class="crystal-sparkle"></span>
-        <span class="crystal-sparkle"></span>
-        <span class="crystal-sparkle"></span>
-        <span class="crystal crystal-small-a"></span>
-        <span class="crystal crystal-left"></span>
-        <span class="crystal crystal-main"></span>
-        <span class="crystal crystal-right"></span>
-        <span class="crystal crystal-small-b"></span>
-        <span class="crystal-base"></span>
+        <!-- 7 crossed 4D crystals rendered as SVG octahedrons -->
+        <div class="xtal xtal-a">
+          <svg width="68" height="230" viewBox="0 0 68 230">
+            <!-- Front face up -->
+            <polygon points="34,0 68,230 0,230" fill="url(#xg-a)" opacity="0.95"/>
+            <!-- Front face down (base mirror) -->
+            <polygon points="34,230 68,170 0,170" fill="url(#xg-a2)" opacity="0.8"/>
+            <!-- Cross arm 1 -->
+            <polygon points="34,0 60,230 8,230" fill="url(#xg-a3)" opacity="0.55" transform="rotate(90,34,115)"/>
+            <!-- Cross arm 2 -->
+            <polygon points="34,0 60,230 8,230" fill="url(#xg-a4)" opacity="0.45" transform="rotate(45,34,115)"/>
+            <!-- Highlight edge -->
+            <line x1="34" y1="0" x2="34" y2="230" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/>
+            <defs>
+              <linearGradient id="xg-a" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#fff"/>
+                <stop offset="18%" stop-color="#d8b4fe"/>
+                <stop offset="50%" stop-color="#a855f7"/>
+                <stop offset="100%" stop-color="#5b21b6"/>
+              </linearGradient>
+              <linearGradient id="xg-a2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#4c1d95"/>
+              </linearGradient>
+              <linearGradient id="xg-a3" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.6"/>
+                <stop offset="100%" stop-color="#6d28d9" stop-opacity="0.3"/>
+              </linearGradient>
+              <linearGradient id="xg-a4" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#f5f3ff" stop-opacity="0.5"/>
+                <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.2"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="xtal xtal-b">
+          <svg width="48" height="165" viewBox="0 0 48 165">
+            <polygon points="24,0 48,165 0,165" fill="url(#xg-b)" opacity="0.93"/>
+            <polygon points="24,165 44,120 4,120" fill="url(#xg-b2)" opacity="0.8"/>
+            <polygon points="24,0 44,165 4,165" fill="url(#xg-b3)" opacity="0.5" transform="rotate(90,24,82)"/>
+            <polygon points="24,0 44,165 4,165" fill="url(#xg-b4)" opacity="0.4" transform="rotate(60,24,82)"/>
+            <line x1="24" y1="0" x2="24" y2="165" stroke="rgba(255,255,255,0.65)" stroke-width="1.2"/>
+            <defs>
+              <linearGradient id="xg-b" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ede9fe"/>
+                <stop offset="30%" stop-color="#a78bfa"/>
+                <stop offset="100%" stop-color="#4c1d95"/>
+              </linearGradient>
+              <linearGradient id="xg-b2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#7c3aed"/>
+                <stop offset="100%" stop-color="#3b0764"/>
+              </linearGradient>
+              <linearGradient id="xg-b3" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.55"/>
+                <stop offset="100%" stop-color="#6d28d9" stop-opacity="0.25"/>
+              </linearGradient>
+              <linearGradient id="xg-b4" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#f5f3ff" stop-opacity="0.45"/>
+                <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.2"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="xtal xtal-c">
+          <svg width="52" height="180" viewBox="0 0 52 180">
+            <polygon points="26,0 52,180 0,180" fill="url(#xg-c)" opacity="0.93"/>
+            <polygon points="26,180 48,130 4,130" fill="url(#xg-c2)" opacity="0.8"/>
+            <polygon points="26,0 48,180 4,180" fill="url(#xg-c3)" opacity="0.5" transform="rotate(90,26,90)"/>
+            <polygon points="26,0 48,180 4,180" fill="url(#xg-c4)" opacity="0.38" transform="rotate(-55,26,90)"/>
+            <line x1="26" y1="0" x2="26" y2="180" stroke="rgba(255,255,255,0.65)" stroke-width="1.2"/>
+            <defs>
+              <linearGradient id="xg-c" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#f5f3ff"/>
+                <stop offset="25%" stop-color="#c4b5fd"/>
+                <stop offset="100%" stop-color="#5b21b6"/>
+              </linearGradient>
+              <linearGradient id="xg-c2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#6d28d9"/>
+                <stop offset="100%" stop-color="#3b0764"/>
+              </linearGradient>
+              <linearGradient id="xg-c3" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#ddd6fe" stop-opacity="0.55"/>
+                <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.2"/>
+              </linearGradient>
+              <linearGradient id="xg-c4" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#fff" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.15"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="xtal xtal-d">
+          <svg width="34" height="120" viewBox="0 0 34 120">
+            <polygon points="17,0 34,120 0,120" fill="url(#xg-d)" opacity="0.9"/>
+            <polygon points="17,120 32,88 2,88" fill="url(#xg-d2)" opacity="0.75"/>
+            <polygon points="17,0 32,120 2,120" fill="url(#xg-d3)" opacity="0.48" transform="rotate(90,17,60)"/>
+            <line x1="17" y1="0" x2="17" y2="120" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+            <defs>
+              <linearGradient id="xg-d" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#fff"/>
+                <stop offset="40%" stop-color="#a78bfa"/>
+                <stop offset="100%" stop-color="#4c1d95"/>
+              </linearGradient>
+              <linearGradient id="xg-d2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#7c3aed"/>
+                <stop offset="100%" stop-color="#2e1065"/>
+              </linearGradient>
+              <linearGradient id="xg-d3" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#ddd6fe" stop-opacity="0.5"/>
+                <stop offset="100%" stop-color="#6d28d9" stop-opacity="0.2"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="xtal xtal-e">
+          <svg width="38" height="135" viewBox="0 0 38 135">
+            <polygon points="19,0 38,135 0,135" fill="url(#xg-e)" opacity="0.9"/>
+            <polygon points="19,135 36,98 2,98" fill="url(#xg-e2)" opacity="0.78"/>
+            <polygon points="19,0 36,135 2,135" fill="url(#xg-e3)" opacity="0.46" transform="rotate(90,19,67)"/>
+            <line x1="19" y1="0" x2="19" y2="135" stroke="rgba(255,255,255,0.62)" stroke-width="1"/>
+            <defs>
+              <linearGradient id="xg-e" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ede9fe"/>
+                <stop offset="35%" stop-color="#c4b5fd"/>
+                <stop offset="100%" stop-color="#5b21b6"/>
+              </linearGradient>
+              <linearGradient id="xg-e2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#6d28d9"/>
+                <stop offset="100%" stop-color="#2e1065"/>
+              </linearGradient>
+              <linearGradient id="xg-e3" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#ddd6fe" stop-opacity="0.48"/>
+                <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.18"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="xtal xtal-f">
+          <svg width="26" height="95" viewBox="0 0 26 95">
+            <polygon points="13,0 26,95 0,95" fill="url(#xg-f)" opacity="0.88"/>
+            <polygon points="13,95 24,68 2,68" fill="url(#xg-f2)" opacity="0.72"/>
+            <polygon points="13,0 24,95 2,95" fill="url(#xg-f3)" opacity="0.44" transform="rotate(90,13,47)"/>
+            <line x1="13" y1="0" x2="13" y2="95" stroke="rgba(255,255,255,0.58)" stroke-width="0.8"/>
+            <defs>
+              <linearGradient id="xg-f" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#f5f3ff"/>
+                <stop offset="50%" stop-color="#8b5cf6"/>
+                <stop offset="100%" stop-color="#3b0764"/>
+              </linearGradient>
+              <linearGradient id="xg-f2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#6d28d9"/>
+                <stop offset="100%" stop-color="#1e0a40"/>
+              </linearGradient>
+              <linearGradient id="xg-f3" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.45"/>
+                <stop offset="100%" stop-color="#5b21b6" stop-opacity="0.15"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="xtal xtal-g">
+          <svg width="30" height="105" viewBox="0 0 30 105">
+            <polygon points="15,0 30,105 0,105" fill="url(#xg-g)" opacity="0.88"/>
+            <polygon points="15,105 28,76 2,76" fill="url(#xg-g2)" opacity="0.74"/>
+            <polygon points="15,0 28,105 2,105" fill="url(#xg-g3)" opacity="0.44" transform="rotate(90,15,52)"/>
+            <line x1="15" y1="0" x2="15" y2="105" stroke="rgba(255,255,255,0.6)" stroke-width="0.8"/>
+            <defs>
+              <linearGradient id="xg-g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#fff"/>
+                <stop offset="30%" stop-color="#a78bfa"/>
+                <stop offset="100%" stop-color="#4c1d95"/>
+              </linearGradient>
+              <linearGradient id="xg-g2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#7c3aed"/>
+                <stop offset="100%" stop-color="#2e1065"/>
+              </linearGradient>
+              <linearGradient id="xg-g3" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#ddd6fe" stop-opacity="0.46"/>
+                <stop offset="100%" stop-color="#6d28d9" stop-opacity="0.18"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="xtal-base-glow"></div>
+        <div class="xtal-spark" style="top:8%;left:47%;animation-delay:0s"></div>
+        <div class="xtal-spark" style="top:22%;left:28%;animation-delay:0.6s"></div>
+        <div class="xtal-spark" style="top:18%;right:26%;animation-delay:1.1s"></div>
+        <div class="xtal-spark" style="top:38%;left:16%;animation-delay:1.8s"></div>
+        <div class="xtal-spark" style="top:42%;right:14%;animation-delay:0.9s"></div>
       </div>
       <div class="alive-field" aria-hidden="true"></div>
     `;
@@ -231,6 +406,110 @@
         setTimeout(() => { window.location.href = anchor.href; }, 220);
       }
     });
+  }
+
+  function setupOcean() {
+    const canvas = document.getElementById("ocean-canvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+
+    function resize() {
+      canvas.width  = canvas.offsetWidth  || window.innerWidth;
+      canvas.height = canvas.offsetHeight || 200;
+    }
+    resize();
+    window.addEventListener("resize", resize);
+
+    // Wave layers — each with own speed, amplitude, wavelength, colour
+    const layers = [
+      { speed: 0.55,  amp: 28, wl: 0.012, phase: 0,    color: "rgba(139,92,246,0.38)",  yBase: 0.55 },
+      { speed: 0.38,  amp: 20, wl: 0.018, phase: 1.8,  color: "rgba(167,139,250,0.30)", yBase: 0.65 },
+      { speed: 0.70,  amp: 14, wl: 0.022, phase: 3.5,  color: "rgba(196,181,253,0.45)", yBase: 0.72 },
+      { speed: 0.28,  amp: 10, wl: 0.030, phase: 5.2,  color: "rgba(237,233,254,0.55)", yBase: 0.80 },
+      { speed: 0.90,  amp:  6, wl: 0.040, phase: 2.1,  color: "rgba(255,255,255,0.38)", yBase: 0.88 },
+    ];
+
+    // Foam particles
+    const foam = Array.from({ length: 38 }, () => ({
+      x: Math.random(),
+      y: 0,
+      r: 1.5 + Math.random() * 3.5,
+      speed: 0.15 + Math.random() * 0.45,
+      life: Math.random(),
+      maxLife: 0.6 + Math.random() * 0.8,
+      layer: Math.floor(Math.random() * 3),
+    }));
+
+    let t = 0;
+    function draw() {
+      const W = canvas.width, H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+
+      layers.forEach((lyr, li) => {
+        lyr.phase += lyr.speed * 0.012;
+        const baseY = H * lyr.yBase;
+
+        ctx.beginPath();
+        ctx.moveTo(0, H);
+        for (let x = 0; x <= W + 2; x += 2) {
+          // Primary sine + harmonic for choppiness
+          const y = baseY
+            - Math.sin(x * lyr.wl + lyr.phase) * lyr.amp
+            - Math.sin(x * lyr.wl * 2.3 + lyr.phase * 1.4) * (lyr.amp * 0.35)
+            - Math.sin(x * lyr.wl * 0.5 + lyr.phase * 0.6) * (lyr.amp * 0.55);
+          ctx.lineTo(x, y);
+        }
+        ctx.lineTo(W, H);
+        ctx.closePath();
+
+        const grad = ctx.createLinearGradient(0, baseY - lyr.amp * 2, 0, H);
+        grad.addColorStop(0,   lyr.color);
+        grad.addColorStop(0.5, lyr.color.replace(/[\d.]+\)$/, v => (+v.match(/[\d.]+/)[0] * 0.55).toFixed(2) + ")"));
+        grad.addColorStop(1,   "rgba(255,255,255,0)");
+        ctx.fillStyle = grad;
+        ctx.fill();
+
+        // White crest line
+        if (li < 3) {
+          ctx.beginPath();
+          for (let x = 0; x <= W + 2; x += 2) {
+            const y = H * lyr.yBase
+              - Math.sin(x * lyr.wl + lyr.phase) * lyr.amp
+              - Math.sin(x * lyr.wl * 2.3 + lyr.phase * 1.4) * (lyr.amp * 0.35)
+              - Math.sin(x * lyr.wl * 0.5 + lyr.phase * 0.6) * (lyr.amp * 0.55);
+            x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+          }
+          ctx.strokeStyle = `rgba(255,255,255,${0.55 - li * 0.12})`;
+          ctx.lineWidth = 1.5 - li * 0.3;
+          ctx.stroke();
+        }
+      });
+
+      // Foam bubbles on top wave crest
+      foam.forEach(f => {
+        f.life += 0.012 * f.speed;
+        if (f.life > f.maxLife) {
+          f.life = 0;
+          f.x = Math.random();
+          f.layer = Math.floor(Math.random() * 3);
+        }
+        const lyr = layers[f.layer];
+        const px = f.x * W;
+        const py = H * lyr.yBase
+          - Math.sin(px * lyr.wl + lyr.phase) * lyr.amp
+          - Math.sin(px * lyr.wl * 2.3 + lyr.phase * 1.4) * (lyr.amp * 0.35);
+        f.y = py;
+        const alpha = Math.sin((f.life / f.maxLife) * Math.PI) * 0.72;
+        ctx.beginPath();
+        ctx.arc(px, py, f.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${alpha.toFixed(2)})`;
+        ctx.fill();
+      });
+
+      t++;
+      requestAnimationFrame(draw);
+    }
+    draw();
   }
 
   function setupThree() {
@@ -439,6 +718,7 @@
     renderFooter();
     setupTransitions();
     setupThree();
+    setupOcean();
     setupChatbot();
     animateBasics();
     trackPage();
