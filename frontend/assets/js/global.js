@@ -144,6 +144,23 @@
     veil.className = "transition-veil";
     document.body.appendChild(veil);
 
+    // Always ensure veil is hidden on page load (handles bfcache restores too)
+    function fadeVeilOut() {
+      veil.style.transition = "none";
+      veil.style.opacity = "0";
+      veil.style.pointerEvents = "none";
+    }
+    fadeVeilOut();
+
+    // Handle back/forward cache restores — browser may freeze page mid-transition
+    window.addEventListener("pageshow", (e) => {
+      if (e.persisted) {
+        fadeVeilOut();
+        // Re-run animations since bfcache skips DOMContentLoaded
+        ensureVisible();
+      }
+    });
+
     window.addEventListener("pointermove", (event) => {
       state.mouse.x = event.clientX / window.innerWidth;
       state.mouse.y = event.clientY / window.innerHeight;
@@ -444,14 +461,32 @@
     });
   }
 
+  // Safety net: force all page elements to be fully visible
+  function ensureVisible() {
+    const sel = ".eyebrow, .page-title, .display-title, .hero-copy, .button-row, " +
+                ".feature-card, .solution-card, .project-card, .resource-card, " +
+                ".metric-card, .glass-panel, .section-title, .card-title, .card-copy, " +
+                ".body-copy, .section, .btn, .nav-link, .tag, .stat, " +
+                ".trust-panel, .logo-row, .logo-mark, .eyebrow";
+    document.querySelectorAll(sel).forEach(el => {
+      el.style.opacity = "";
+      el.style.transform = "";
+      el.style.visibility = "";
+    });
+  }
+
   function animateBasics() {
-    if (!window.gsap) return;
+    if (!window.gsap) {
+      ensureVisible();
+      return;
+    }
     gsap.from(".eyebrow, .page-title, .display-title, .hero-copy, .button-row", {
       y: 20,
       opacity: 0,
       duration: 0.8,
       stagger: 0.08,
-      ease: "power2.out"
+      ease: "power2.out",
+      clearProps: "opacity,transform"
     });
     gsap.from(".feature-card, .solution-card, .project-card, .resource-card, .metric-card, .glass-panel", {
       y: 24,
@@ -459,8 +494,11 @@
       duration: 0.7,
       stagger: 0.04,
       delay: 0.18,
-      ease: "power2.out"
+      ease: "power2.out",
+      clearProps: "opacity,transform"
     });
+    // Fallback: guarantee visibility after animations should be done
+    setTimeout(ensureVisible, 1800);
   }
 
   function trackPage() {

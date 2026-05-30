@@ -1464,3 +1464,39 @@ textarea.form-field {
 
   #ocean-canvas { display: none; }
 }
+
+/* ── Visibility safety net ──────────────────────────────────────
+   Prevents text/elements getting stuck invisible after page
+   transitions or bfcache restores. GSAP clearProps handles the
+   normal case; this CSS catches anything that slips through.
+──────────────────────────────────────────────────────────────── */
+.eyebrow,
+.page-title,
+.display-title,
+.hero-copy,
+.section-title,
+.card-title,
+.card-copy,
+.body-copy,
+.btn,
+.nav-link,
+.stat,
+.trust-panel,
+.logo-mark,
+.feature-card,
+.solution-card,
+.project-card,
+.resource-card,
+.metric-card,
+.glass-panel,
+.section,
+.button-row,
+.tag,
+.filter-pill,
+.icon-badge {
+  /* Ensure elements are always at least partially visible.
+     GSAP will override opacity during animation and then
+     clearProps removes the inline style, falling back here. */
+  opacity: revert;
+  visibility: visible;
+}
