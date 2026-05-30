@@ -59,6 +59,9 @@
     const env = document.createElement("div");
     env.className = "cinematic-environment";
     env.innerHTML = `
+      <video autoplay muted loop playsinline aria-hidden="true">
+        <source src="assets/videos/background.mp4" type="video/mp4">
+      </video>
       <canvas id="zilist-three"></canvas>
       <div class="living-brain" aria-hidden="true">
         <span class="brain-core"></span>
