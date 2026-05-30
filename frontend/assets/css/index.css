@@ -1,3 +1,33 @@
+.home-video-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.home-video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Keep text and cards readable over the video */
+[data-page="home"] .glass-panel,
+[data-page="home"] .feature-card,
+[data-page="home"] .floating-chip,
+[data-page="home"] .trust-panel {
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+[data-page="home"] .display-title,
+[data-page="home"] .hero-copy,
+[data-page="home"] .eyebrow {
+  text-shadow: 0 1px 8px rgba(255,255,255,0.6);
+}
+
 .home-hero {
   min-height: 86vh;
 }
