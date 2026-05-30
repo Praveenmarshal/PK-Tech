@@ -412,104 +412,115 @@
     const canvas = document.getElementById("ocean-canvas");
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
+    const isMobile = window.innerWidth < 768 || /Mobi|Android/i.test(navigator.userAgent);
 
     function resize() {
       canvas.width  = canvas.offsetWidth  || window.innerWidth;
       canvas.height = canvas.offsetHeight || 200;
     }
     resize();
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", () => { resize(); });
 
-    // Wave layers — each with own speed, amplitude, wavelength, colour
-    const layers = [
-      { speed: 0.55,  amp: 28, wl: 0.012, phase: 0,    color: "rgba(139,92,246,0.38)",  yBase: 0.55 },
-      { speed: 0.38,  amp: 20, wl: 0.018, phase: 1.8,  color: "rgba(167,139,250,0.30)", yBase: 0.65 },
-      { speed: 0.70,  amp: 14, wl: 0.022, phase: 3.5,  color: "rgba(196,181,253,0.45)", yBase: 0.72 },
-      { speed: 0.28,  amp: 10, wl: 0.030, phase: 5.2,  color: "rgba(237,233,254,0.55)", yBase: 0.80 },
-      { speed: 0.90,  amp:  6, wl: 0.040, phase: 2.1,  color: "rgba(255,255,255,0.38)", yBase: 0.88 },
+    // Desktop: 5 layers, 38 foam — Mobile: 3 layers, 12 foam, bigger step
+    const layers = isMobile ? [
+      { speed: 0.45, amp: 22, wl: 0.013, phase: 0,   color: "rgba(139,92,246,0.36)",  yBase: 0.52 },
+      { speed: 0.30, amp: 14, wl: 0.020, phase: 2.1, color: "rgba(167,139,250,0.30)", yBase: 0.68 },
+      { speed: 0.60, amp:  8, wl: 0.032, phase: 4.0, color: "rgba(196,181,253,0.42)", yBase: 0.82 },
+    ] : [
+      { speed: 0.55, amp: 28, wl: 0.012, phase: 0,   color: "rgba(139,92,246,0.38)",  yBase: 0.55 },
+      { speed: 0.38, amp: 20, wl: 0.018, phase: 1.8, color: "rgba(167,139,250,0.30)", yBase: 0.65 },
+      { speed: 0.70, amp: 14, wl: 0.022, phase: 3.5, color: "rgba(196,181,253,0.45)", yBase: 0.72 },
+      { speed: 0.28, amp: 10, wl: 0.030, phase: 5.2, color: "rgba(237,233,254,0.55)", yBase: 0.80 },
+      { speed: 0.90, amp:  6, wl: 0.040, phase: 2.1, color: "rgba(255,255,255,0.38)", yBase: 0.88 },
     ];
 
-    // Foam particles
-    const foam = Array.from({ length: 38 }, () => ({
-      x: Math.random(),
-      y: 0,
-      r: 1.5 + Math.random() * 3.5,
-      speed: 0.15 + Math.random() * 0.45,
+    const foamCount = isMobile ? 12 : 38;
+    const step      = isMobile ? 6  : 2;   // pixel step — bigger = fewer Math.sin calls
+    const foam = Array.from({ length: foamCount }, () => ({
+      x: Math.random(), y: 0,
+      r: 1.5 + Math.random() * 3,
+      speed: 0.15 + Math.random() * 0.4,
       life: Math.random(),
       maxLife: 0.6 + Math.random() * 0.8,
-      layer: Math.floor(Math.random() * 3),
+      layer: Math.floor(Math.random() * Math.min(3, layers.length)),
     }));
 
-    let t = 0;
-    function draw() {
+    // Pre-bake gradient colours as solid fills on mobile to avoid per-frame gradient creation
+    layers.forEach(lyr => {
+      lyr._fill = lyr.color;
+    });
+
+    let lastTime = 0;
+    const targetFPS = isMobile ? 30 : 60;
+    const interval  = 1000 / targetFPS;
+
+    function draw(ts) {
+      requestAnimationFrame(draw);
+      if (ts - lastTime < interval) return;  // throttle to target FPS
+      lastTime = ts;
+
       const W = canvas.width, H = canvas.height;
       ctx.clearRect(0, 0, W, H);
 
       layers.forEach((lyr, li) => {
-        lyr.phase += lyr.speed * 0.012;
+        lyr.phase += lyr.speed * (isMobile ? 0.010 : 0.012);
         const baseY = H * lyr.yBase;
 
         ctx.beginPath();
         ctx.moveTo(0, H);
-        for (let x = 0; x <= W + 2; x += 2) {
-          // Primary sine + harmonic for choppiness
+        for (let x = 0; x <= W + step; x += step) {
           const y = baseY
             - Math.sin(x * lyr.wl + lyr.phase) * lyr.amp
-            - Math.sin(x * lyr.wl * 2.3 + lyr.phase * 1.4) * (lyr.amp * 0.35)
-            - Math.sin(x * lyr.wl * 0.5 + lyr.phase * 0.6) * (lyr.amp * 0.55);
+            - Math.sin(x * lyr.wl * 2.2 + lyr.phase * 1.3) * (lyr.amp * 0.32);
           ctx.lineTo(x, y);
         }
         ctx.lineTo(W, H);
         ctx.closePath();
 
-        const grad = ctx.createLinearGradient(0, baseY - lyr.amp * 2, 0, H);
-        grad.addColorStop(0,   lyr.color);
-        grad.addColorStop(0.5, lyr.color.replace(/[\d.]+\)$/, v => (+v.match(/[\d.]+/)[0] * 0.55).toFixed(2) + ")"));
-        grad.addColorStop(1,   "rgba(255,255,255,0)");
-        ctx.fillStyle = grad;
+        if (isMobile) {
+          // Solid fill on mobile — no gradient creation per frame
+          ctx.fillStyle = lyr._fill;
+        } else {
+          const grad = ctx.createLinearGradient(0, baseY - lyr.amp * 2, 0, H);
+          grad.addColorStop(0,   lyr.color);
+          grad.addColorStop(0.6, lyr.color.replace(/[\d.]+\)$/, v => (+v.match(/[\d.]+/)[0] * 0.45).toFixed(2) + ")"));
+          grad.addColorStop(1,   "rgba(255,255,255,0)");
+          ctx.fillStyle = grad;
+        }
         ctx.fill();
 
-        // White crest line
-        if (li < 3) {
+        // Crest line — skip on mobile innermost layers
+        if (!isMobile && li < 3 || isMobile && li < 1) {
           ctx.beginPath();
-          for (let x = 0; x <= W + 2; x += 2) {
+          for (let x = 0; x <= W + step; x += step) {
             const y = H * lyr.yBase
               - Math.sin(x * lyr.wl + lyr.phase) * lyr.amp
-              - Math.sin(x * lyr.wl * 2.3 + lyr.phase * 1.4) * (lyr.amp * 0.35)
-              - Math.sin(x * lyr.wl * 0.5 + lyr.phase * 0.6) * (lyr.amp * 0.55);
+              - Math.sin(x * lyr.wl * 2.2 + lyr.phase * 1.3) * (lyr.amp * 0.32);
             x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
           }
-          ctx.strokeStyle = `rgba(255,255,255,${0.55 - li * 0.12})`;
-          ctx.lineWidth = 1.5 - li * 0.3;
+          ctx.strokeStyle = `rgba(255,255,255,${isMobile ? 0.45 : 0.55 - li * 0.12})`;
+          ctx.lineWidth = 1.2;
           ctx.stroke();
         }
       });
 
-      // Foam bubbles on top wave crest
-      foam.forEach(f => {
-        f.life += 0.012 * f.speed;
-        if (f.life > f.maxLife) {
-          f.life = 0;
-          f.x = Math.random();
-          f.layer = Math.floor(Math.random() * 3);
-        }
-        const lyr = layers[f.layer];
-        const px = f.x * W;
-        const py = H * lyr.yBase
-          - Math.sin(px * lyr.wl + lyr.phase) * lyr.amp
-          - Math.sin(px * lyr.wl * 2.3 + lyr.phase * 1.4) * (lyr.amp * 0.35);
-        f.y = py;
-        const alpha = Math.sin((f.life / f.maxLife) * Math.PI) * 0.72;
-        ctx.beginPath();
-        ctx.arc(px, py, f.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${alpha.toFixed(2)})`;
-        ctx.fill();
-      });
-
-      t++;
-      requestAnimationFrame(draw);
+      // Foam — skip on very small mobile
+      if (!isMobile || W > 400) {
+        foam.forEach(f => {
+          f.life += 0.012 * f.speed;
+          if (f.life > f.maxLife) { f.life = 0; f.x = Math.random(); }
+          const lyr = layers[f.layer];
+          const px  = f.x * W;
+          const py  = H * lyr.yBase - Math.sin(px * lyr.wl + lyr.phase) * lyr.amp;
+          const alpha = Math.sin((f.life / f.maxLife) * Math.PI) * 0.65;
+          ctx.beginPath();
+          ctx.arc(px, py, f.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255,255,255,${alpha.toFixed(2)})`;
+          ctx.fill();
+        });
+      }
     }
-    draw();
+    requestAnimationFrame(draw);
   }
 
   function setupThree() {

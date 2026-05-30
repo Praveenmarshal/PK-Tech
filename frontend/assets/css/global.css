@@ -103,6 +103,8 @@ select {
   aspect-ratio: 1.28;
   transform-style: preserve-3d;
   opacity: 1;
+  will-change: transform, filter;
+  contain: layout style;
   filter:
     drop-shadow(0 0 55px rgba(139,92,246,1))
     drop-shadow(0 0 22px rgba(255,255,255,0.85))
@@ -203,6 +205,7 @@ select {
   aspect-ratio: 0.72;
   transform-origin: 50% 50%;
   opacity: 1;
+  will-change: transform;
   filter: drop-shadow(0 18px 36px rgba(109,40,217,0.55)) drop-shadow(0 0 28px rgba(139,92,246,0.75));
   animation: robotFlight 20s ease-in-out infinite;
 }
@@ -1680,4 +1683,119 @@ textarea.form-field {
   }
 
   .ocean-scene { height: 16%; }
+}
+
+/* ══════════════════════════════════════════════
+   MOBILE PERFORMANCE — kills expensive ops on
+   phones/tablets to prevent lag/jank
+══════════════════════════════════════════════ */
+@media (max-width: 768px), (pointer: coarse) {
+
+  /* 1. Replace heavy backdrop-blur with solid glass — blur is GPU-killer on mobile */
+  .site-nav,
+  .glass-panel,
+  .form-panel,
+  .project-card,
+  .resource-card,
+  .feature-card,
+  .solution-card,
+  .metric-card,
+  .timeline-item,
+  .chat-panel,
+  .chat-launcher,
+  .floating-chip,
+  .transition-veil {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255,255,255,0.94) !important;
+  }
+
+  /* 2. Disable animated box-shadow — causes full repaint every frame */
+  .site-nav,
+  .site-nav::before,
+  .site-nav::after {
+    animation: none !important;
+    box-shadow: 0 2px 16px rgba(109,40,217,0.15), 0 0 0 1px rgba(139,92,246,0.2) !important;
+  }
+
+  /* 3. Kill the background image filter animation — very heavy */
+  .cinematic-environment::before {
+    animation: none !important;
+    filter: saturate(1.3) brightness(1.2) !important;
+    opacity: 0.78 !important;
+  }
+
+  /* 4. Disable crystal glow animation — drop-shadow animation is compositor-heavy */
+  .xtal svg,
+  .xtal-base-glow,
+  .crystal-cluster {
+    animation: none !important;
+    filter: drop-shadow(0 0 10px rgba(139,92,246,0.6)) !important;
+  }
+
+  /* Keep float but skip spin+glow on crystals */
+  .xtal {
+    animation: xtalFloat 5s ease-in-out infinite !important;
+  }
+
+  /* 5. Reduce robot count and remove double drop-shadows */
+  .flying-robot-c,
+  .flying-robot-d,
+  .flying-robot-e {
+    display: none !important;
+  }
+
+  .flying-robot,
+  .flying-robot-b {
+    filter: drop-shadow(0 8px 18px rgba(109,40,217,0.3)) !important;
+  }
+
+  /* 6. Simplify brain glow — triple drop-shadow is very expensive */
+  .living-brain {
+    filter: drop-shadow(0 0 24px rgba(139,92,246,0.7)) !important;
+  }
+
+  /* 7. Kill neural thread shimmer animation */
+  .neural-thread {
+    animation: none !important;
+    opacity: 0.6;
+  }
+
+  /* 8. Kill navShimmer sweep — repaints entire nav every frame */
+  .site-nav::before {
+    display: none !important;
+  }
+
+  /* 9. Limit brain ring animations — keep only outer ring */
+  .brain-ring-b,
+  .brain-ring-c {
+    display: none !important;
+  }
+
+  /* 10. Kill mist shift and world breath on overlay */
+  .cinematic-environment::after {
+    animation: none !important;
+  }
+
+  /* 11. Use will-change only on elements actually animating */
+  .living-brain,
+  .flying-robot,
+  .flying-robot-b,
+  .brain-ring,
+  #ocean-canvas {
+    will-change: transform;
+  }
+}
+
+/* Honour system preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.1ms !important;
+  }
+
+  #ocean-canvas { display: none; }
 }
