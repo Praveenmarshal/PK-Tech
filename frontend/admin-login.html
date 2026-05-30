@@ -6,11 +6,30 @@
   <title>Admin Login | ZILIST</title>
   <meta name="description" content="Private owner-only ZILIST admin login for Praveen Kannan.">
   <meta name="robots" content="noindex,nofollow">
+  <link rel="preload" href="assets/videos/admin-bg.mp4" as="video" type="video/mp4">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/admin-login.css">
 </head>
 <body data-page="admin-login" data-admin="login">
+  <!-- Admin video background -->
+  <div class="admin-video-bg" aria-hidden="true">
+    <video id="admin-bg-video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/videos/admin-bg.mp4" type="video/mp4">
+    </video>
+  </div>
+  <script>
+    (function () {
+      var v = document.getElementById('admin-bg-video');
+      if (!v) return;
+      v.load();
+      var played = false;
+      function tryPlay() { if (played) return; played = true; v.play().catch(function(){}); }
+      v.addEventListener('canplay', tryPlay);
+      v.addEventListener('loadeddata', tryPlay);
+      tryPlay();
+    })();
+  </script>
   <div data-navbar></div>
   <main class="login-page">
     <section class="login-card glass-panel">
@@ -29,6 +48,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="assets/js/global.js"></script>
   <script src="assets/js/admin-login.js"></script>
+  <script src="assets/js/scroll-animations.js"></script>
 </body>
 </html>
 
