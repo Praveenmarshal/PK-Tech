@@ -7,6 +7,45 @@ const projectImages = {
   "portfolio-system":        "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
 };
 
+// 3 screenshot images per project shown in the screen-row
+const projectScreens = {
+  "ai-chatbot-platform": [
+    "https://images.unsplash.com/photo-1676299081847-824916de030a?w=700&q=80",
+    "https://images.unsplash.com/photo-1655720828018-edd2daec9349?w=700&q=80",
+    "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=700&q=80",
+  ],
+  "analytics-dashboard": [
+    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80",
+    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80",
+    "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=700&q=80",
+  ],
+  "gym-management-system": [
+    "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&q=80",
+    "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=700&q=80",
+    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&q=80",
+  ],
+  "ai-automation-platform": [
+    "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=700&q=80",
+    "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=700&q=80",
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80",
+  ],
+  "cybersecurity-dashboard": [
+    "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=700&q=80",
+    "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=700&q=80",
+    "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=700&q=80",
+  ],
+  "portfolio-system": [
+    "https://images.unsplash.com/photo-1547658719-da2b51169166?w=700&q=80",
+    "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=700&q=80",
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=80",
+  ],
+};
+const defaultScreens = [
+  "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=700&q=80",
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80",
+  "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=700&q=80",
+];
+
 const projectDetails = {
   "ai-chatbot-platform": {
     title: "AI Chatbot Platform",
@@ -68,12 +107,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const slug = new URLSearchParams(window.location.search).get("slug") || "ai-chatbot-platform";
   const detail = projectDetails[slug] || projectDetails["ai-chatbot-platform"];
 
-  // Inject hero image if element exists
+  // Hero image
   const heroImg = document.querySelector("[data-project-image]");
   if (heroImg) {
     heroImg.src = projectImages[slug] || projectImages["ai-chatbot-platform"];
     heroImg.alt = detail.title;
   }
+
+  // Screenshot row images
+  const screens = projectScreens[slug] || defaultScreens;
+  document.querySelectorAll("[data-project-screen]").forEach((img) => {
+    const idx = parseInt(img.dataset.projectScreen);
+    img.src = screens[idx] || defaultScreens[idx] || defaultScreens[0];
+    img.alt = detail.title + " screenshot " + (idx + 1);
+  });
 
   document.querySelectorAll("[data-project-title]").forEach((node) => { node.textContent = detail.title; });
   document.querySelector("[data-project-summary]").textContent = detail.summary;
