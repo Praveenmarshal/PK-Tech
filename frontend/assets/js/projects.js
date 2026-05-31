@@ -25,10 +25,11 @@ function renderProjects(projects) {
     <article class="project-card" data-category="${project.category}">
       <img class="card-img" src="${projectImages[project.slug] || defaultProjectImg}" alt="${project.title}" loading="lazy">
       <div class="card-body">
-      <span class="tag">${project.category}</span>
-      <h3 class="card-title">${project.title}</h3>
-      <p class="card-copy">${project.summary || project.description || ""}</p>
-      <a class="btn btn-secondary" href="project-details.html?slug=${project.slug || encodeURIComponent(project.title.toLowerCase().replaceAll(" ", "-"))}">View Project</a>
+        <span class="tag">${project.category}</span>
+        <h3 class="card-title">${project.title}</h3>
+        <p class="card-copy">${project.summary || project.description || ""}</p>
+        <a class="btn btn-secondary" href="project-details.html?slug=${project.slug || encodeURIComponent(project.title.toLowerCase().replaceAll(" ", "-"))}">View Project</a>
+      </div>
     </article>
   `).join("");
 }
