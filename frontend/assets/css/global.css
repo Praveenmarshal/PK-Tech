@@ -780,8 +780,37 @@ select {
 .resource-card,
 .metric-card,
 .timeline-item {
-  padding: 20px;
+  padding: 0;
+  overflow: hidden;
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+/* Image at top of card */
+.feature-card .card-img,
+.solution-card .card-img,
+.project-card .card-img,
+.resource-card .card-img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Content body below image */
+.feature-card .card-body,
+.solution-card .card-body,
+.project-card .card-body,
+.resource-card .card-body,
+.metric-card .card-body,
+.timeline-item .card-body {
+  padding: 20px;
+}
+
+/* Metric and timeline keep their padding (no image) */
+.metric-card,
+.timeline-item {
+  padding: 20px;
 }
 
 .feature-card:hover,
@@ -819,12 +848,24 @@ select {
 }
 
 .visual-card {
-  min-height: 182px;
+  min-height: 200px;
   margin: -8px -8px 16px;
   border-radius: var(--radius);
-  background:
-    linear-gradient(180deg, rgba(15, 23, 42, 0.04), rgba(255,255,255,0.72));
+  background: #1a1a2e center / cover no-repeat;
   border: 1px solid rgba(255,255,255,0.68);
+  overflow: hidden;
+  position: relative;
+}
+
+.visual-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: var(--radius);
 }
 
 .tag-row,
@@ -1585,7 +1626,28 @@ textarea.form-field {
 .footer-copy {
   color: #ffffff;
   mix-blend-mode: difference;
-  text-shadow: none;
+  text-shadow:
+    0 0 40px rgba(255,255,255,0.9),
+    0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* Extra brightness for large hero titles */
+.display-title,
+.page-title {
+  text-shadow:
+    0 0 60px rgba(255,255,255,1),
+    0 0 20px rgba(255,255,255,0.8),
+    0 2px 12px rgba(0,0,0,0.5);
+  font-weight: 700;
+}
+
+/* Eyebrow — bright and punchy */
+.eyebrow {
+  text-shadow:
+    0 0 30px rgba(255,255,255,0.95),
+    0 1px 6px rgba(0,0,0,0.3);
+  letter-spacing: 0.08em;
+  font-weight: 600;
 }
 
 /* Footer links */
@@ -1699,4 +1761,53 @@ textarea.form-field {
 .admin-card *,
 .admin-sidebar * {
   mix-blend-mode: normal !important;
+}
+
+/* ── 3D Card images ───────────────────────────────────────────── */
+.card-img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* ── Trust panel & logo row: force bright readable text ─────── */
+.trust-panel,
+.trust-panel .trust-label,
+.trust-panel .logo-row,
+.trust-panel .logo-row * {
+  mix-blend-mode: normal !important;
+  color: var(--ink) !important;
+  text-shadow: none !important;
+}
+
+/* ── Hero section standalone text: max brightness glow ──────── */
+[data-page="home"] .display-title,
+[data-page="home"] .page-title {
+  text-shadow:
+    0 0 80px rgba(255,255,255,1),
+    0 0 30px rgba(255,255,255,0.9),
+    0 2px 16px rgba(0,0,0,0.6) !important;
+}
+
+[data-page="home"] .eyebrow {
+  text-shadow:
+    0 0 40px rgba(255,255,255,1),
+    0 1px 6px rgba(0,0,0,0.4) !important;
+}
+
+[data-page="home"] .hero-copy,
+[data-page="home"] .section-copy {
+  text-shadow:
+    0 0 24px rgba(255,255,255,0.8),
+    0 1px 4px rgba(0,0,0,0.3) !important;
+  font-weight: 500;
 }

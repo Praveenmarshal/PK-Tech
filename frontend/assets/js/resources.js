@@ -7,11 +7,23 @@ const fallbackResources = [
   { title: "How AI is Changing Industries", category: "Articles", date: "Apr 15, 2026", slug: "ai-changing-industries" }
 ];
 
+
+const resourceImages = {
+  "future-of-ai-automation":      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",
+  "building-smarter-ai-chatbots": "https://images.unsplash.com/photo-1655720828018-edd2daec9349?w=600&q=80",
+  "ai-business-guide":            "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80",
+  "prompt-engineering-guide":     "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80",
+  "ai-tools-for-developers":      "https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?w=600&q=80",
+  "ai-changing-industries":       "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
+};
+const defaultResourceImg = "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80";
+
 function renderResources(resources) {
   const grid = document.querySelector("[data-resource-grid]");
   grid.innerHTML = resources.map((resource) => `
     <article class="resource-card" data-category="${resource.category}">
-      <div class="visual-card"></div>
+      <img class="card-img" src="${resourceImages[resource.slug] || defaultResourceImg}" alt="${resource.title}" loading="lazy">
+      <div class="card-body">
       <span class="tag">${resource.category}</span>
       <h3 class="card-title">${resource.title}</h3>
       <p class="card-copy">${resource.date || ""}</p>
