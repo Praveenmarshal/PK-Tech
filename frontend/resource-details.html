@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resource Details | ZILIST AI</title>
   <meta name="description" content="ZILIST AI resource details with article sections, related articles, and AI automation insights.">
-  <meta name="keywords" content="AI Automation Article, ZILIST Guide, Praveen Kannan Resources">
   <link rel="preload" href="assets/videos/pages-bg.mp4" as="video" type="video/mp4">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="assets/css/global.css">
@@ -30,49 +29,63 @@
       tryPlay();
     })();
   </script>
+
   <div data-navbar></div>
+
   <main class="page-shell">
+
+    <!-- Hero -->
     <section class="page-hero compact article-hero">
       <div>
-        <div class="meta-row"><a href="resources.html">Resources</a><span>›</span><span>The future of AI automation</span></div>
-        <p class="eyebrow">AI Automation</p>
+        <div class="meta-row">
+          <a href="resources.html">Resources</a>
+          <span>›</span>
+          <span data-resource-breadcrumb>Resource</span>
+        </div>
+        <p class="eyebrow" data-resource-eyebrow>AI Automation</p>
         <h1 class="page-title" data-resource-title>The Future of AI Automation</h1>
-        <p class="hero-copy">AI automation is transforming business operations from repetitive workflows to intelligent decision-making.</p>
+        <p class="hero-copy" data-resource-hero>AI automation is transforming business operations from repetitive workflows to intelligent decision-making.</p>
       </div>
     </section>
+
+    <!-- Hero Image -->
+    <section class="section resource-hero-img-wrap">
+      <img
+        class="resource-hero-img"
+        data-resource-image
+        src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=80"
+        alt="Resource cover"
+        loading="eager"
+      >
+    </section>
+
+    <!-- Article + Sidebar -->
     <section class="section article-layout">
+
       <article class="glass-panel article-body">
-        <div class="visual-card" style="min-height:360px"></div>
-        <h2>1. The Rise of AI Automation</h2>
-        <p class="body-copy">Automation has moved from simple scripts into connected AI systems that understand context, trigger workflows, summarize data, and support teams across operations.</p>
-        <h2>2. Benefits of AI Automation</h2>
-        <p class="body-copy">Modern AI systems improve speed, quality, and consistency while giving teams clearer visibility into customer, product, and business signals.</p>
-        <h2>3. AI Technologies</h2>
-        <p class="body-copy">The strongest systems combine language models, retrieval, APIs, databases, dashboards, event queues, and secure human review paths.</p>
-        <h2>4. Real World Applications</h2>
-        <p class="body-copy">ZILIST applies AI to chatbots, lead qualification, dashboards, internal tools, cybersecurity visibility, data analytics, and business process automation.</p>
-        <h2>5. The Future Ahead</h2>
-        <p class="body-copy">The next generation of digital businesses will operate like intelligent ecosystems: calm interfaces, automated decisions, and secure data-driven workflows.</p>
+        <div data-resource-body>
+          <!-- Filled by JS -->
+        </div>
       </article>
+
       <aside class="glass-panel toc">
         <h2 class="card-title">Table of Contents</h2>
-        <ol class="body-copy">
-          <li>The Rise of AI Automation</li>
-          <li>Benefits of AI Automation</li>
-          <li>AI Technologies</li>
-          <li>Real World Applications</li>
-          <li>The Future Ahead</li>
+        <ol class="body-copy" data-resource-toc>
+          <!-- Filled by JS -->
         </ol>
-        <h2 class="card-title">Related Articles</h2>
-        <div class="footer-links" style="color:var(--ink-soft)">
-          <a href="resource-details.html?slug=building-smarter-ai-chatbots">Building Smarter AI Chatbots</a>
-          <a href="resource-details.html?slug=ai-tools-for-developers">AI Tools for Developers</a>
-          <a href="resource-details.html?slug=prompt-engineering-guide">Prompt Engineering Guide</a>
+
+        <h2 class="card-title" style="margin-top:1.5rem">Related Articles</h2>
+        <div class="footer-links related-links" data-resource-related>
+          <!-- Filled by JS -->
         </div>
       </aside>
+
     </section>
+
   </main>
+
   <div data-footer></div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="assets/js/global.js"></script>
@@ -80,4 +93,3 @@
   <script src="assets/js/scroll-animations.js"></script>
 </body>
 </html>
-
