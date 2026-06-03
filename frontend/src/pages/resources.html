@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources | ZILIST AI</title>
+  <meta name="description" content="Read ZILIST AI articles, tutorials, prompt guides, tools, templates, and resources for modern AI development.">
+  <meta name="keywords" content="ZILIST Resources, AI Articles, Tutorials, Prompt Guides, AI Tools, Templates">
+  <!-- Video preloaded by JS on desktop only -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/resources.css">
+</head>
+<body data-page="resources">
+  <!-- Pages video background -->
+  <div class="pages-video-bg" aria-hidden="true">
+    <video id="pages-bg-video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/videos/pages-bg.mp4" type="video/mp4">
+    </video>
+  </div>
+  <script>
+    (function () {
+      // Skip video on mobile — too heavy, uses static image instead
+      if (window.innerWidth <= 768 || !window.matchMedia('(hover: hover)').matches) return;
+      var v = document.getElementById('pages-bg-video');
+      if (!v) return;
+      v.load();
+      var played = false;
+      function tryPlay() { if (played) return; played = true; v.play().catch(function(){}); }
+      v.addEventListener('canplay', tryPlay);
+      v.addEventListener('loadeddata', tryPlay);
+      tryPlay();
+    })();
+  </script>
+  <div data-navbar></div>
+  <main class="page-shell">
+    <section class="page-hero compact">
+      <div>
+        <p class="eyebrow">Resources</p>
+        <h1 class="page-title">AI resources and insights.</h1>
+        <p class="hero-copy">Explore articles, tutorials, prompt guides, AI tools, and templates for building intelligent systems.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="resource-search">
+        <input class="form-field" data-resource-search placeholder="Search resources, guides, tutorials...">
+        <a class="btn btn-primary" href="contact.html">Request Guide</a>
+      </div>
+      <div class="filter-row">
+        <button class="filter-pill is-active" data-resource-filter="All">All</button>
+        <button class="filter-pill" data-resource-filter="Articles">Articles</button>
+        <button class="filter-pill" data-resource-filter="Tutorial">Tutorials</button>
+        <button class="filter-pill" data-resource-filter="Prompt Guides">Guides</button>
+        <button class="filter-pill" data-resource-filter="AI Tools">Tools</button>
+        <button class="filter-pill" data-resource-filter="Templates">Templates</button>
+      </div>
+      <div class="resource-grid" data-resource-grid style="margin-top:18px"></div>
+    </section>
+  </main>
+  <div data-footer></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/resources.js"></script>
+  <script src="assets/js/scroll-animations.js"></script>
+</body>
+</html>
+

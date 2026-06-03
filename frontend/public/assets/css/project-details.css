@@ -1,0 +1,122 @@
+.project-detail-hero {
+  min-height: 62vh;
+}
+
+.project-screen-row {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 0.8fr;
+  gap: 14px;
+}
+
+.project-screen-row .visual-card:first-child {
+  min-height: 360px;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+
+/* ── Project hero image ─────────────────────────────────────── */
+.project-hero-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+}
+
+/* ── Project screenshot row ─────────────────────────────────── */
+.project-screen-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.project-screen-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-screen-img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+}
+
+/* ── Detail glass panels: always readable ───────────────────── */
+.detail-grid .glass-panel {
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  padding: 2rem !important;
+  border-radius: 16px;
+}
+
+.detail-grid .glass-panel .section-title {
+  color: var(--ink) !important;
+  mix-blend-mode: normal !important;
+  text-shadow: none !important;
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.detail-grid .glass-panel .body-copy,
+.detail-grid .glass-panel li,
+.detail-grid .glass-panel p {
+  color: var(--ink-soft) !important;
+  mix-blend-mode: normal !important;
+  text-shadow: none !important;
+  line-height: 1.7;
+}
+
+.detail-grid .glass-panel ul {
+  padding-left: 1.25rem;
+  margin: 0;
+  list-style: disc;
+}
+
+.detail-grid .glass-panel li {
+  margin-bottom: 0.45rem;
+  font-size: 0.9rem;
+}
+
+.detail-grid .tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 0.5rem;
+}
+
+.detail-grid .tech-list .tag {
+  background: rgba(139, 92, 246, 0.1) !important;
+  color: var(--violet) !important;
+  mix-blend-mode: normal !important;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .project-screen-row {
+    grid-template-columns: 1fr;
+  }
+  .project-hero-img {
+    height: 260px;
+  }
+  .project-screen-img {
+    height: 180px;
+  }
+}

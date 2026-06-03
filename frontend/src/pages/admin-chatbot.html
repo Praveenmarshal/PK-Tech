@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot Management | ZILIST Admin</title>
+  <meta name="description" content="Manage ZILIST AI assistant knowledge privately.">
+  <meta name="robots" content="noindex,nofollow">
+  <!-- Video preloaded by JS on desktop only -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet" href="assets/css/admin-chatbot.css">
+</head>
+<body data-page="admin-chatbot" data-admin="chatbot">
+  <!-- Admin video background -->
+  <div class="admin-video-bg" aria-hidden="true">
+    <video id="admin-bg-video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/videos/admin-bg.mp4" type="video/mp4">
+    </video>
+  </div>
+  <script>
+    (function () {
+      // Skip video on mobile — too heavy, uses static image instead
+      if (window.innerWidth <= 768 || !window.matchMedia('(hover: hover)').matches) return;
+      var v = document.getElementById('admin-bg-video');
+      if (!v) return;
+      v.load();
+      var played = false;
+      function tryPlay() { if (played) return; played = true; v.play().catch(function(){}); }
+      v.addEventListener('canplay', tryPlay);
+      v.addEventListener('loadeddata', tryPlay);
+      tryPlay();
+    })();
+  </script>
+  <div data-navbar></div>
+  <main class="admin-shell">
+    <div data-admin-sidebar></div>
+    <section class="admin-content">
+      <div class="admin-topbar"><div><p class="eyebrow">AI Assistant</p><h1 class="admin-title">Chatbot management.</h1></div></div>
+      <div class="admin-grid knowledge-grid">
+        <form class="admin-card form-stack" data-knowledge-form>
+          <h2 class="card-title">Knowledge entry</h2>
+          <input class="form-field" name="intent" placeholder="Intent" required>
+          <textarea class="form-field" name="answer" placeholder="Answer" required></textarea>
+          <button class="btn btn-primary" type="submit">Save Knowledge</button>
+        </form>
+        <article class="admin-card">
+          <h2 class="card-title">Knowledge base</h2>
+          <table class="admin-table"><thead><tr><th>Intent</th><th>Answer</th><th>Actions</th></tr></thead><tbody data-knowledge-list></tbody></table>
+        </article>
+      </div>
+      <section class="section admin-card">
+        <h2 class="card-title">Assistant test</h2>
+        <div class="chatbot-test-window" data-chatbot-output></div>
+        <form class="chat-form" data-chatbot-test><input name="message" placeholder="Ask the assistant..."><button class="round-icon" type="submit">›</button></form>
+      </section>
+    </section>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/admin.js"></script>
+  <script src="assets/js/admin-chatbot.js"></script>
+  <script src="assets/js/scroll-animations.js"></script>
+</body>
+</html>
+

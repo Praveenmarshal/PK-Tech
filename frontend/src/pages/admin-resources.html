@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources Management | ZILIST Admin</title>
+  <meta name="description" content="Manage ZILIST resources privately.">
+  <meta name="robots" content="noindex,nofollow">
+  <!-- Video preloaded by JS on desktop only -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet" href="assets/css/admin-resources.css">
+</head>
+<body data-page="admin-resources" data-admin="resources">
+  <!-- Admin video background -->
+  <div class="admin-video-bg" aria-hidden="true">
+    <video id="admin-bg-video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/videos/admin-bg.mp4" type="video/mp4">
+    </video>
+  </div>
+  <script>
+    (function () {
+      // Skip video on mobile — too heavy, uses static image instead
+      if (window.innerWidth <= 768 || !window.matchMedia('(hover: hover)').matches) return;
+      var v = document.getElementById('admin-bg-video');
+      if (!v) return;
+      v.load();
+      var played = false;
+      function tryPlay() { if (played) return; played = true; v.play().catch(function(){}); }
+      v.addEventListener('canplay', tryPlay);
+      v.addEventListener('loadeddata', tryPlay);
+      tryPlay();
+    })();
+  </script>
+  <div data-navbar></div>
+  <main class="admin-shell">
+    <div data-admin-sidebar></div>
+    <section class="admin-content">
+      <div class="admin-topbar"><div><p class="eyebrow">Resources</p><h1 class="admin-title">Resource management.</h1></div></div>
+      <div class="admin-grid resource-manager-grid">
+        <form class="admin-card form-stack" data-resource-form>
+          <h2 class="card-title">Create resource</h2>
+          <input class="form-field" name="title" placeholder="Resource title" required>
+          <input class="form-field" name="category" placeholder="Category" required>
+          <input class="form-field" name="slug" placeholder="Slug">
+          <textarea class="form-field" name="excerpt" placeholder="Excerpt"></textarea>
+          <button class="btn btn-primary" type="submit">Save Resource</button>
+        </form>
+        <article class="admin-card">
+          <h2 class="card-title">Published resources</h2>
+          <table class="admin-table"><thead><tr><th>Title</th><th>Category</th><th>Status</th><th>Actions</th></tr></thead><tbody data-admin-resources></tbody></table>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/admin.js"></script>
+  <script src="assets/js/admin-resources.js"></script>
+  <script src="assets/js/scroll-animations.js"></script>
+</body>
+</html>
+

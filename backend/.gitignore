@@ -1,0 +1,25 @@
+# ── Environment / secrets ─────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Dependencies ──────────────────────────────────────────
+node_modules/
+
+# ── Logs ──────────────────────────────────────────────────
+src/logs/*.log
+logs/
+
+# ── Uploads / temp ────────────────────────────────────────
+src/uploads/
+uploads/
+
+# ── OS / editor ───────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ── Build artefacts ───────────────────────────────────────
+dist/
+build/

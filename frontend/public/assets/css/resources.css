@@ -1,0 +1,15 @@
+.resource-search {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  margin: 18px 0 22px;
+}
+
+.resource-search .form-field {
+  min-height: 50px;
+}
+
+.resource-card .visual-card {
+  min-height: 160px;
+}
+

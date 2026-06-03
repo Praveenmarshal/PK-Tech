@@ -1,0 +1,13 @@
+{
+  "name": "zilist-frontend",
+  "version": "2.0.0",
+  "description": "Static HTML/CSS/JS frontend for ZILIST",
+  "scripts": {
+    "dev":   "npx serve src/pages -l 8000",
+    "build": "echo 'No build step — pure HTML/CSS/JS'",
+    "lint":  "echo 'Add eslint here if needed'"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

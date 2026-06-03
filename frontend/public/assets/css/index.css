@@ -1,0 +1,76 @@
+.home-video-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: #0a0a0a; /* dark placeholder — hides white flash before video starts */
+}
+
+.home-video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Keep text and cards readable over the video */
+[data-page="home"] .glass-panel,
+[data-page="home"] .feature-card,
+[data-page="home"] .floating-chip,
+[data-page="home"] .trust-panel {
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ── Adaptive text: inverts against the video behind it ─────────
+   mix-blend-mode: difference + white = auto-contrast on any bg.
+   Text appears light on dark video frames, dark on bright ones.
+──────────────────────────────────────────────────────────────── */
+[data-page="home"] .display-title,
+[data-page="home"] .page-title,
+[data-page="home"] .gradient-word,
+[data-page="home"] .eyebrow,
+[data-page="home"] .hero-copy,
+[data-page="home"] .section-title,
+[data-page="home"] .card-title,
+[data-page="home"] .card-copy,
+[data-page="home"] .trust-label,
+[data-page="home"] .logo-mark,
+[data-page="home"] .section-copy {
+  color: #ffffff;
+  mix-blend-mode: difference;
+  text-shadow: none;
+}
+
+/* Cards: always dark text — override the global mix-blend difference rule */
+[data-page="home"] .feature-card .card-title,
+[data-page="home"] .feature-card .card-copy,
+[data-page="home"] .feature-card .icon-badge {
+  mix-blend-mode: normal !important;
+}
+
+[data-page="home"] .feature-card .card-title {
+  color: #000000 !important;
+}
+
+[data-page="home"] .feature-card .card-copy {
+  color: #1e293b !important;
+}
+
+.home-hero {
+  min-height: 86vh;
+}
+
+.home-hero .hero-copy {
+  max-width: 570px;
+}
+
+.home-showcase {
+  margin-top: -22px;
+}
+
+.home-service-band {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+

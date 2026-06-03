@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solutions | ZILIST AI</title>
+  <meta name="description" content="ZILIST delivers AI, machine learning, full-stack development, automation systems, cybersecurity, AI dashboards, data science, and analytics systems.">
+  <meta name="keywords" content="AI Solutions, Machine Learning, Full Stack Development, Cybersecurity, AI Dashboards, Data Science, Analytics">
+  <!-- Video preloaded by JS on desktop only -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/solutions.css">
+</head>
+<body data-page="solutions">
+  <!-- Pages video background -->
+  <div class="pages-video-bg" aria-hidden="true">
+    <video id="pages-bg-video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/videos/pages-bg.mp4" type="video/mp4">
+    </video>
+  </div>
+  <script>
+    (function () {
+      // Skip video on mobile — too heavy, uses static image instead
+      if (window.innerWidth <= 768 || !window.matchMedia('(hover: hover)').matches) return;
+      var v = document.getElementById('pages-bg-video');
+      if (!v) return;
+      v.load();
+      var played = false;
+      function tryPlay() { if (played) return; played = true; v.play().catch(function(){}); }
+      v.addEventListener('canplay', tryPlay);
+      v.addEventListener('loadeddata', tryPlay);
+      tryPlay();
+    })();
+  </script>
+  <div data-navbar></div>
+  <main class="page-shell">
+    <section class="page-hero solutions-hero">
+      <div>
+        <p class="eyebrow">Solutions</p>
+        <h1 class="page-title">AI solutions for every business need.</h1>
+        <p class="hero-copy">Custom AI solutions that help you innovate, automate, protect, and scale faster.</p>
+        <div class="solution-stack">
+          <article class="solution-card"><span class="icon-badge">ML</span><h2 class="card-title">AI & Machine Learning</h2><p class="card-copy">Predictive models and intelligent systems.</p></article>
+          <article class="solution-card"><span class="icon-badge">FS</span><h2 class="card-title">Full Stack Development</h2><p class="card-copy">Fast, secure, scalable applications.</p></article>
+          <article class="solution-card"><span class="icon-badge">CS</span><h2 class="card-title">Cybersecurity</h2><p class="card-copy">Protect systems with AI-powered security.</p></article>
+        </div>
+      </div>
+      <div class="hero-media" aria-hidden="true">
+        <div class="orbital-stage"></div>
+        <div class="floating-chip chip-a">AI Dashboards</div>
+        <div class="floating-chip chip-b">Data Science</div>
+        <div class="floating-chip chip-c">Analytics Systems</div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="solution-grid">
+        <article class="solution-card is-wide"><span class="icon-badge">AU</span><h2 class="card-title">Automation Systems</h2><p class="card-copy">Workflow automations for business processes, notifications, approvals, and data movement.</p></article>
+        <article class="solution-card"><span class="icon-badge">BI</span><h2 class="card-title">Analytics Systems</h2><p class="card-copy">Advanced dashboards and reporting engines.</p></article>
+        <article class="solution-card"><span class="icon-badge">DS</span><h2 class="card-title">Data Science</h2><p class="card-copy">Models, pipelines, and measurable insights.</p></article>
+        <article class="solution-card is-wide"><span class="icon-badge">CX</span><h2 class="card-title">Premium Digital Experiences</h2><p class="card-copy">Luxury websites, company systems, and intelligent product interfaces.</p></article>
+      </div>
+    </section>
+  </main>
+  <div data-footer></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/solutions.js"></script>
+  <script src="assets/js/scroll-animations.js"></script>
+</body>
+</html>
+

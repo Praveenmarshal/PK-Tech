@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | ZILIST AI</title>
+  <meta name="description" content="Contact Praveen Kannan directly for AI systems, chatbots, automation platforms, dashboards, cybersecurity, analytics, and full-stack apps.">
+  <meta name="keywords" content="Contact Praveen Kannan, ZILIST Contact, AI Developer, Full Stack Developer, AI Automation">
+  <!-- Video preloaded by JS on desktop only -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
+</head>
+<body data-page="contact">
+  <!-- Pages video background -->
+  <div class="pages-video-bg" aria-hidden="true">
+    <video id="pages-bg-video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/videos/pages-bg.mp4" type="video/mp4">
+    </video>
+  </div>
+  <script>
+    (function () {
+      // Skip video on mobile — too heavy, uses static image instead
+      if (window.innerWidth <= 768 || !window.matchMedia('(hover: hover)').matches) return;
+      var v = document.getElementById('pages-bg-video');
+      if (!v) return;
+      v.load();
+      var played = false;
+      function tryPlay() { if (played) return; played = true; v.play().catch(function(){}); }
+      v.addEventListener('canplay', tryPlay);
+      v.addEventListener('loadeddata', tryPlay);
+      tryPlay();
+    })();
+  </script>
+  <div data-navbar></div>
+  <main class="page-shell">
+    <section class="page-hero compact">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h1 class="page-title">Let's build your next big AI project.</h1>
+        <p class="hero-copy">Contact Praveen Kannan directly for AI systems, chatbots, automation platforms, dashboards, cybersecurity, analytics, and premium digital experiences.</p>
+      </div>
+    </section>
+    <section class="section contact-grid">
+      <aside class="glass-panel contact-methods">
+        <h2 class="card-title">Get in touch</h2>
+        <a class="contact-method" href="mailto:praveenkicha01@gmail.com"><span class="icon-badge">E</span><span><strong>Email</strong><br>praveenkicha01@gmail.com</span></a>
+        <a class="contact-method" href="tel:+918825870266"><span class="icon-badge">P</span><span><strong>Phone</strong><br>+91 8825870266</span></a>
+        <a class="contact-method" href="https://www.linkedin.com/in/praveen-kannan-6862382a2" target="_blank" rel="noreferrer"><span class="icon-badge">in</span><span><strong>LinkedIn</strong><br>praveen-kannan</span></a>
+        <a class="contact-method" href="https://github.com/Praveenmarshal" target="_blank" rel="noreferrer"><span class="icon-badge">GH</span><span><strong>GitHub</strong><br>Praveenmarshal</span></a>
+        <a class="contact-method" href="https://praveen-kannan-4607.vercel.app/" target="_blank" rel="noreferrer"><span class="icon-badge">PF</span><span><strong>Portfolio</strong><br>praveen-kannan-4607.vercel.app</span></a>
+      </aside>
+      <form class="form-panel glass-panel form-stack" data-contact-form>
+        <input class="form-field" name="name" placeholder="Your Name" required>
+        <input class="form-field" type="email" name="email" placeholder="Your Email" required>
+        <input class="form-field" name="subject" placeholder="Subject" required>
+        <textarea class="form-field" name="message" placeholder="Your Message" required></textarea>
+        <button class="btn btn-primary" type="submit">Send Message</button>
+        <p class="form-status" data-form-status></p>
+      </form>
+      <aside class="glass-panel contact-methods">
+        <h2 class="card-title">Direct links</h2>
+        <a class="btn btn-secondary" href="https://www.linkedin.com/in/praveen-kannan-6862382a2" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="btn btn-secondary" href="https://github.com/Praveenmarshal" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn btn-secondary" href="https://wa.me/918825870266" target="_blank" rel="noreferrer">WhatsApp</a>
+        <a class="btn btn-primary" href="portfolio.html">Portfolio</a>
+      </aside>
+    </section>
+  </main>
+  <div data-footer></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/contact.js"></script>
+  <script src="assets/js/scroll-animations.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,8 @@
+.payment-drop {
+  min-height: 170px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed rgba(139,92,246,0.38);
+  background: #ffffff;
+}
+

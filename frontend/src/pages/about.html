@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | ZILIST AI</title>
+  <meta name="description" content="Learn about ZILIST, its mission, vision, innovation philosophy, and Praveen Kannan's work as a full-stack AI developer.">
+  <meta name="keywords" content="About ZILIST, Praveen Kannan, AI Developer, Full Stack Developer, AI Company">
+  <!-- Video preloaded by JS on desktop only -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/about.css">
+</head>
+<body data-page="about">
+  <!-- Pages video background -->
+  <div class="pages-video-bg" aria-hidden="true">
+    <video id="pages-bg-video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/videos/pages-bg.mp4" type="video/mp4">
+    </video>
+  </div>
+  <script>
+    (function () {
+      // Skip video on mobile — too heavy, uses static image instead
+      if (window.innerWidth <= 768 || !window.matchMedia('(hover: hover)').matches) return;
+      var v = document.getElementById('pages-bg-video');
+      if (!v) return;
+      v.load();
+      var played = false;
+      function tryPlay() { if (played) return; played = true; v.play().catch(function(){}); }
+      v.addEventListener('canplay', tryPlay);
+      v.addEventListener('loadeddata', tryPlay);
+      tryPlay();
+    })();
+  </script>
+  <div data-navbar></div>
+  <main class="page-shell">
+    <section class="page-hero story-grid">
+      <div>
+        <p class="eyebrow">About ZILIST</p>
+        <h1 class="page-title">An intelligent company driven by design, engineering, and AI.</h1>
+        <p class="hero-copy">ZILIST is a digital innovation company driven by creativity, intelligence, and a passion for building futuristic AI solutions.</p>
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="stat">500+</div><p class="card-copy">Clients</p></div>
+          <div class="metric-card"><div class="stat">350+</div><p class="card-copy">Projects</p></div>
+          <div class="metric-card"><div class="stat">5+</div><p class="card-copy">Years</p></div>
+          <div class="metric-card"><div class="stat">24/7</div><p class="card-copy">Support</p></div>
+        </div>
+      </div>
+      <div class="portrait-orbit">
+        <div class="portrait-card glass-panel">
+          <div class="initials">PK</div>
+          <h2>Praveen Kannan</h2>
+          <p class="card-copy">Full-stack AI developer and software engineer.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section glass-panel">
+      <h2 class="section-title">Meet Praveen Kannan</h2>
+      <p class="body-copy">Praveen Kannan is a full-stack AI developer and software engineer focused on building futuristic AI systems, automation platforms, premium dashboards, intelligent business solutions, and next-generation digital experiences.</p>
+      <div class="button-row">
+        <a class="btn btn-primary" href="portfolio.html">View Portfolio</a>
+        <a class="btn btn-secondary" href="https://github.com/Praveenmarshal" target="_blank" rel="noreferrer">GitHub Profile</a>
+        <a class="btn btn-secondary" href="https://www.linkedin.com/in/praveen-kannan-6862382a2" target="_blank" rel="noreferrer">LinkedIn Profile</a>
+        <a class="btn btn-ghost" href="contact.html">Contact Me</a>
+      </div>
+    </section>
+    <section class="section timeline-grid feature-grid">
+      <article class="timeline-item"><span class="icon-badge">M</span><h2 class="card-title">Our Mission</h2><p class="card-copy">Empower businesses with AI-driven platforms and intelligent automation.</p></article>
+      <article class="timeline-item"><span class="icon-badge">V</span><h2 class="card-title">Our Vision</h2><p class="card-copy">Become a global leader in AI innovation and digital transformation.</p></article>
+      <article class="timeline-item"><span class="icon-badge">I</span><h2 class="card-title">Innovation Philosophy</h2><p class="card-copy">Build minimal, premium, secure, and scalable systems that feel alive.</p></article>
+    </section>
+  </main>
+  <div data-footer></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/about.js"></script>
+  <script src="assets/js/scroll-animations.js"></script>
+</body>
+</html>
+

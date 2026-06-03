@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback | ZILIST AI</title>
+  <meta name="description" content="Share your experience with ZILIST. Read what other users are saying.">
+  <!-- Video preloaded by JS on desktop only -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/feedback.css">
+</head>
+<body data-page="feedback">
+
+  <!-- Pages video background -->
+  <div class="pages-video-bg" aria-hidden="true">
+    <video id="pages-bg-video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/videos/pages-bg.mp4" type="video/mp4">
+    </video>
+  </div>
+  <script>
+    (function () {
+      // Skip video on mobile — too heavy, uses static image instead
+      if (window.innerWidth <= 768 || !window.matchMedia('(hover: hover)').matches) return;
+      var v = document.getElementById('pages-bg-video');
+      if (!v) return;
+      v.load();
+      var played = false;
+      function tryPlay() { if (played) return; played = true; v.play().catch(function(){}); }
+      v.addEventListener('canplay', tryPlay);
+      v.addEventListener('loadeddata', tryPlay);
+      tryPlay();
+    })();
+  </script>
+
+  <div data-navbar></div>
+
+  <main class="page-shell">
+
+    <!-- ── Hero ── -->
+    <section class="page-hero fb-hero">
+      <p class="eyebrow">Share Your Thoughts</p>
+      <h1 class="page-title">We'd love to hear<br>your experience</h1>
+      <p class="hero-copy">Your feedback helps us build better products. It only takes 60 seconds.</p>
+    </section>
+
+    <!-- ── Submit Form ── -->
+    <section class="section fb-form-section">
+      <div class="glass-panel fb-form-panel">
+        <h2 class="section-title">Leave Your Feedback</h2>
+
+        <div id="fb-success" class="fb-success-msg" style="display:none">
+          <span class="fb-success-icon">✦</span>
+          <p>Thank you! Your feedback has been submitted.</p>
+        </div>
+
+        <form id="fb-form" novalidate>
+          <!-- Email -->
+          <div class="fb-field">
+            <label class="fb-label" for="fb-email">Email Address <span class="fb-req">*</span></label>
+            <input
+              class="fb-input"
+              type="email"
+              id="fb-email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            />
+            <span class="fb-error" id="fb-email-err"></span>
+          </div>
+
+          <!-- Experience -->
+          <div class="fb-field">
+            <label class="fb-label" for="fb-experience">Your Experience <span class="fb-req">*</span></label>
+            <textarea
+              class="fb-input fb-textarea"
+              id="fb-experience"
+              placeholder="Tell us what you loved, what could be better, or anything else on your mind…"
+              rows="5"
+              required
+            ></textarea>
+            <span class="fb-char-count" id="fb-char-count">0 / 600</span>
+            <span class="fb-error" id="fb-exp-err"></span>
+          </div>
+
+          <!-- Star Rating -->
+          <div class="fb-field">
+            <label class="fb-label">Rating <span class="fb-req">*</span></label>
+            <div class="fb-stars" id="fb-stars" role="radiogroup" aria-label="Rating">
+              <button type="button" class="fb-star" data-val="1" aria-label="1 star">★</button>
+              <button type="button" class="fb-star" data-val="2" aria-label="2 stars">★</button>
+              <button type="button" class="fb-star" data-val="3" aria-label="3 stars">★</button>
+              <button type="button" class="fb-star" data-val="4" aria-label="4 stars">★</button>
+              <button type="button" class="fb-star" data-val="5" aria-label="5 stars">★</button>
+            </div>
+            <span class="fb-error" id="fb-rating-err"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary fb-submit" id="fb-submit">Submit Feedback</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ── Community Feedbacks ── -->
+    <section class="section fb-wall-section" id="fb-wall">
+      <div class="fb-wall-header">
+        <div>
+          <p class="eyebrow">Community</p>
+          <h2 class="section-title">What others are saying</h2>
+        </div>
+        <div class="fb-wall-meta">
+          <span class="fb-total-badge" id="fb-total-badge">0 reviews</span>
+          <div class="fb-avg-wrap" id="fb-avg-wrap" style="display:none">
+            <span class="fb-avg-stars" id="fb-avg-stars"></span>
+            <span class="fb-avg-num" id="fb-avg-num"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cards container -->
+      <div class="fb-cards-wrap" id="fb-cards-wrap">
+        <div class="fb-empty" id="fb-empty">
+          <span class="fb-empty-icon">✦</span>
+          <p>No feedback yet. Be the first!</p>
+        </div>
+      </div>
+
+      <!-- Show More -->
+      <div class="fb-show-more-wrap" id="fb-show-more-wrap" style="display:none">
+        <button class="btn btn-secondary fb-show-more-btn" id="fb-show-more-btn">
+          Show More Reviews
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <div data-footer></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/feedback.js"></script>
+  <script src="assets/js/scroll-animations.js"></script>
+</body>
+</html>

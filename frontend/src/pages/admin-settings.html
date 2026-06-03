@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings | ZILIST Admin</title>
+  <meta name="description" content="Manage private ZILIST website settings.">
+  <meta name="robots" content="noindex,nofollow">
+  <!-- Video preloaded by JS on desktop only -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet" href="assets/css/admin-settings.css">
+</head>
+<body data-page="admin-settings" data-admin="settings">
+  <!-- Admin video background -->
+  <div class="admin-video-bg" aria-hidden="true">
+    <video id="admin-bg-video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/videos/admin-bg.mp4" type="video/mp4">
+    </video>
+  </div>
+  <script>
+    (function () {
+      // Skip video on mobile — too heavy, uses static image instead
+      if (window.innerWidth <= 768 || !window.matchMedia('(hover: hover)').matches) return;
+      var v = document.getElementById('admin-bg-video');
+      if (!v) return;
+      v.load();
+      var played = false;
+      function tryPlay() { if (played) return; played = true; v.play().catch(function(){}); }
+      v.addEventListener('canplay', tryPlay);
+      v.addEventListener('loadeddata', tryPlay);
+      tryPlay();
+    })();
+  </script>
+  <div data-navbar></div>
+  <main class="admin-shell">
+    <div data-admin-sidebar></div>
+    <section class="admin-content">
+      <div class="admin-topbar"><div><p class="eyebrow">Settings</p><h1 class="admin-title">Website settings.</h1></div></div>
+      <form class="admin-card form-stack" data-settings-form>
+        <div class="admin-form-grid">
+          <input class="form-field" name="brandName" value="ZILIST" placeholder="Brand name">
+          <input class="form-field" name="ownerName" value="Praveen Kannan" placeholder="Owner name">
+          <input class="form-field" name="email" value="praveenkicha01@gmail.com" placeholder="Email">
+          <input class="form-field" name="phone" value="+91 8825870266" placeholder="Phone">
+          <input class="form-field wide" name="portfolio" value="https://praveen-kannan-4607.vercel.app/" placeholder="Portfolio">
+        </div>
+        <button class="btn btn-primary" type="submit">Save Settings</button>
+        <p class="form-status" data-settings-status></p>
+      </form>
+    </section>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/admin.js"></script>
+  <script src="assets/js/admin-settings.js"></script>
+  <script src="assets/js/scroll-animations.js"></script>
+</body>
+</html>
+

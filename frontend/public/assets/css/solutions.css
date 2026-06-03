@@ -1,0 +1,13 @@
+.solutions-hero .orbital-stage {
+  inset: 4% 0 4% 10%;
+}
+
+.solution-card.is-wide {
+  grid-column: span 2;
+}
+
+.solution-stack {
+  display: grid;
+  gap: 14px;
+}
+
