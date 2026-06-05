@@ -1842,3 +1842,256 @@ textarea.form-field {
     background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=60') center / cover no-repeat, #0a0a0a;
   }
 }
+
+/* ═══════════════════════════════════════════════════════
+   PK TECH — INTRO LOADER
+   ═══════════════════════════════════════════════════════ */
+#pk-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #07080f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  overflow: hidden;
+  pointer-events: all;
+}
+
+/* Background grid */
+#pk-loader::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: gridPulse 3s ease-in-out infinite;
+}
+
+/* Radial glow */
+#pk-loader::after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1;   }
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.8; }
+  50%       { transform: translate(-50%, -50%) scale(1.15); opacity: 1;   }
+}
+
+/* ── Logo ──────────────────────────────────────────────── */
+.pk-logo-wrap {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 48px;
+}
+
+.pk-logo {
+  width: 96px;
+  height: 96px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 60%, #06b6d4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', monospace;
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -2px;
+  box-shadow:
+    0 0 0 1px rgba(124,58,237,0.5),
+    0 0 40px rgba(124,58,237,0.4),
+    0 0 80px rgba(124,58,237,0.2);
+  animation: logoReveal 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.2s both;
+  position: relative;
+}
+
+/* Corner accents on logo */
+.pk-logo::before,
+.pk-logo::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: rgba(255,255,255,0.5);
+  border-style: solid;
+}
+.pk-logo::before {
+  top: -4px; left: -4px;
+  border-width: 2px 0 0 2px;
+}
+.pk-logo::after {
+  bottom: -4px; right: -4px;
+  border-width: 0 2px 2px 0;
+}
+
+/* Orbiting ring */
+.pk-ring {
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  border-top-color: rgba(124,58,237,0.8);
+  border-right-color: rgba(79,70,229,0.4);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: logoReveal 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.2s both,
+             spin 2s linear 0.8s infinite;
+}
+
+.pk-ring-2 {
+  position: absolute;
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  border-bottom-color: rgba(6,182,212,0.5);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: logoReveal 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.3s both,
+             spinReverse 3s linear 0.8s infinite;
+}
+
+@keyframes spin        { to { transform: translate(-50%,-50%) rotate(360deg);  } }
+@keyframes spinReverse { to { transform: translate(-50%,-50%) rotate(-360deg); } }
+
+@keyframes logoReveal {
+  from { opacity: 0; transform: translate(-50%,-50%) scale(0.4); }
+  to   { opacity: 1; transform: translate(-50%,-50%) scale(1);   }
+}
+
+/* Special reset for .pk-logo (not absolutely centered) */
+.pk-logo {
+  animation: logoBoxReveal 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.2s both;
+}
+@keyframes logoBoxReveal {
+  from { opacity: 0; transform: scale(0.4); }
+  to   { opacity: 1; transform: scale(1);   }
+}
+
+/* Brand name below logo */
+.pk-brand {
+  position: relative;
+  z-index: 2;
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  margin-top: 20px;
+  animation: fadeUp 0.5s ease 0.7s both;
+}
+
+/* ── Status messages ───────────────────────────────────── */
+.pk-status-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 52px;
+}
+
+.pk-status {
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.0);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.4s ease, opacity 0.4s ease;
+}
+
+.pk-status.active {
+  color: rgba(255,255,255,0.85);
+}
+
+.pk-status.done {
+  color: rgba(124,58,237,0.6);
+}
+
+/* Dot indicator */
+.pk-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  flex-shrink: 0;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.pk-status.active .pk-dot {
+  background: #7c3aed;
+  box-shadow: 0 0 8px rgba(124,58,237,0.8);
+  animation: dotBlink 0.8s ease-in-out infinite;
+}
+
+.pk-status.done .pk-dot {
+  background: #06b6d4;
+  box-shadow: 0 0 6px rgba(6,182,212,0.6);
+  animation: none;
+}
+
+@keyframes dotBlink {
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: 0.3; }
+}
+
+/* ── Progress bar ──────────────────────────────────────── */
+.pk-progress-wrap {
+  position: relative;
+  z-index: 2;
+  width: 200px;
+  height: 2px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  margin-top: 36px;
+  overflow: hidden;
+}
+
+.pk-progress-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #7c3aed, #06b6d4);
+  box-shadow: 0 0 8px rgba(124,58,237,0.6);
+  transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ── Exit animation ────────────────────────────────────── */
+#pk-loader.pk-exit {
+  animation: loaderExit 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+@keyframes loaderExit {
+  0%   { opacity: 1; transform: scale(1);    }
+  60%  { opacity: 1; transform: scale(1.03); }
+  100% { opacity: 0; transform: scale(1.06); pointer-events: none; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
