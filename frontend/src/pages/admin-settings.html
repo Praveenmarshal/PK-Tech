@@ -45,7 +45,9 @@
     <div data-admin-sidebar></div>
     <section class="admin-content">
       <div class="admin-topbar"><div><p class="eyebrow">Settings</p><h1 class="admin-title">Website settings.</h1></div></div>
+      <!-- General Settings -->
       <form class="admin-card form-stack" data-settings-form>
+        <h2 class="admin-section-title">General Settings</h2>
         <div class="admin-form-grid">
           <input class="form-field" name="brandName" value="PK Tech" placeholder="Brand name">
           <input class="form-field" name="ownerName" value="Praveen Kannan" placeholder="Owner name">
@@ -55,6 +57,61 @@
         </div>
         <button class="btn btn-primary" type="submit">Save Settings</button>
         <p class="form-status" data-settings-status></p>
+      </form>
+
+      <!-- Stats Cards Editor -->
+      <form class="admin-card form-stack" id="stats-form" style="margin-top:2rem">
+        <h2 class="admin-section-title">About Page — Stats Cards</h2>
+        <p class="body-copy" style="margin-bottom:1.5rem;opacity:.7">These 4 cards appear on the About page. Edit the number and label for each.</p>
+        <div class="admin-form-grid" id="stats-grid">
+
+          <!-- Card 1 — Clients -->
+          <div class="stats-card-edit">
+            <label class="form-label">Card 1 — Value</label>
+            <input class="form-field" id="stat-clients-value" placeholder="e.g. 500+" value="500+">
+            <label class="form-label" style="margin-top:.5rem">Card 1 — Label</label>
+            <input class="form-field" id="stat-clients-label" placeholder="e.g. Clients" value="Clients">
+          </div>
+
+          <!-- Card 2 — Projects -->
+          <div class="stats-card-edit">
+            <label class="form-label">Card 2 — Value</label>
+            <input class="form-field" id="stat-projects-value" placeholder="e.g. 350+" value="350+">
+            <label class="form-label" style="margin-top:.5rem">Card 2 — Label</label>
+            <input class="form-field" id="stat-projects-label" placeholder="e.g. Projects" value="Projects">
+          </div>
+
+          <!-- Card 3 — Years -->
+          <div class="stats-card-edit">
+            <label class="form-label">Card 3 — Value</label>
+            <input class="form-field" id="stat-years-value" placeholder="e.g. 5+" value="5+">
+            <label class="form-label" style="margin-top:.5rem">Card 3 — Label</label>
+            <input class="form-field" id="stat-years-label" placeholder="e.g. Years" value="Years">
+          </div>
+
+          <!-- Card 4 — Support -->
+          <div class="stats-card-edit">
+            <label class="form-label">Card 4 — Value</label>
+            <input class="form-field" id="stat-support-value" placeholder="e.g. 24/7" value="24/7">
+            <label class="form-label" style="margin-top:.5rem">Card 4 — Label</label>
+            <input class="form-field" id="stat-support-label" placeholder="e.g. Support" value="Support">
+          </div>
+
+        </div>
+
+        <!-- Live preview -->
+        <div style="margin-top:1.5rem">
+          <p class="form-label" style="margin-bottom:.75rem">Live Preview</p>
+          <div id="stats-preview" style="display:flex;gap:1rem;flex-wrap:wrap">
+            <div class="metric-card" style="min-width:110px;text-align:center"><div class="stat" id="prev-clients-value">500+</div><p class="card-copy" id="prev-clients-label">Clients</p></div>
+            <div class="metric-card" style="min-width:110px;text-align:center"><div class="stat" id="prev-projects-value">350+</div><p class="card-copy" id="prev-projects-label">Projects</p></div>
+            <div class="metric-card" style="min-width:110px;text-align:center"><div class="stat" id="prev-years-value">5+</div><p class="card-copy" id="prev-years-label">Years</p></div>
+            <div class="metric-card" style="min-width:110px;text-align:center"><div class="stat" id="prev-support-value">24/7</div><p class="card-copy" id="prev-support-label">Support</p></div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" style="margin-top:1.5rem">Save Stats</button>
+        <p class="form-status" id="stats-status"></p>
       </form>
     </section>
   </main>

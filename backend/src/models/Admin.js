@@ -13,7 +13,13 @@ const adminSchema = new mongoose.Schema(
       phone: { type: String, default: "+91 8825870266" },
       portfolio: { type: String, default: "https://praveen-kannan-4607.vercel.app/" },
       linkedin: { type: String, default: "https://www.linkedin.com/in/praveen-kannan-6862382a2" },
-      github: { type: String, default: "https://github.com/Praveenmarshal" }
+      github: { type: String, default: "https://github.com/Praveenmarshal" },
+      stats: {
+        clients:  { value: { type: String, default: "500+" }, label: { type: String, default: "Clients"  } },
+        projects: { value: { type: String, default: "350+" }, label: { type: String, default: "Projects" } },
+        years:    { value: { type: String, default: "5+"   }, label: { type: String, default: "Years"    } },
+        support:  { value: { type: String, default: "24/7" }, label: { type: String, default: "Support"  } }
+      }
     }
   },
   { timestamps: true }
