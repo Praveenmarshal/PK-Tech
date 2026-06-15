@@ -31,6 +31,6 @@ http.createServer((req, res) => {
     res.end(data);
   });
 }).listen(port, "127.0.0.1", () => {
-  console.log(`ZILIST static server: http://127.0.0.1:${port}/index.html`);
+  console.log(`PK Tech static server: http://127.0.0.1:${port}/index.html`);
 });
 

@@ -1,9 +1,9 @@
-# ZILIST — Secure Full-Stack Web Application
+# PK Tech — Secure Full-Stack Web Application
 
 ## Project Structure
 
 ```
-Zilist_white/
+PK Tech_white/
 ├── frontend/                   # Static HTML/CSS/JS client
 │   ├── src/
 │   │   ├── components/         # Reusable HTML components (navbar, footer, etc.)

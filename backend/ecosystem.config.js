@@ -4,7 +4,7 @@
 module.exports = {
   apps: [
     {
-      name: "zilist-backend",
+      name: "pktech-backend",
       script: "src/server.js",
       instances: "max",          // cluster mode — one per CPU core
       exec_mode: "cluster",

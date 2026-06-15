@@ -9,7 +9,7 @@ const BASE_URL = window.location.origin; // same-origin via nginx proxy
 
 /** Retrieve the JWT stored after login */
 function getToken() {
-  return sessionStorage.getItem("zilist_token") || localStorage.getItem("zilist_token");
+  return sessionStorage.getItem("pktech_token") || localStorage.getItem("pktech_token");
 }
 
 /** Core fetch wrapper — adds auth header + JSON defaults */

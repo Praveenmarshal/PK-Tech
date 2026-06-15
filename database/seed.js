@@ -72,10 +72,10 @@ async function seed() {
   await Project.insertMany(projects);
   await Resource.insertMany(resources);
   await Testimonial.insertMany([
-    { name: "Rohan Verma", role: "Founder", quote: "ZILIST turned our AI idea into a clean, premium platform with real workflow value." },
+    { name: "Rohan Verma", role: "Founder", quote: "PK Tech turned our AI idea into a clean, premium platform with real workflow value." },
     { name: "Nila Shah", role: "Operations Lead", quote: "The dashboard made our business data feel calm, readable, and immediately useful." }
   ]);
-  console.log("ZILIST seed data inserted.");
+  console.log("PK Tech seed data inserted.");
   await mongoose.disconnect();
 }
 

@@ -55,10 +55,20 @@ app.use("/api/payments",     paymentRoutes);
 app.use("/api/settings",     settingsRoutes);
 
 // ── Serve static frontend ────────────────────────────────────────────────────
-const frontendPath = path.resolve(__dirname, "../../frontend/src/pages");
-app.use(express.static(path.resolve(__dirname, "../../frontend/public")));
-app.use(express.static(frontendPath));
-app.get("/", (_req, res) => res.sendFile(path.join(frontendPath, "index.html")));
+// Root Directory on Render = PK-Tech (repo root), so both backend/ and frontend/ exist
+// __dirname = /app/backend/src  →  ../../frontend = /app/frontend ✓
+const frontendRoot   = require("path").resolve(__dirname, "../../frontend");
+const frontendPages  = require("path").join(frontendRoot, "src/pages");
+const frontendPublic = require("path").join(frontendRoot, "public");
+app.use(express.static(frontendPublic));
+app.use(express.static(frontendPages));
+app.get("/", (_req, res) => res.sendFile(require("path").join(frontendPages, "index.html")));
+app.get("*.html", (req, res) => {
+  const page = require("path").join(frontendPages, require("path").basename(req.path));
+  res.sendFile(page, (err) => {
+    if (err) res.sendFile(require("path").join(frontendPages, "index.html"));
+  });
+});
 
 // ── Error handler (must be last) ─────────────────────────────────────────────
 app.use(errorHandler);
