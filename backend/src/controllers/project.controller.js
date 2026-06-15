@@ -2,7 +2,7 @@ const slugify = require("slugify");
 const Project = require("../models/Project");
 
 function makeSlug(title, slug) {
-  return slug || slugify(title || "zilist-project", { lower: true, strict: true });
+  return slug || slugify(title || "pktech-project", { lower: true, strict: true });
 }
 
 async function listProjects(req, res, next) {

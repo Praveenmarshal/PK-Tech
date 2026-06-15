@@ -37,7 +37,7 @@ function renderProjects(projects) {
 document.addEventListener("DOMContentLoaded", async () => {
   let projects = fallbackProjects;
   try {
-    const data = await window.Zilist.api.get("/projects");
+    const data = await window.PKTech.api.get("/projects");
     projects = data.projects?.length ? data.projects : fallbackProjects;
   } catch (error) {}
   renderProjects(projects);

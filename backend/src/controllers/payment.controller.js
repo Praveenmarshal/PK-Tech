@@ -21,7 +21,7 @@ async function createPayment(req, res, next) {
 
 async function uploadPaymentProof(req, res, next) {
   try {
-    const screenshot = req.file ? await uploadBuffer(req.file, "zilist/payment-proofs") : {};
+    const screenshot = req.file ? await uploadBuffer(req.file, "pktech/payment-proofs") : {};
     const payment = await PaymentProof.create({ ...req.body, screenshot });
     res.status(201).json({ payment });
   } catch (error) {

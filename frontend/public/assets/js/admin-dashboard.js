@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const defaults = { totalProjects: 24, totalMessages: 156, totalClients: 320, totalViews: "12.5K" };
   let data = defaults;
   try {
-    data = { ...defaults, ...(await window.Zilist.api.get("/analytics/summary")) };
+    data = { ...defaults, ...(await window.PKTech.api.get("/analytics/summary")) };
   } catch (error) {}
   metrics.innerHTML = [
     ["Total Projects", data.totalProjects],

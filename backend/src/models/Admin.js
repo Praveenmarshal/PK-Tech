@@ -9,7 +9,7 @@ const adminSchema = new mongoose.Schema(
     role: { type: String, enum: ["owner"], default: "owner" },
     isActive: { type: Boolean, default: true },
     settings: {
-      brandName: { type: String, default: "ZILIST" },
+      brandName: { type: String, default: "PK Tech" },
       phone: { type: String, default: "+91 8825870266" },
       portfolio: { type: String, default: "https://praveen-kannan-4607.vercel.app/" },
       linkedin: { type: String, default: "https://www.linkedin.com/in/praveen-kannan-6862382a2" },

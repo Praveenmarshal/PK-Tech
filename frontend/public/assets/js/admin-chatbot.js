@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let knowledge = [];
 
   // Load existing knowledge entries
-  window.Zilist.api.get("/chatbot/knowledge").then((data) => {
+  window.PKTech.api.get("/chatbot/knowledge").then((data) => {
     if (data.knowledge?.length) {
       knowledge = data.knowledge;
       render();
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function deleteRow(id, el) {
     if (!confirm("Delete this knowledge entry? This cannot be undone.")) return;
-    window.Zilist.api.delete(`/chatbot/knowledge/${id}`).catch(() => {});
+    window.PKTech.api.delete(`/chatbot/knowledge/${id}`).catch(() => {});
     knowledge = knowledge.filter((k) => k._id !== id);
     el.closest("tr").remove();
   }
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     const payload = Object.fromEntries(new FormData(form).entries());
     try {
-      await window.Zilist.api.post("/chatbot/knowledge", payload);
+      await window.PKTech.api.post("/chatbot/knowledge", payload);
     } catch (error) {}
     knowledge.unshift(payload);
     render();
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     const message = test.message.value.trim();
     if (!message) return;
-    const reply = window.Zilist.localAssistant(message);
+    const reply = window.PKTech.localAssistant(message);
     document.querySelector("[data-chatbot-output]").innerHTML +=
       `<p class="chat-msg user">${message}</p><p class="chat-msg">${reply}</p>`;
     test.reset();

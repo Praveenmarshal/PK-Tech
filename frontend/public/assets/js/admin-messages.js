@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const table = document.querySelector("[data-admin-messages]");
-  let messages = window.ZilistAdmin.fallback.messages;
+  let messages = window.PKTechAdmin.fallback.messages;
   try {
-    const data = await window.Zilist.api.get("/contact/messages");
+    const data = await window.PKTech.api.get("/contact/messages");
     messages = data.messages?.length ? data.messages : messages;
   } catch (error) {}
 
   function deleteRow(id, el) {
     if (!confirm("Delete this message? This cannot be undone.")) return;
-    window.Zilist.api.delete(`/contact/messages/${id}`).catch(() => {});
+    window.PKTech.api.delete(`/contact/messages/${id}`).catch(() => {});
     messages = messages.filter((m) => m._id !== id);
     el.closest("tr").remove();
   }

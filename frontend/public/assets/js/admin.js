@@ -12,7 +12,7 @@
   ];
 
   function token() {
-    return localStorage.getItem("zilist_admin_token");
+    return localStorage.getItem("pktech_admin_token");
   }
 
   function guard() {
@@ -29,7 +29,7 @@
     const page = document.body.dataset.admin || "";
     target.innerHTML = `
       <aside class="admin-sidebar">
-        <p class="admin-brand">ZILIST Admin</p>
+        <p class="admin-brand">PK Tech Admin</p>
         <nav class="admin-nav">
           ${adminLinks.map(([label, href, key]) => `<a class="${page === key ? "is-active" : ""}" href="${href}">${label}</a>`).join("")}
           <button class="admin-logout" type="button" data-admin-logout>Logout</button>
@@ -37,17 +37,17 @@
       </aside>
     `;
     target.querySelector("[data-admin-logout]")?.addEventListener("click", () => {
-      localStorage.removeItem("zilist_admin_token");
-      localStorage.removeItem("zilist_admin_user");
+      localStorage.removeItem("pktech_admin_token");
+      localStorage.removeItem("pktech_admin_user");
       window.location.href = "admin-login.html";
     });
   }
 
   function adminFetch(path, options = {}) {
-    return window.Zilist.api[options.methodName || "get"] ? window.Zilist.api[options.methodName || "get"](path, options.body) : Promise.reject(new Error("API unavailable"));
+    return window.PKTech.api[options.methodName || "get"] ? window.PKTech.api[options.methodName || "get"](path, options.body) : Promise.reject(new Error("API unavailable"));
   }
 
-  window.ZilistAdmin = {
+  window.PKTechAdmin = {
     guard,
     renderSidebar,
     token,

@@ -2,7 +2,7 @@ const slugify = require("slugify");
 const Resource = require("../models/Resource");
 
 function makeSlug(title, slug) {
-  return slug || slugify(title || "zilist-resource", { lower: true, strict: true });
+  return slug || slugify(title || "pktech-resource", { lower: true, strict: true });
 }
 
 async function listResources(req, res, next) {

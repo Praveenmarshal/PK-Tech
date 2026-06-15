@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Also send to backend (saves to MongoDB)
     try {
-      await window.Zilist.api.post("/contact", payload);
+      await window.PKTech.api.post("/contact", payload);
     } catch (_) {}
 
     // Success feedback

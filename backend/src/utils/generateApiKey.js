@@ -12,7 +12,7 @@ function generateApiKey() {
   const raw  = crypto.randomBytes(32).toString("hex");
   const key  = `zl_${raw}`;
   const hash = crypto
-    .createHmac("sha256", env.API_KEY_SECRET || "zilist-api-key-secret")
+    .createHmac("sha256", env.API_KEY_SECRET || "pktech-api-key-secret")
     .update(key)
     .digest("hex");
   return { key, hash };
@@ -23,7 +23,7 @@ function generateApiKey() {
  */
 function verifyApiKey(presented, storedHash) {
   const hash = crypto
-    .createHmac("sha256", env.API_KEY_SECRET || "zilist-api-key-secret")
+    .createHmac("sha256", env.API_KEY_SECRET || "pktech-api-key-secret")
     .update(presented)
     .digest("hex");
   return crypto.timingSafeEqual(Buffer.from(hash), Buffer.from(storedHash));

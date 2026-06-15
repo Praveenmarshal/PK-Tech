@@ -20,7 +20,7 @@ async function start() {
   }
 
   app.listen(env.PORT, () => {
-    logger.info(`ZILIST server running on http://localhost:${env.PORT} [${env.NODE_ENV}]`);
+    logger.info(`PK Tech server running on http://localhost:${env.PORT} [${env.NODE_ENV}]`);
   });
 }
 

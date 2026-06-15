@@ -38,7 +38,7 @@ app.use("/api", apiLimiter);
 
 // ── Health & CSRF ─────────────────────────────────────────────────────────────
 app.get("/api/health", (_req, res) =>
-  res.json({ ok: true, name: "ZILIST API", environment: env.NODE_ENV })
+  res.json({ ok: true, name: "PK Tech API", environment: env.NODE_ENV })
 );
 app.get("/api/csrf", issueToken);
 

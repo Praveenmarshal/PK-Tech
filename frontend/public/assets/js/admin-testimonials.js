@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let testimonials = [];
 
   // Load existing
-  window.Zilist.api.get("/testimonials").then((data) => {
+  window.PKTech.api.get("/testimonials").then((data) => {
     if (data.testimonials?.length) {
       testimonials = data.testimonials;
       render();
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function deleteRow(id, el) {
     if (!confirm("Delete this testimonial? This cannot be undone.")) return;
-    window.Zilist.api.delete(`/testimonials/${id}`).catch(() => {});
+    window.PKTech.api.delete(`/testimonials/${id}`).catch(() => {});
     testimonials = testimonials.filter((t) => t._id !== id);
     el.closest("tr").remove();
   }
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     const payload = Object.fromEntries(new FormData(form).entries());
     try {
-      const data = await window.Zilist.api.post("/testimonials", payload);
+      const data = await window.PKTech.api.post("/testimonials", payload);
       testimonials.unshift(data.testimonial || payload);
     } catch (error) {
       testimonials.unshift(payload);

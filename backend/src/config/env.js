@@ -27,7 +27,7 @@ const env = {
 
   // ── Database ──────────────────────────────────────────────────
   MONGODB_URI: optional("MONGODB_URI"),          // optional so app boots without DB
-  MONGODB_DB:  optional("MONGODB_DB", "zilist"),
+  MONGODB_DB:  optional("MONGODB_DB", "pktech"),
 
   // ── Auth / JWT ────────────────────────────────────────────────
   JWT_SECRET:     required("JWT_SECRET"),

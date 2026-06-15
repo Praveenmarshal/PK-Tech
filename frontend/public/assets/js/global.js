@@ -21,9 +21,9 @@
   };
 
   const defaultApiBase = (() => {
-    if (window.ZILIST_API_BASE) return window.ZILIST_API_BASE;
+    if (window.PK Tech_API_BASE) return window.PK Tech_API_BASE;
     if (window.location.protocol === "file:" || ["8000", "8080", "5500"].includes(window.location.port)) {
-      return "https://zilist-ai-1.onrender.com/api";
+      return "https://pk-tech.onrender.com/api";
     }
     return `${window.location.origin}/api`;
   })();
@@ -34,7 +34,7 @@
   };
 
   function apiHeaders(json) {
-    const token = localStorage.getItem("zilist_admin_token");
+    const token = localStorage.getItem("pktech_admin_token");
     return {
       ...(json ? { "Content-Type": "application/json" } : {}),
       ...(token ? { Authorization: `Bearer ${token}` } : {})
@@ -70,7 +70,7 @@
     target.innerHTML = `
       <header class="site-nav-wrap">
         <nav class="site-nav" aria-label="Primary navigation">
-          <a class="brand" href="index.html" aria-label="ZILIST home">ZILIST</a>
+          <a class="brand" href="index.html" aria-label="PK Tech home">PK Tech</a>
           <button class="nav-toggle" type="button" aria-label="Open navigation">☰</button>
           <div class="nav-links">
             ${links.map(([label, href, key]) => `<a class="nav-link ${page === key ? "is-active" : ""}" href="${href}">${label}</a>`).join("")}
@@ -94,7 +94,7 @@
       <footer class="site-footer">
         <div class="footer-grid">
           <div>
-            <h2 class="footer-title">ZILIST</h2>
+            <h2 class="footer-title">PK Tech</h2>
             <p class="body-copy" style="color:rgba(255,255,255,.7)">Building intelligent AI systems, automation platforms, and premium digital experiences for the future.</p>
           </div>
           <div>
@@ -135,7 +135,7 @@
             </div>
           </div>
         </div>
-        <div class="footer-copy">© 2026 ZILIST — Built by Praveen Kannan</div>
+        <div class="footer-copy">© 2026 PK Tech — Built by Praveen Kannan</div>
       </footer>
     `;
   }
@@ -302,7 +302,7 @@
   }
 
   function setupThree() {
-    const canvas = document.getElementById("zilist-three");
+    const canvas = document.getElementById("pktech-three");
     if (!canvas || !window.THREE) return;
 
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
@@ -368,50 +368,50 @@
   }
 
   const knowledge = [
-    [["about", "zilist", "company"], "ZILIST is Praveen Kannan's premium AI company for AI systems, chatbots, automation platforms, dashboards, cybersecurity tools, data analytics, and full-stack digital experiences."],
+    [["about", "zilist", "company"], "PK Tech is Praveen Kannan's premium AI company for AI systems, chatbots, automation platforms, dashboards, cybersecurity tools, data analytics, and full-stack digital experiences."],
     [["praveen", "owner", "developer", "founder"], "Praveen Kannan is a full-stack AI developer and software engineer focused on futuristic AI systems, automation platforms, premium dashboards, intelligent business solutions, and next-generation digital experiences."],
-    [["service", "services", "offer", "build", "make", "develop"], "ZILIST builds AI automation, AI chatbots, full-stack apps, AI dashboards, cybersecurity systems, analytics platforms, and business automation workflows."],
+    [["service", "services", "offer", "build", "make", "develop"], "PK Tech builds AI automation, AI chatbots, full-stack apps, AI dashboards, cybersecurity systems, analytics platforms, and business automation workflows."],
     [["contact", "email", "phone", "call", "whatsapp", "linkedin", "github"], `You can contact Praveen at ${owner.email}, call ${owner.phone}, message on WhatsApp, connect on LinkedIn or GitHub, or visit the portfolio at ${owner.portfolio}.`],
-    [["project", "portfolio", "case study", "work"], "Featured ZILIST projects include AI Chatbot Platform, Analytics Dashboard, Gym Management System, AI Automation Platform, Cybersecurity Dashboard, and Portfolio System."],
-    [["technology", "stack", "tools", "database", "backend", "frontend"], "The ZILIST stack includes Node.js, Express, MongoDB, Mongoose, JWT, Cloudinary, Nodemailer, OpenAI, Gemini, Three.js, GSAP, Swiper, Tailwind, and modern frontend architecture."],
-    [["price", "pricing", "cost", "budget", "quote"], "ZILIST does not use public subscriptions or fixed pricing. Every project is scoped privately with Praveen after understanding your goals, timeline, integrations, and required AI features."],
+    [["project", "portfolio", "case study", "work"], "Featured PK Tech projects include AI Chatbot Platform, Analytics Dashboard, Gym Management System, AI Automation Platform, Cybersecurity Dashboard, and Portfolio System."],
+    [["technology", "stack", "tools", "database", "backend", "frontend"], "The PK Tech stack includes Node.js, Express, MongoDB, Mongoose, JWT, Cloudinary, Nodemailer, OpenAI, Gemini, Three.js, GSAP, Swiper, Tailwind, and modern frontend architecture."],
+    [["price", "pricing", "cost", "budget", "quote"], "PK Tech does not use public subscriptions or fixed pricing. Every project is scoped privately with Praveen after understanding your goals, timeline, integrations, and required AI features."],
     [["time", "timeline", "deadline", "duration"], "Timeline depends on scope. A chatbot or focused dashboard can be planned quickly, while a full-stack AI platform needs discovery, UI, backend, database, testing, and deployment phases."],
-    [["chatbot", "assistant", "bot"], "ZILIST can build custom AI chatbots with website knowledge, lead capture, multilingual support, admin review, OpenAI or Gemini integration, and safe fallback answers."],
-    [["automation", "workflow", "automate"], "ZILIST automation systems can connect forms, CRMs, dashboards, APIs, notifications, reports, and AI decisions so repetitive work runs with less manual effort."],
-    [["dashboard", "analytics", "data", "report"], "ZILIST creates premium AI dashboards for business metrics, analytics, operations, cybersecurity visibility, customer insights, and executive decision-making."],
-    [["security", "cybersecurity", "secure"], "ZILIST can design cybersecurity dashboards and secure application layers with admin authentication, protected APIs, careful data handling, and monitoring workflows."],
-    [["mobile", "responsive", "phone"], "The ZILIST website and platforms are designed to adapt across desktop, tablet, and mobile with cinematic visuals, readable sections, and touch-friendly controls."],
-    [["admin", "login", "credentials"], "The ZILIST admin area is private for the owner only. It manages projects, resources, messages, payment proofs, testimonials, analytics, settings, and chatbot knowledge."]
+    [["chatbot", "assistant", "bot"], "PK Tech can build custom AI chatbots with website knowledge, lead capture, multilingual support, admin review, OpenAI or Gemini integration, and safe fallback answers."],
+    [["automation", "workflow", "automate"], "PK Tech automation systems can connect forms, CRMs, dashboards, APIs, notifications, reports, and AI decisions so repetitive work runs with less manual effort."],
+    [["dashboard", "analytics", "data", "report"], "PK Tech creates premium AI dashboards for business metrics, analytics, operations, cybersecurity visibility, customer insights, and executive decision-making."],
+    [["security", "cybersecurity", "secure"], "PK Tech can design cybersecurity dashboards and secure application layers with admin authentication, protected APIs, careful data handling, and monitoring workflows."],
+    [["mobile", "responsive", "phone"], "The PK Tech website and platforms are designed to adapt across desktop, tablet, and mobile with cinematic visuals, readable sections, and touch-friendly controls."],
+    [["admin", "login", "credentials"], "The PK Tech admin area is private for the owner only. It manages projects, resources, messages, payment proofs, testimonials, analytics, settings, and chatbot knowledge."]
   ];
 
   function localAssistant(message) {
     const text = message.toLowerCase().replace(/[^\w\s+@.-]/g, " ");
     if (/\b(can|could|will|do)\b.*\b(build|create|make|develop|design|automate|integrate)\b/.test(text)) {
-      return "Yes. ZILIST can build custom AI systems, chatbots, automations, dashboards, cybersecurity tools, data products, and full-stack applications. Share your idea through the contact form or email Praveen directly so the project can be scoped.";
+      return "Yes. PK Tech can build custom AI systems, chatbots, automations, dashboards, cybersecurity tools, data products, and full-stack applications. Share your idea through the contact form or email Praveen directly so the project can be scoped.";
     }
     const hit = knowledge.find(([keys]) => keys.some((key) => text.includes(key)));
     if (hit) return hit[1];
     if (text.includes("?")) {
-      return "That sounds like a custom ZILIST project question. Praveen can help clarify the best AI architecture, automation flow, database, dashboard, or deployment plan. Send the details through Contact Me or email praveenkicha01@gmail.com.";
+      return "That sounds like a custom PK Tech project question. Praveen can help clarify the best AI architecture, automation flow, database, dashboard, or deployment plan. Send the details through Contact Me or email praveenkicha01@gmail.com.";
     }
-    return "I can help with ZILIST services, custom project ideas, AI chatbots, automation, dashboards, cybersecurity, technology stack, pricing approach, timelines, portfolio, contact details, and navigation.";
+    return "I can help with PK Tech services, custom project ideas, AI chatbots, automation, dashboards, cybersecurity, technology stack, pricing approach, timelines, portfolio, contact details, and navigation.";
   }
 
   function setupChatbot() {
     if (document.querySelector(".chat-launcher")) return;
     const panel = document.createElement("section");
     panel.className = "chat-panel glass-panel";
-    panel.setAttribute("aria-label", "ZILIST AI Assistant");
+    panel.setAttribute("aria-label", "PK Tech AI Assistant");
     panel.innerHTML = `
       <div class="chat-head">
-        <strong>ZILIST AI Assistant</strong>
+        <strong>PK Tech AI Assistant</strong>
         <button class="round-icon" data-chat-close type="button" aria-label="Close chat">×</button>
       </div>
       <div class="chat-body" data-chat-body>
-        <p class="chat-msg">Hello. I am your ZILIST AI assistant. How can I help you today?</p>
+        <p class="chat-msg">Hello. I am your PK Tech assistant. How can I help you today?</p>
       </div>
       <div class="chat-actions">
-        <button class="chat-suggestion" type="button">Tell me about ZILIST</button>
+        <button class="chat-suggestion" type="button">Tell me about PK Tech</button>
         <button class="chat-suggestion" type="button">Show your projects</button>
         <button class="chat-suggestion" type="button">Explain your services</button>
         <button class="chat-suggestion" type="button">Contact Praveen</button>
@@ -424,7 +424,7 @@
     const launcher = document.createElement("button");
     launcher.className = "chat-launcher";
     launcher.type = "button";
-    launcher.setAttribute("aria-label", "Open ZILIST AI Assistant");
+    launcher.setAttribute("aria-label", "Open PK Tech AI Assistant");
     document.body.append(panel, launcher);
 
     const body = panel.querySelector("[data-chat-body]");
@@ -509,7 +509,7 @@
     }).catch(() => {});
   }
 
-  window.Zilist = {
+  window.PKTech = {
     owner,
     apiBase: state.apiBase,
     api: {

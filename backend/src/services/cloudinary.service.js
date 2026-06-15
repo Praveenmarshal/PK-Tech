@@ -4,7 +4,7 @@ const streamifier = require("streamifier");
 const cloudinary  = require("../config/cloudinary");
 const env         = require("../config/env");
 
-function uploadBuffer(file, folder = "zilist") {
+function uploadBuffer(file, folder = "pktech") {
   if (!env.isCloudinaryConfigured) {
     return Promise.resolve({ url: "", publicId: "", skipped: true });
   }

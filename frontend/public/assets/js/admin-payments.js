@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let payments = [];
 
   // Load existing payments
-  window.Zilist.api.get("/payments").then((data) => {
+  window.PKTech.api.get("/payments").then((data) => {
     if (data.payments?.length) {
       payments = data.payments;
       render();
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function deleteRow(id, el) {
     if (!confirm("Delete this payment record? This cannot be undone.")) return;
-    window.Zilist.api.delete(`/payments/${id}`).catch(() => {});
+    window.PKTech.api.delete(`/payments/${id}`).catch(() => {});
     payments = payments.filter((p) => p._id !== id);
     el.closest("tr").remove();
   }
@@ -39,14 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const payload = Object.fromEntries(formData.entries());
     try {
       if (formData.get("screenshot")?.name) {
-        const response = await fetch(`${window.Zilist.apiBase}/payments/upload`, {
+        const response = await fetch(`${window.PKTech.apiBase}/payments/upload`, {
           method: "POST",
-          headers: { Authorization: `Bearer ${window.ZilistAdmin.token()}` },
+          headers: { Authorization: `Bearer ${window.PKTechAdmin.token()}` },
           body: formData
         });
         if (!response.ok) throw new Error("Upload failed");
       } else {
-        await window.Zilist.api.post("/payments", payload);
+        await window.PKTech.api.post("/payments", payload);
       }
     } catch (error) {}
     payments.unshift({ ...payload, status: "Uploaded" });

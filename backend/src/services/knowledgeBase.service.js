@@ -8,8 +8,8 @@ const owner = {
 
 const entries = [
   {
-    intents: ["about", "zilist", "company"],
-    answer: "ZILIST is Praveen Kannan's premium AI company for AI systems, chatbots, automation platforms, dashboards, cybersecurity systems, data analytics, and full-stack digital experiences."
+    intents: ["about", "pktech", "company"],
+    answer: "PK Tech is Praveen Kannan's premium AI company for AI systems, chatbots, automation platforms, dashboards, cybersecurity systems, data analytics, and full-stack digital experiences."
   },
   {
     intents: ["praveen", "owner", "developer", "founder"],
@@ -17,11 +17,11 @@ const entries = [
   },
   {
     intents: ["services", "service", "offer", "build", "develop", "make"],
-    answer: "ZILIST builds AI automation, AI chatbots, full-stack applications, AI dashboards, cybersecurity systems, analytics platforms, data science systems, and business automation workflows."
+    answer: "PK Tech builds AI automation, AI chatbots, full-stack applications, AI dashboards, cybersecurity systems, analytics platforms, data science systems, and business automation workflows."
   },
   {
     intents: ["projects", "project", "portfolio", "case study", "work"],
-    answer: "ZILIST project examples include AI Chatbot Platform, Analytics Dashboard, Gym Management System, AI Automation Platform, Cybersecurity Dashboard, and Portfolio System."
+    answer: "PK Tech project examples include AI Chatbot Platform, Analytics Dashboard, Gym Management System, AI Automation Platform, Cybersecurity Dashboard, and Portfolio System."
   },
   {
     intents: ["contact", "email", "phone", "call", "whatsapp", "linkedin", "github"],
@@ -29,7 +29,7 @@ const entries = [
   },
   {
     intents: ["price", "pricing", "cost", "budget", "quote"],
-    answer: "ZILIST does not use public subscriptions or fixed pricing. Every project is scoped privately with Praveen after understanding goals, integrations, timeline, and AI complexity."
+    answer: "PK Tech does not use public subscriptions or fixed pricing. Every project is scoped privately with Praveen after understanding goals, integrations, timeline, and AI complexity."
   },
   {
     intents: ["time", "timeline", "deadline", "duration"],
@@ -37,33 +37,33 @@ const entries = [
   },
   {
     intents: ["chatbot", "assistant", "bot"],
-    answer: "ZILIST can build custom AI chatbots with website knowledge, lead capture, multilingual support, admin review, OpenAI or Gemini integration, and safe fallback answers."
+    answer: "PK Tech can build custom AI chatbots with website knowledge, lead capture, multilingual support, admin review, OpenAI or Gemini integration, and safe fallback answers."
   },
   {
     intents: ["automation", "workflow", "automate"],
-    answer: "ZILIST automation systems can connect forms, CRMs, dashboards, APIs, notifications, reports, and AI decisions so repetitive work runs with less manual effort."
+    answer: "PK Tech automation systems can connect forms, CRMs, dashboards, APIs, notifications, reports, and AI decisions so repetitive work runs with less manual effort."
   },
   {
     intents: ["dashboard", "analytics", "data", "report"],
-    answer: "ZILIST creates premium AI dashboards for business metrics, analytics, operations, cybersecurity visibility, customer insights, and executive decision-making."
+    answer: "PK Tech creates premium AI dashboards for business metrics, analytics, operations, cybersecurity visibility, customer insights, and executive decision-making."
   },
   {
     intents: ["security", "cybersecurity", "secure"],
-    answer: "ZILIST can design cybersecurity dashboards and secure application layers with admin authentication, protected APIs, careful data handling, and monitoring workflows."
+    answer: "PK Tech can design cybersecurity dashboards and secure application layers with admin authentication, protected APIs, careful data handling, and monitoring workflows."
   }
 ];
 
 function localKnowledgeAnswer(message) {
   const text = String(message || "").toLowerCase().replace(/[^\w\s+@.-]/g, " ");
   if (/\b(can|could|will|do)\b.*\b(build|create|make|develop|design|automate|integrate)\b/.test(text)) {
-    return "Yes. ZILIST can build custom AI systems, chatbots, automations, dashboards, cybersecurity tools, data products, and full-stack applications. Share your idea through the contact form or email Praveen directly so the project can be scoped.";
+    return "Yes. PK Tech can build custom AI systems, chatbots, automations, dashboards, cybersecurity tools, data products, and full-stack applications. Share your idea through the contact form or email Praveen directly so the project can be scoped.";
   }
   const match = entries.find((entry) => entry.intents.some((intent) => text.includes(intent)));
   if (match) return match.answer;
   if (text.includes("?")) {
-    return `That sounds like a custom ZILIST project question. Praveen can help clarify the best AI architecture, automation flow, database, dashboard, or deployment plan. Send details to ${owner.email}.`;
+    return `That sounds like a custom PK Tech project question. Praveen can help clarify the best AI architecture, automation flow, database, dashboard, or deployment plan. Send details to ${owner.email}.`;
   }
-  return "I can help with ZILIST services, custom project ideas, AI chatbots, automation, dashboards, cybersecurity, technology stack, pricing approach, timelines, portfolio, contact details, and navigation.";
+  return "I can help with PK Tech services, custom project ideas, AI chatbots, automation, dashboards, cybersecurity, technology stack, pricing approach, timelines, portfolio, contact details, and navigation.";
 }
 
 module.exports = { entries, localKnowledgeAnswer };

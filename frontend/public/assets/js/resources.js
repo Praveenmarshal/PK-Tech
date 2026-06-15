@@ -36,7 +36,7 @@ function renderResources(resources) {
 document.addEventListener("DOMContentLoaded", async () => {
   let resources = fallbackResources;
   try {
-    const data = await window.Zilist.api.get("/resources");
+    const data = await window.PKTech.api.get("/resources");
     resources = data.resources?.length ? data.resources : fallbackResources;
   } catch (error) {}
   renderResources(resources);

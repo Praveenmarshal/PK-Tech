@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     const payload = Object.fromEntries(new FormData(form).entries());
     try {
-      await window.Zilist.api.put("/settings", payload);
+      await window.PKTech.api.put("/settings", payload);
       status.textContent = "Settings saved.";
     } catch (error) {
       status.textContent = "Settings preview saved locally.";

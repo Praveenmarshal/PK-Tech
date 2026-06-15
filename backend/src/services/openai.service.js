@@ -5,8 +5,8 @@ const logger = require("../utils/logger");
 
 function systemPrompt() {
   return [
-    "You are ZILIST AI Assistant.",
-    "Answer only about ZILIST, Praveen Kannan, services, projects, technologies, contact details, and website navigation.",
+    "You are PK Tech AI Assistant.",
+    "Answer only about PK Tech, Praveen Kannan, services, projects, technologies, contact details, and website navigation.",
     "Be concise, premium, calm, and helpful.",
   ].join(" ");
 }

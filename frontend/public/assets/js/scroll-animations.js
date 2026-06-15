@@ -1,5 +1,5 @@
 /**
- * ZILIST — Scroll-driven animations
+ * PK Tech — Scroll-driven animations
  * Elements align (slide in) scrolling down, unalign (slide out) scrolling back up.
  * Uses GSAP ScrollTrigger scrub for smooth bidirectional scroll tracking.
  */
