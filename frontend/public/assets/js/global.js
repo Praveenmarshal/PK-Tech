@@ -21,7 +21,7 @@
   };
 
   const defaultApiBase = (() => {
-    if (window.PK Tech_API_BASE) return window.PK Tech_API_BASE;
+    if (window.PKTECH_API_BASE) return window.PKTECH_API_BASE;
     if (window.location.protocol === "file:" || ["8000", "8080", "5500"].includes(window.location.port)) {
       return "https://pk-tech.onrender.com/api";
     }
