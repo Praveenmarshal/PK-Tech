@@ -1829,17 +1829,17 @@ textarea.form-field {
     display: none;
   }
 
-  /* Show the poster/fallback colour instead */
+  /* Show video poster/first-frame as fallback on mobile */
   .home-video-bg {
-    background: url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=60') center / cover no-repeat, #0a0a0a;
+    background: url('https://res.cloudinary.com/dtcws61gi/video/upload/so_0/home-bg_qyi9ab.jpg') center / cover no-repeat, #0a0a0a;
   }
 
   .pages-video-bg {
-    background: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=60') center / cover no-repeat, #0a0a0a;
+    background: url('https://res.cloudinary.com/dtcws61gi/video/upload/so_0/pages-bg_udgphy.jpg') center / cover no-repeat, #0a0a0a;
   }
 
   .admin-video-bg {
-    background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=60') center / cover no-repeat, #0a0a0a;
+    background: url('https://res.cloudinary.com/dtcws61gi/video/upload/so_0/admin-bg_m5oitd.jpg') center / cover no-repeat, #0a0a0a;
   }
 }
 
