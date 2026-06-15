@@ -10,34 +10,17 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/index.css">
+  <script src="../assets/js/video-autoplay.js" defer></script>
 </head>
 <body data-page="home">
   <script src="../assets/js/pk-loader.js"></script>
 
   <!-- Home-page video background -->
   <div class="home-video-bg" aria-hidden="true">
-    <video id="home-bg-video" autoplay muted loop playsinline preload="auto" poster="https://res.cloudinary.com/dtcws61gi/video/upload/so_0/home-bg_qyi9ab.jpg">
-      <source src="https://res.cloudinary.com/dtcws61gi/video/upload/v1781504803/home-bg_qyi9ab.mp4" type="video/mp4">
+    <video id="home-bg-video" autoplay muted loop playsinline preload="auto" poster="https://res.cloudinary.com/dtcws61gi/video/upload/so_0/home-bg_qyi9ab.jpg" webkit-playsinline x5-playsinline>
+      <source src="https://res.cloudinary.com/dtcws61gi/video/upload/f_auto,q_auto/v1781504803/home-bg_qyi9ab.mp4" type="video/mp4">
     </video>
   </div>
-  <script>
-    // Force video to load and play as early as possible — before any other scripts
-    (function () {
-      var v = document.getElementById('home-bg-video');
-      if (!v) return;
-      v.load();
-      var played = false;
-      function tryPlay() {
-        if (played) return;
-        played = true;
-        v.play().catch(function () {});
-      }
-      v.addEventListener('canplay', tryPlay);
-      v.addEventListener('loadeddata', tryPlay);
-      // Fallback: try immediately in case already cached
-      tryPlay();
-    })();
-  </script>
   <div data-navbar></div>
   <main class="page-shell">
     <section class="page-hero home-hero">

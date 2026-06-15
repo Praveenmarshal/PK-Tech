@@ -10,28 +10,33 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/portfolio.css">
+  <script src="../assets/js/video-autoplay.js" defer></script>
 </head>
 <body data-page="portfolio">
   <script src="../assets/js/pk-loader.js"></script>
 
   <!-- Pages video background -->
+  <!-- Pages video background -->
   <div class="pages-video-bg" aria-hidden="true">
-    <video id="pages-bg-video" autoplay muted loop playsinline preload="auto" poster="https://res.cloudinary.com/dtcws61gi/video/upload/so_0/pages-bg_udgphy.jpg">
-      <source src="https://res.cloudinary.com/dtcws61gi/video/upload/v1781504944/pages-bg_udgphy.mp4" type="video/mp4">
+    <video id="pages-bg-video" autoplay muted loop playsinline preload="auto" poster="https://res.cloudinary.com/dtcws61gi/video/upload/so_0/pages-bg_udgphy.jpg" webkit-playsinline x5-playsinline>
+      <source src="https://res.cloudinary.com/dtcws61gi/video/upload/f_auto,q_auto/v1781504944/pages-bg_udgphy.mp4" type="video/mp4">
     </video>
   </div>
   <script>
     (function () {
-      // Skip video on mobile — too heavy, uses static image instead
-      if (window.innerWidth <= 768 || !window.matchMedia('(hover: hover)').matches) return;
       var v = document.getElementById('pages-bg-video');
       if (!v) return;
+      v.muted = true;
       v.load();
-      var played = false;
-      function tryPlay() { if (played) return; played = true; v.play().catch(function(){}); }
+      function tryPlay() { v.play().catch(function(){}); }
       v.addEventListener('canplay', tryPlay);
-      v.addEventListener('loadeddata', tryPlay);
+      v.addEventListener('loadedmetadata', tryPlay);
       tryPlay();
+      document.addEventListener('touchstart', tryPlay, { once: true });
+      document.addEventListener('touchend', tryPlay, { once: true });
+      document.addEventListener('visibilitychange', function() {
+        if (!document.hidden) tryPlay();
+      });
     })();
   </script>
   <div data-navbar></div>

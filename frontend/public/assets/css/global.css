@@ -1558,6 +1558,9 @@ textarea.form-field {
 }
 
 .pages-video-bg video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1590,6 +1593,9 @@ textarea.form-field {
 }
 
 .admin-video-bg video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1818,30 +1824,43 @@ textarea.form-field {
   font-weight: 500;
 }
 
-/* ── Mobile video performance fix ───────────────────────────────
-   Replace video with a static poster image on mobile.
-   Videos are too heavy for mobile connections.
+/* ── Mobile video fix ───────────────────────────────────────────
+   Videos play on mobile too — poster shows if video fails.
+   Never hide videos on touch/mobile devices.
 ─────────────────────────────────────────────────────────────── */
-@media (max-width: 768px), (hover: none) {
+.home-video-bg video,
+.pages-video-bg video,
+.admin-video-bg video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+/* Poster image shows as background if video hasn't loaded yet */
+.home-video-bg {
+  background: url('https://res.cloudinary.com/dtcws61gi/video/upload/so_0/home-bg_qyi9ab.jpg') center / cover no-repeat #0a0a0a;
+}
+.pages-video-bg {
+  background: url('https://res.cloudinary.com/dtcws61gi/video/upload/so_0/pages-bg_udgphy.jpg') center / cover no-repeat #0a0a0a;
+}
+.admin-video-bg {
+  background: url('https://res.cloudinary.com/dtcws61gi/video/upload/so_0/admin-bg_m5oitd.jpg') center / cover no-repeat #0a0a0a;
+}
+
+@media (max-width: 768px) {
+  /* Keep videos playing on mobile — just reduce quality via Cloudinary URL */
   .home-video-bg video,
   .pages-video-bg video,
   .admin-video-bg video {
-    display: none;
-  }
-
-  /* Show video poster/first-frame as fallback on mobile */
-  .home-video-bg {
-    background: url('https://res.cloudinary.com/dtcws61gi/video/upload/so_0/home-bg_qyi9ab.jpg') center / cover no-repeat, #0a0a0a;
-  }
-
-  .pages-video-bg {
-    background: url('https://res.cloudinary.com/dtcws61gi/video/upload/so_0/pages-bg_udgphy.jpg') center / cover no-repeat, #0a0a0a;
-  }
-
-  .admin-video-bg {
-    background: url('https://res.cloudinary.com/dtcws61gi/video/upload/so_0/admin-bg_m5oitd.jpg') center / cover no-repeat, #0a0a0a;
+    display: block;
   }
 }
+
 
 /* ═══════════════════════════════════════════════════════
    PK TECH — INTRO LOADER
