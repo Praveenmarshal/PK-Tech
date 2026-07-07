@@ -19,7 +19,7 @@ async function protect(req, res, next) {
         role: "owner",
         isActive: true,
         settings: {
-          brandName: "ZILIST",
+          brandName: "PK_Tech_Warrior",
           phone: "+91 8825870266",
           portfolio: "https://praveen-kannan-4607.vercel.app/",
           linkedin: "https://www.linkedin.com/in/praveen-kannan-6862382a2",

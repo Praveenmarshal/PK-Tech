@@ -2,11 +2,28 @@ const { localKnowledgeAnswer } = require("./knowledgeBase");
 
 function systemPrompt() {
   return [
-    "You are ZILIST AI Assistant.",
-    "Answer only about ZILIST, Praveen Kannan, services, projects, technologies, contact details, and website navigation.",
+    "You are PK_Tech_Warrior AI Assistant.",
+    "Answer only about PK_Tech_Warrior, Praveen Kannan, services, projects, technologies, contact details, and website navigation.",
     "Be concise, premium, calm, and helpful.",
-    "Contact: praveenkicha01@gmail.com, +91 8825870266, LinkedIn https://www.linkedin.com/in/praveen-kannan-6862382a2, GitHub https://github.com/Praveenmarshal, Portfolio https://praveen-kannan-4607.vercel.app/."
+    "Contact: praveenkicha01@gmail.com, +91 8825870266, LinkedIn https://www.linkedin.com/in/praveen-kannan-6862382a2, GitHub https://github.com/Praveenmarshal, Portfolio https://praveen-kannan-4607.vercel.app/.",
+    "PK_Tech_Warrior builds intelligent AI systems, automated solutions, and digital platforms.",
+    "Services include: AI & Machine Learning, Web Development, Data Analytics, Automation Systems, Cybersecurity, AI Dashboards, Data Science, and AI Business Solutions."
   ].join(" ");
+}
+
+async function askGemini(message) {
+  if (!process.env.GEMINI_API_KEY) return null;
+  const model = process.env.GEMINI_MODEL || "gemini-2.5-pro";
+  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${process.env.GEMINI_API_KEY}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: `${systemPrompt()}\n\nUser: ${message}` }] }]
+    })
+  });
+  if (!response.ok) throw new Error("Gemini provider failed");
+  const data = await response.json();
+  return data.candidates?.[0]?.content?.parts?.[0]?.text || null;
 }
 
 async function askOpenAI(message) {
@@ -31,32 +48,19 @@ async function askOpenAI(message) {
   return data.choices?.[0]?.message?.content || null;
 }
 
-async function askGemini(message) {
-  if (!process.env.GEMINI_API_KEY) return null;
-  const model = process.env.GEMINI_MODEL || "gemini-1.5-flash";
-  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${process.env.GEMINI_API_KEY}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: `${systemPrompt()}\n\nUser: ${message}` }] }]
-    })
-  });
-  if (!response.ok) throw new Error("Gemini provider failed");
-  const data = await response.json();
-  return data.candidates?.[0]?.content?.parts?.[0]?.text || null;
-}
-
 async function askAssistant(message) {
+  // Gemini is the primary provider
   try {
-    const openai = await askOpenAI(message);
-    if (openai) return { reply: openai, provider: "openai" };
+    const gemini = await askGemini(message);
+    if (gemini) return { reply: gemini, provider: "gemini" };
   } catch (error) {
     console.warn(error.message);
   }
 
+  // OpenAI as fallback
   try {
-    const gemini = await askGemini(message);
-    if (gemini) return { reply: gemini, provider: "gemini" };
+    const openai = await askOpenAI(message);
+    if (openai) return { reply: openai, provider: "openai" };
   } catch (error) {
     console.warn(error.message);
   }
@@ -65,4 +69,3 @@ async function askAssistant(message) {
 }
 
 module.exports = { askAssistant };
-

@@ -3,13 +3,13 @@ import { ADMIN_CREDENTIALS } from '../../../lib/data';
 // Simple JWT-like token (in prod use proper JWT)
 function createToken(email) {
   const payload = Buffer.from(JSON.stringify({ email, exp: Date.now() + 86400000 })).toString('base64');
-  return `zilist_${payload}`;
+  return `PK_Tech_Warrior_${payload}`;
 }
 
 export function verifyToken(token) {
-  if (!token || !token.startsWith('zilist_')) return null;
+  if (!token || !token.startsWith('PK_Tech_Warrior_')) return null;
   try {
-    const payload = JSON.parse(Buffer.from(token.replace('zilist_', ''), 'base64').toString());
+    const payload = JSON.parse(Buffer.from(token.replace('PK_Tech_Warrior_', ''), 'base64').toString());
     if (payload.exp < Date.now()) return null;
     return payload;
   } catch {

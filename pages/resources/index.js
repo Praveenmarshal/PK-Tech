@@ -9,7 +9,7 @@ export default function Resources({ initialResources }) {
   const [activeFilter, setActiveFilter] = useState('All');
 
   return (
-    <Layout title="Resources — ZILIST">
+    <Layout title="Resources — PK_Tech_Warrior">
       <section style={{ paddingTop: '140px' }}>
         <div className="container">
           <div className="section-header">

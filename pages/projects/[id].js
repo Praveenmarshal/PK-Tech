@@ -6,7 +6,7 @@ export default function ProjectDetail({ project }) {
   if (!project) return null;
 
   return (
-    <Layout title={`${project.name} — ZILIST`}>
+    <Layout title={`${project.name} — PK_Tech_Warrior`}>
       <div style={{ padding: '120px 48px 80px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div className="breadcrumb">

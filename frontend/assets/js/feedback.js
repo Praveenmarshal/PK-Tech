@@ -1,5 +1,5 @@
 /**
- * ZILIST Feedback Page
+ * PK_Tech_Warrior Feedback Page
  * - Stores feedback in localStorage (client-side, no backend needed)
  * - Shows first 6 cards immediately
  * - "Show More" reveals rest in a scrollable panel
@@ -7,7 +7,7 @@
 (function () {
   'use strict';
 
-  var STORAGE_KEY = 'zilist_feedbacks';
+  var STORAGE_KEY = 'PK_Tech_Warrior_feedbacks';
   var INITIAL_SHOW = 6;
   var rating = 0;
   var expanded = false;

@@ -1,7 +1,7 @@
 const streamifier = require("streamifier");
 const cloudinary = require("../config/cloudinary");
 
-function uploadBuffer(file, folder = "zilist") {
+function uploadBuffer(file, folder = "PK_Tech_Warrior") {
   const configured = process.env.CLOUDINARY_CLOUD_NAME && process.env.CLOUDINARY_API_KEY && process.env.CLOUDINARY_API_SECRET;
   if (!configured) {
     return Promise.resolve({ url: "", publicId: "", skipped: true });

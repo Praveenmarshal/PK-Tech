@@ -10,7 +10,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: zilist-backend
+    container_name: PK_Tech_Warrior-backend
     restart: unless-stopped
     env_file: ./backend/.env          # ← all secrets live here, not in this file
     environment:
@@ -20,7 +20,7 @@ services:
     volumes:
       - backend_logs:/app/src/logs
     networks:
-      - zilist-net
+      - PK_Tech_Warrior-net
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost:5000/api/health"]
       interval: 30s
@@ -31,7 +31,7 @@ services:
   # ── Nginx reverse proxy ───────────────────────────────────────────────────
   nginx:
     image: nginx:1.27-alpine
-    container_name: zilist-nginx
+    container_name: PK_Tech_Warrior-nginx
     restart: unless-stopped
     ports:
       - "80:80"
@@ -44,20 +44,20 @@ services:
       backend:
         condition: service_healthy
     networks:
-      - zilist-net
+      - PK_Tech_Warrior-net
 
   # ── Redis (optional — uncomment to enable distributed rate limiting) ──────
   # redis:
   #   image: redis:7-alpine
-  #   container_name: zilist-redis
+  #   container_name: PK_Tech_Warrior-redis
   #   restart: unless-stopped
   #   expose:
   #     - "6379"
   #   networks:
-  #     - zilist-net
+  #     - PK_Tech_Warrior-net
 
 networks:
-  zilist-net:
+  PK_Tech_Warrior-net:
     driver: bridge
 
 volumes:

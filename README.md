@@ -1,9 +1,9 @@
-# PK Tech — Secure Full-Stack Web Application
+# PK_Tech_Warrior — Secure Full-Stack Web Application
 
 ## Project Structure
 
 ```
-PK Tech_white/
+PK_Tech_Warrior/
 ├── frontend/                   # Static HTML/CSS/JS client
 │   ├── src/
 │   │   ├── components/         # Reusable HTML components (navbar, footer, etc.)
@@ -31,7 +31,7 @@ PK Tech_white/
 │   │   │   ├── ai.routes.js
 │   │   │   └── ...
 │   │   ├── services/
-│   │   │   ├── openai.service.js
+│   │   │   ├── aiService.js
 │   │   │   ├── email.service.js
 │   │   │   ├── twilio.service.js
 │   │   │   ├── cloudinary.service.js
@@ -130,4 +130,4 @@ See `backend/.env.example` for the full list. Required at startup:
 - `ADMIN_EMAIL` + `ADMIN_PASSWORD` — initial admin credentials
 - `MONGODB_URI` — MongoDB Atlas connection string
 
-Everything else (Cloudinary, SMTP, OpenAI, Gemini) degrades gracefully when omitted.
+Everything else (Cloudinary, SMTP, Gemini) degrades gracefully when omitted.

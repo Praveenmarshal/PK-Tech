@@ -11,7 +11,7 @@ export default function Projects({ initialProjects }) {
   const filtered = active === 'All' ? initialProjects : initialProjects.filter(p => p.tag === active);
 
   return (
-    <Layout title="Projects — ZILIST">
+    <Layout title="Projects — PK_Tech_Warrior">
       <section style={{ paddingTop: '140px' }}>
         <div className="container">
           <div className="section-header">

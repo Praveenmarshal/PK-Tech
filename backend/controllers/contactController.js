@@ -5,9 +5,9 @@ async function createMessage(req, res, next) {
   try {
     const message = await ContactMessage.create(req.body);
     await sendEmail({
-      subject: `ZILIST inquiry: ${message.subject}`,
+      subject: `PK_Tech_Warrior inquiry: ${message.subject}`,
       text: `${message.name} (${message.email}) wrote:\n\n${message.message}`,
-      html: `<h2>ZILIST inquiry</h2><p><strong>Name:</strong> ${message.name}</p><p><strong>Email:</strong> ${message.email}</p><p><strong>Subject:</strong> ${message.subject}</p><p>${message.message}</p>`
+      html: `<h2>PK_Tech_Warrior inquiry</h2><p><strong>Name:</strong> ${message.name}</p><p><strong>Email:</strong> ${message.email}</p><p><strong>Subject:</strong> ${message.subject}</p><p>${message.message}</p>`
     });
     res.status(201).json({ message: "Message received", contactMessage: message });
   } catch (error) {

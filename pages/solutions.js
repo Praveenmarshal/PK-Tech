@@ -14,7 +14,7 @@ const solutions = [
 
 export default function Solutions() {
   return (
-    <Layout title="Solutions — ZILIST">
+    <Layout title="Solutions — PK_Tech_Warrior">
       <section style={{ paddingTop: '140px' }}>
         <div className="container">
           <div className="section-header">

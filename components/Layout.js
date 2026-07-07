@@ -4,7 +4,7 @@ import Footer from './Footer';
 import Chatbot from './Chatbot';
 import { useEffect, useRef } from 'react';
 
-export default function Layout({ children, title = 'ZILIST — Build Smarter. Automate Everything.', noFooter = false }) {
+export default function Layout({ children, title = 'PK_Tech_Warrior — Build Smarter. Automate Everything.', noFooter = false }) {
   const canvasRef = useRef(null);
   const cursorRef = useRef(null);
   const cursorRingRef = useRef(null);
@@ -102,7 +102,7 @@ export default function Layout({ children, title = 'ZILIST — Build Smarter. Au
     <>
       <Head>
         <title>{title}</title>
-        <meta name="description" content="ZILIST by Praveen Kannan builds futuristic AI systems, AI chatbots, automation platforms, dashboards, and premium full-stack digital experiences." />
+        <meta name="description" content="PK_Tech_Warrior by Praveen Kannan builds futuristic AI systems, AI chatbots, automation platforms, dashboards, and premium full-stack digital experiences." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
       </Head>

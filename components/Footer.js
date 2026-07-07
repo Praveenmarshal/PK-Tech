@@ -5,7 +5,7 @@ export default function Footer() {
     <footer>
       <div className="footer-grid">
         <div className="footer-brand">
-          <Link href="/" className="nav-logo">ZILIST</Link>
+          <Link href="/" className="nav-logo">PK_Tech_Warrior</Link>
           <p className="footer-desc">Building intelligent AI systems, automation platforms and premium digital experiences for the future.</p>
         </div>
         <div className="footer-col">
@@ -38,7 +38,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <p className="footer-copy">© 2024 ZILIST by Praveen Kannan. All rights reserved.</p>
+        <p className="footer-copy">© 2024 PK_Tech_Warrior by Praveen Kannan. All rights reserved.</p>
         <div style={{display:'flex',gap:'24px'}}>
           <Link href="/contact" style={{fontSize:'0.72rem',color:'rgba(255,255,255,0.3)',textDecoration:'none'}}>Privacy</Link>
           <Link href="/contact" style={{fontSize:'0.72rem',color:'rgba(255,255,255,0.3)',textDecoration:'none'}}>Terms</Link>

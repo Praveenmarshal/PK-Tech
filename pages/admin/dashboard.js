@@ -11,8 +11,8 @@ export default function AdminDashboard() {
   const [email, setEmail] = useState('Admin');
 
   useEffect(() => {
-    const token = localStorage.getItem('zilist_token');
-    const storedEmail = localStorage.getItem('zilist_email');
+    const token = localStorage.getItem('PK_Tech_Warrior_token');
+    const storedEmail = localStorage.getItem('PK_Tech_Warrior_email');
     if (!token) { router.push('/admin'); return; }
     setEmail(storedEmail || 'Admin');
 
@@ -28,8 +28,8 @@ export default function AdminDashboard() {
   }, []);
 
   const logout = () => {
-    localStorage.removeItem('zilist_token');
-    localStorage.removeItem('zilist_email');
+    localStorage.removeItem('PK_Tech_Warrior_token');
+    localStorage.removeItem('PK_Tech_Warrior_email');
     router.push('/admin');
   };
 
@@ -46,7 +46,7 @@ export default function AdminDashboard() {
   return (
     <>
       <Head>
-        <title>Admin Dashboard — ZILIST</title>
+        <title>Admin Dashboard — PK_Tech_Warrior</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet" />
       </Head>
@@ -66,7 +66,7 @@ export default function AdminDashboard() {
       <div style={{ display: 'flex', minHeight: '100vh' }}>
         {/* Sidebar */}
         <div style={{ width: '220px', flexShrink: 0, background: 'rgba(15,23,42,0.96)', padding: '28px 16px', display: 'flex', flexDirection: 'column', minHeight: '100vh', position: 'fixed', left: 0, top: 0, bottom: 0, zIndex: 200 }}>
-          <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: '1.3rem', fontWeight: 600, color: '#fff', letterSpacing: '0.1em', padding: '0 12px', marginBottom: '32px' }}>ZILIST</div>
+          <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: '1.3rem', fontWeight: 600, color: '#fff', letterSpacing: '0.1em', padding: '0 12px', marginBottom: '32px' }}>PK_Tech_Warrior</div>
           <nav style={{ flex: 1 }}>
             {navItems.map(item => (
               <div

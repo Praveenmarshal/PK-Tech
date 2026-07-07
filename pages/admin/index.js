@@ -20,8 +20,8 @@ export default function AdminLogin() {
       });
       const data = await res.json();
       if (data.success) {
-        localStorage.setItem('zilist_token', data.token);
-        localStorage.setItem('zilist_email', data.email);
+        localStorage.setItem('PK_Tech_Warrior_token', data.token);
+        localStorage.setItem('PK_Tech_Warrior_email', data.email);
         router.push('/admin/dashboard');
       } else {
         setError('Invalid email or password.');
@@ -35,7 +35,7 @@ export default function AdminLogin() {
   return (
     <>
       <Head>
-        <title>Admin Login — ZILIST</title>
+        <title>Admin Login — PK_Tech_Warrior</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet" />
       </Head>
@@ -87,7 +87,7 @@ export default function AdminLogin() {
             {loading ? 'Signing in…' : 'Sign In →'}
           </button>
           <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '20px' }}>
-            Demo: praveenkicha01@gmail.com / zilist2024
+            Demo: praveenkicha01@gmail.com / PK_Tech_Warrior2024
           </p>
         </div>
       </div>

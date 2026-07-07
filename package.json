@@ -1,5 +1,5 @@
 {
-  "name": "zilist-website",
+  "name": "PK_Tech_Warrior-website",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -26,5 +26,5 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "description": "ZILIST — Build Smarter. Automate Everything. Full-stack AI company website."
+  "description": "PK_Tech_Warrior — Build Smarter. Automate Everything. Full-stack AI company website."
 }

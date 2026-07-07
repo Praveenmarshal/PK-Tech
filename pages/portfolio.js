@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Portfolio() {
   return (
-    <Layout title="Portfolio — ZILIST">
+    <Layout title="Portfolio — PK_Tech_Warrior">
       <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '120px 48px' }}>
         <div style={{ maxWidth: '520px' }}>
           <div style={{ fontSize: '4rem', marginBottom: '28px', display: 'inline-block', animation: 'spin-slow 8s linear infinite' }}>🌐</div>

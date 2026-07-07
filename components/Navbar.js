@@ -30,7 +30,7 @@ export default function Navbar() {
 
   return (
     <nav ref={navRef} id="navbar">
-      <Link href="/" className="nav-logo">ZILIST</Link>
+      <Link href="/" className="nav-logo">PK_Tech_Warrior</Link>
       <div className="nav-links">
         <Link href="/" className={isActive('/') && path==='/' ? 'active' : ''}>Home</Link>
         <Link href="/features" className={isActive('/features') ? 'active' : ''}>Features</Link>

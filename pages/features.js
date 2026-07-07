@@ -18,7 +18,7 @@ const features = [
 
 export default function Features() {
   return (
-    <Layout title="Features — ZILIST">
+    <Layout title="Features — PK_Tech_Warrior">
       <section style={{ paddingTop: '140px' }}>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 60px' }}>

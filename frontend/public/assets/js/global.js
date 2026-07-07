@@ -368,7 +368,7 @@
   }
 
   const knowledge = [
-    [["about", "zilist", "company"], "PK Tech is Praveen Kannan's premium AI company for AI systems, chatbots, automation platforms, dashboards, cybersecurity tools, data analytics, and full-stack digital experiences."],
+    [["about", "PK_Tech_Warrior", "company"], "PK Tech is Praveen Kannan's premium AI company for AI systems, chatbots, automation platforms, dashboards, cybersecurity tools, data analytics, and full-stack digital experiences."],
     [["praveen", "owner", "developer", "founder"], "Praveen Kannan is a full-stack AI developer and software engineer focused on futuristic AI systems, automation platforms, premium dashboards, intelligent business solutions, and next-generation digital experiences."],
     [["service", "services", "offer", "build", "make", "develop"], "PK Tech builds AI automation, AI chatbots, full-stack apps, AI dashboards, cybersecurity systems, analytics platforms, and business automation workflows."],
     [["contact", "email", "phone", "call", "whatsapp", "linkedin", "github"], `You can contact Praveen at ${owner.email}, call ${owner.phone}, message on WhatsApp, connect on LinkedIn or GitHub, or visit the portfolio at ${owner.portfolio}.`],

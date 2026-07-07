@@ -31,7 +31,7 @@ export default function Contact() {
   };
 
   return (
-    <Layout title="Contact — ZILIST">
+    <Layout title="Contact — PK_Tech_Warrior">
       <section style={{ paddingTop: '140px' }}>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 60px' }}>

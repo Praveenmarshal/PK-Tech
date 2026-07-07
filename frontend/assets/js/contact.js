@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const payload = Object.fromEntries(new FormData(form).entries());
     status.textContent = "Sending message...";
     try {
-      await window.Zilist.api.post("/contact", payload);
+      await window.pktech.api.post("/contact", payload);
       status.textContent = "Message sent. Praveen will contact you directly.";
       form.reset();
       if (window.gsap) gsap.fromTo(status, { scale: 0.96, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4 });

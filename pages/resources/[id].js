@@ -6,7 +6,7 @@ export default function ResourceDetail({ resource }) {
   if (!resource) return null;
 
   return (
-    <Layout title={`${resource.title} — ZILIST`}>
+    <Layout title={`${resource.title} — PK_Tech_Warrior`}>
       <div style={{ padding: '120px 48px 80px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div className="breadcrumb">

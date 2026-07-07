@@ -13,7 +13,7 @@ async function seedAdmin() {
     existing.isActive = true;
     existing.role = "owner";
     await existing.save();
-    console.log("ZILIST admin credentials updated.");
+    console.log("PK_Tech_Warrior admin credentials updated.");
     return;
   }
 
@@ -22,7 +22,7 @@ async function seedAdmin() {
     email: process.env.ADMIN_EMAIL.toLowerCase(),
     passwordHash
   });
-  console.log("Default ZILIST admin seeded.");
+  console.log("Default PK_Tech_Warrior admin seeded.");
 }
 
 module.exports = { seedAdmin };

@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
 
 app.get("/api/health", (req, res) => {
-  res.json({ ok: true, name: "ZILIST API", environment: process.env.NODE_ENV || "development" });
+  res.json({ ok: true, name: "PK_Tech_Warrior API", environment: process.env.NODE_ENV || "development" });
 });
 
 app.use("/api/auth", authRoutes);
@@ -54,7 +54,7 @@ connectDB()
   .catch((error) => console.warn(`Startup database task skipped: ${error.message}`))
   .finally(() => {
     app.listen(port, () => {
-      console.log(`ZILIST server running on http://localhost:${port}`);
+      console.log(`PK_Tech_Warrior server running on http://localhost:${port}`);
     });
   });
 

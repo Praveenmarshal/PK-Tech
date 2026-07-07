@@ -11,7 +11,7 @@ async function connectDB() {
   }
 
   const connection = await mongoose.connect(uri, {
-    dbName: process.env.MONGODB_DB || "zilist"
+    dbName: process.env.MONGODB_DB || "PK_Tech_Warrior"
   });
   console.log(`MongoDB connected: ${connection.connection.host}`);
   return connection;

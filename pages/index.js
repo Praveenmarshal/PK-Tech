@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <Layout title="ZILIST — Build Smarter. Automate Everything.">
+    <Layout title="PK_Tech_Warrior — Build Smarter. Automate Everything.">
       {/* HERO */}
       <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '120px 48px 80px', position: 'relative' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
@@ -13,10 +13,10 @@ export default function Home() {
             <h1 className="fade-up delay-1">
               Build Smarter.<br />
               Automate <em>Everything.</em><br />
-              With ZILIST AI.
+              With PK_Tech_Warrior AI.
             </h1>
             <p className="hero-desc fade-up delay-2">
-              ZILIST builds intelligent AI systems, automated solutions, and digital platforms that help businesses grow, scale and lead in the future.
+              PK_Tech_Warrior builds intelligent AI systems, automated solutions, and digital platforms that help businesses grow, scale and lead in the future.
             </p>
             <div className="hero-buttons fade-up delay-3">
               <Link href="/contact" className="btn-primary">Contact Me ↗</Link>
@@ -137,11 +137,11 @@ export default function Home() {
             <div className="section-eyebrow" style={{ justifyContent: 'center' }}>Ready to Start?</div>
             <h2 className="section-title" style={{ marginBottom: '20px' }}>Let's Build Something<br />Extraordinary Together</h2>
             <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '480px', margin: '0 auto 40px' }}>
-              Join 500+ businesses using ZILIST's AI solutions to automate, grow, and lead their industries.
+              Join 500+ businesses using PK_Tech_Warrior's AI solutions to automate, grow, and lead their industries.
             </p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link href="/contact" className="btn-primary">Start Your Project →</Link>
-              <Link href="/about" className="btn-secondary">Learn About ZILIST</Link>
+              <Link href="/about" className="btn-secondary">Learn About PK_Tech_Warrior</Link>
             </div>
           </div>
         </div>

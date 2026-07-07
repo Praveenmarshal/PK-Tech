@@ -3,16 +3,16 @@ import Link from 'next/link';
 
 export default function About() {
   return (
-    <Layout title="About — ZILIST">
+    <Layout title="About — PK_Tech_Warrior">
       <section style={{ paddingTop: '140px' }}>
         <div className="container">
           <div className="about-grid">
             {/* Left */}
             <div>
-              <div className="section-eyebrow">About ZILIST</div>
+              <div className="section-eyebrow">About PK_Tech_Warrior</div>
               <h2 className="section-title">A Digital Innovation<br />Company Driven by<br />Intelligence</h2>
               <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.8, fontWeight: 300, marginBottom: '24px' }}>
-                ZILIST is a digital innovation company driven by creativity, intelligence, and a passion for building futuristic AI solutions for businesses worldwide.
+                PK_Tech_Warrior is a digital innovation company driven by creativity, intelligence, and a passion for building futuristic AI solutions for businesses worldwide.
               </p>
 
               <div className="stats-grid">
