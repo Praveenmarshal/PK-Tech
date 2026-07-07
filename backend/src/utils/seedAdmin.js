@@ -18,7 +18,7 @@ async function seedAdmin() {
     existing.isActive = true;
     existing.role = "owner";
     await existing.save();
-    logger.info("PK Tech admin credentials updated.");
+    logger.info("PK_Tech_Warrior admin credentials updated.");
     return;
   }
 
@@ -27,7 +27,7 @@ async function seedAdmin() {
     email: env.ADMIN_EMAIL.toLowerCase(),
     passwordHash,
   });
-  logger.info("Default PK Tech admin seeded.");
+  logger.info("Default PK_Tech_Warrior admin seeded.");
 }
 
 module.exports = { seedAdmin };

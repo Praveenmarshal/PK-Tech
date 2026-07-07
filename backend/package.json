@@ -1,7 +1,7 @@
 {
   "name": "pktech-backend",
   "version": "2.0.0",
-  "description": "Secure Express + MongoDB backend for the PK Tech website.",
+  "description": "Secure Express + MongoDB backend for the PK_Tech_Warrior website.",
   "main": "src/server.js",
   "scripts": {
     "start":  "node src/server.js",

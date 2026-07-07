@@ -1,5 +1,5 @@
 /**
- * pk-loader.js — PK Tech intro screen
+ * pk-loader.js — PK_Tech_Warrior intro screen
  * Shows PK symbol → "Website connecting" → "Website loading" → "Website opening"
  * Runs once per browser session (sessionStorage flag).
  */
@@ -25,7 +25,7 @@
       <div class="pk-logo">PK</div>
     </div>
 
-    <div class="pk-brand">PK Tech</div>
+    <div class="pk-brand">PK_Tech_Warrior</div>
 
     <div class="pk-status-wrap">
       ${STEPS.map((s, i) => `

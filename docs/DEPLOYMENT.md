@@ -28,5 +28,5 @@ Set either:
 - `OPENAI_API_KEY` and `OPENAI_MODEL`
 - `GEMINI_API_KEY` and `GEMINI_MODEL`
 
-If neither is configured, the chatbot uses the built-in PK Tech knowledge fallback.
+If neither is configured, the chatbot uses the built-in PK_Tech_Warrior knowledge fallback.
 

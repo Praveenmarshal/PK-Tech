@@ -9,15 +9,15 @@ FROM node:20-alpine AS runner
 WORKDIR /app
 
 # Non-root user for security
-RUN addgroup -S zilist && adduser -S zilist -G zilist
+RUN addgroup -S pktech && adduser -S pktech -G pktech
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY src ./src
 
 # Logs directory (writable by app user)
-RUN mkdir -p src/logs && chown -R zilist:zilist src/logs
+RUN mkdir -p src/logs && chown -R pktech:pktech src/logs
 
-USER zilist
+USER pktech
 
 ENV NODE_ENV=production
 EXPOSE 5000

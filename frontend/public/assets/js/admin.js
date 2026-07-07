@@ -29,7 +29,7 @@
     const page = document.body.dataset.admin || "";
     target.innerHTML = `
       <aside class="admin-sidebar">
-        <p class="admin-brand">PK Tech Admin</p>
+        <p class="admin-brand">PK_Tech_Warrior Admin</p>
         <nav class="admin-nav">
           ${adminLinks.map(([label, href, key]) => `<a class="${page === key ? "is-active" : ""}" href="${href}">${label}</a>`).join("")}
           <button class="admin-logout" type="button" data-admin-logout>Logout</button>

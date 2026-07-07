@@ -1,5 +1,5 @@
 /**
- * scroll-animations.js — PK Tech
+ * scroll-animations.js — PK_Tech_Warrior
  * DESKTOP : GSAP ScrollTrigger scrub (smooth bidirectional)
  * MOBILE  : Lightweight IntersectionObserver + CSS transitions
  *           (no GSAP on mobile — avoids lag/jank)

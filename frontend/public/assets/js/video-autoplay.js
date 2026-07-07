@@ -1,5 +1,5 @@
 /**
- * video-autoplay.js — PK Tech
+ * video-autoplay.js — PK_Tech_Warrior
  * Forces background videos to play on all devices.
  * On mobile: switches to low-quality Cloudinary URL to prevent lag.
  */

@@ -38,7 +38,7 @@ app.use("/api", apiLimiter);
 
 // ── Health & CSRF ─────────────────────────────────────────────────────────────
 app.get("/api/health", (_req, res) =>
-  res.json({ ok: true, name: "PK Tech API", environment: env.NODE_ENV })
+  res.json({ ok: true, name: "PK_Tech_Warrior API", environment: env.NODE_ENV })
 );
 app.get("/api/csrf", issueToken);
 
@@ -55,7 +55,7 @@ app.use("/api/payments",     paymentRoutes);
 app.use("/api/settings",     settingsRoutes);
 
 // ── Serve static frontend ────────────────────────────────────────────────────
-// Root Directory on Render = PK-Tech (repo root), so both backend/ and frontend/ exist
+// Root Directory on Render = PK_Tech_Warrior (repo root), so both backend/ and frontend/ exist
 // __dirname = /app/backend/src  →  ../../frontend = /app/frontend ✓
 const frontendRoot   = require("path").resolve(__dirname, "../../frontend");
 const frontendPages  = require("path").join(frontendRoot, "src/pages");

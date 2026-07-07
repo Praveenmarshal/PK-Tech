@@ -1,4 +1,4 @@
-# PK Tech API
+# PK_Tech_Warrior API
 
 Base URL: `/api`
 

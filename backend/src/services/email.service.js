@@ -9,9 +9,9 @@ const sendEmail = require("../utils/sendEmail");
 
 async function sendContactNotification({ name, email, subject, message }) {
   return sendEmail({
-    subject: `PK Tech inquiry: ${subject}`,
+    subject: `PK_Tech_Warrior inquiry: ${subject}`,
     text:    `${name} (${email}) wrote:\n\n${message}`,
-    html:    `<h2>PK Tech inquiry</h2>
+    html:    `<h2>PK_Tech_Warrior inquiry</h2>
               <p><strong>Name:</strong> ${name}</p>
               <p><strong>Email:</strong> ${email}</p>
               <p><strong>Subject:</strong> ${subject}</p>

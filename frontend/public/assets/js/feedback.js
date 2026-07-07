@@ -1,5 +1,5 @@
 /**
- * feedback.js — PK Tech Feedback Page
+ * feedback.js — PK_Tech_Warrior Feedback Page
  * Feedbacks are stored in MongoDB via /api/feedback (shared across all devices).
  */
 (function () {

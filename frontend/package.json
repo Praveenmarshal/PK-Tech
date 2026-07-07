@@ -1,7 +1,7 @@
 {
   "name": "pktech-frontend",
   "version": "2.0.0",
-  "description": "Static HTML/CSS/JS frontend for PK Tech",
+  "description": "Static HTML/CSS/JS frontend for PK_Tech_Warrior",
   "scripts": {
     "dev":   "npx serve src/pages -l 8000",
     "build": "echo 'No build step — pure HTML/CSS/JS'",
