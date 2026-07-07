@@ -1,11 +1,32 @@
 import Layout from '../components/Layout';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+
+const Strands = dynamic(() => import('../components/Strands'), { ssr: false });
 
 export default function About() {
   return (
     <Layout title="About — PK_Tech_Warrior">
-      <section style={{ paddingTop: '140px' }}>
-        <div className="container">
+      {/* Hero Banner with Strands */}
+      <section style={{ position: 'relative', overflow: 'hidden', paddingTop: '120px', paddingBottom: '60px' }}>
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0, opacity: 0.5 }}>
+          <Strands
+            colors={["#8B5CF6", "#7C3AED", "#06B6D4", "#F97316"]}
+            count={5}
+            speed={0.4}
+            amplitude={1.2}
+            waviness={1}
+            thickness={0.6}
+            glow={3}
+            taper={3}
+            spread={1.2}
+            intensity={0.7}
+            saturation={1.6}
+            opacity={1}
+            scale={1.5}
+          />
+        </div>
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="about-grid">
             {/* Left */}
             <div>
@@ -45,28 +66,46 @@ export default function About() {
               </div>
             </div>
 
-            {/* Right - Visual */}
+            {/* Right - Strands Visual */}
             <div className="about-visual">
-              <div className="about-ring about-ring-1"></div>
-              <div className="about-ring about-ring-2"></div>
-              <div className="about-avatar">👨‍💻</div>
+              <Strands
+                colors={["#F97316", "#7C3AED", "#06B6D4"]}
+                count={4}
+                speed={0.5}
+                amplitude={1}
+                waviness={1}
+                thickness={0.7}
+                glow={2.6}
+                taper={3}
+                spread={1}
+                intensity={0.6}
+                saturation={1.5}
+                opacity={1}
+                scale={1.5}
+                glass={true}
+                refraction={1}
+                dispersion={1}
+                glassSize={1}
+              />
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Mission Vision Values */}
-          <div className="mvv-grid">
-            {[
-              { icon: '🎯', title: 'Our Mission', text: 'Empower businesses with brilliant AI solutions and intelligent automation.' },
-              { icon: '🔭', title: 'Our Vision', text: 'To become a global leader in AI innovation and digital transformation.' },
-              { icon: '💎', title: 'Our Values', text: 'Innovation, transparency, quality, and client success drive everything we do.' },
-            ].map(m => (
-              <div key={m.title} className="glass-card mvv-card">
-                <div style={{ fontSize: '2rem', marginBottom: '16px' }}>{m.icon}</div>
-                <div className="mvv-title">{m.title}</div>
-                <div className="mvv-text">{m.text}</div>
-              </div>
-            ))}
-          </div>
+      {/* Mission Vision Values */}
+      <section className="container" style={{ paddingBottom: '80px' }}>
+        <div className="mvv-grid">
+          {[
+            { icon: '🎯', title: 'Our Mission', text: 'Empower businesses with brilliant AI solutions and intelligent automation.' },
+            { icon: '🔭', title: 'Our Vision', text: 'To become a global leader in AI innovation and digital transformation.' },
+            { icon: '💎', title: 'Our Values', text: 'Innovation, transparency, quality, and client success drive everything we do.' },
+          ].map(m => (
+            <div key={m.title} className="glass-card mvv-card">
+              <div style={{ fontSize: '2rem', marginBottom: '16px' }}>{m.icon}</div>
+              <div className="mvv-title">{m.title}</div>
+              <div className="mvv-text">{m.text}</div>
+            </div>
+          ))}
         </div>
       </section>
     </Layout>
