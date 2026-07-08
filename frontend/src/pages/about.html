@@ -3,42 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | PK_Tech_Warrior</title>
+  <title>About | PK_Tech_Warrior AI</title>
   <meta name="description" content="Learn about PK_Tech_Warrior, its mission, vision, innovation philosophy, and Praveen Kannan's work as a full-stack AI developer.">
   <meta name="keywords" content="About PK_Tech_Warrior, Praveen Kannan, AI Developer, Full Stack Developer, AI Company">
-  <!-- Video preloaded by JS on desktop only -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/about.css">
-  <script src="../assets/js/video-autoplay.js" defer></script>
 </head>
 <body data-page="about">
-  <script src="../assets/js/pk-loader.js"></script>
+  <!-- Strands WebGL background (replaces video) -->
+  <div class="pages-video-bg" aria-hidden="true"></div>
 
-  <!-- Pages video background -->
-  <!-- Pages video background -->
-  <div class="pages-video-bg" aria-hidden="true">
-    <video id="pages-bg-video" autoplay muted loop playsinline preload="auto" poster="https://res.cloudinary.com/dtcws61gi/video/upload/so_0/pages-bg_udgphy.jpg" webkit-playsinline x5-playsinline>
-      <source src="https://res.cloudinary.com/dtcws61gi/video/upload/q_60/v1781504944/pages-bg_udgphy.mp4" type="video/mp4">
-    </video>
-  </div>
-  <script>
-    (function () {
-      var v = document.getElementById('pages-bg-video');
-      if (!v) return;
-      v.muted = true;
-      v.load();
-      function tryPlay() { v.play().catch(function(){}); }
-      v.addEventListener('canplay', tryPlay);
-      v.addEventListener('loadedmetadata', tryPlay);
-      tryPlay();
-      document.addEventListener('touchstart', tryPlay, { once: true });
-      document.addEventListener('touchend', tryPlay, { once: true });
-      document.addEventListener('visibilitychange', function() {
-        if (!document.hidden) tryPlay();
-      });
-    })();
-  </script>
   <div data-navbar></div>
   <main class="page-shell">
     <section class="page-hero story-grid">
@@ -46,11 +21,11 @@
         <p class="eyebrow">About PK_Tech_Warrior</p>
         <h1 class="page-title">An intelligent company driven by design, engineering, and AI.</h1>
         <p class="hero-copy">PK_Tech_Warrior is a digital innovation company driven by creativity, intelligence, and a passion for building futuristic AI solutions.</p>
-        <div class="metrics-grid" id="about-stats-grid">
-          <div class="metric-card"><div class="stat" id="stat-clients-val">500+</div><p class="card-copy" id="stat-clients-lbl">Clients</p></div>
-          <div class="metric-card"><div class="stat" id="stat-projects-val">350+</div><p class="card-copy" id="stat-projects-lbl">Projects</p></div>
-          <div class="metric-card"><div class="stat" id="stat-years-val">5+</div><p class="card-copy" id="stat-years-lbl">Years</p></div>
-          <div class="metric-card"><div class="stat" id="stat-support-val">24/7</div><p class="card-copy" id="stat-support-lbl">Support</p></div>
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="stat">500+</div><p class="card-copy">Clients</p></div>
+          <div class="metric-card"><div class="stat">350+</div><p class="card-copy">Projects</p></div>
+          <div class="metric-card"><div class="stat">5+</div><p class="card-copy">Years</p></div>
+          <div class="metric-card"><div class="stat">24/7</div><p class="card-copy">Support</p></div>
         </div>
       </div>
       <div class="portrait-orbit">
@@ -80,36 +55,9 @@
   <div data-footer></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="assets/js/global.js"></script>
+  <script src="assets/js/strands-bg.js"></script>
   <script src="assets/js/about.js"></script>
   <script src="assets/js/scroll-animations.js"></script>
-
-  <script>
-    // Load stats from backend — updates About page cards dynamically
-    (function () {
-      var base = window.location.origin;
-      fetch(base + "/api/settings/public")
-        .then(function (r) { return r.json(); })
-        .then(function (data) {
-          var stats = data.stats || {};
-          var map = {
-            clients:  ["stat-clients-val",  "stat-clients-lbl"],
-            projects: ["stat-projects-val", "stat-projects-lbl"],
-            years:    ["stat-years-val",    "stat-years-lbl"],
-            support:  ["stat-support-val",  "stat-support-lbl"]
-          };
-          Object.keys(map).forEach(function (key) {
-            var s = stats[key] || {};
-            var valEl = document.getElementById(map[key][0]);
-            var lblEl = document.getElementById(map[key][1]);
-            if (valEl && s.value) valEl.textContent = s.value;
-            if (lblEl && s.label) lblEl.textContent = s.label;
-          });
-        })
-        .catch(function () {}); // keep defaults if API fails
-    })();
-  </script>
 </body>
 </html>
-
