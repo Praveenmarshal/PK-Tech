@@ -1558,6 +1558,14 @@ textarea.form-field {
   object-position: center;
 }
 
+.pages-video-bg canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 /* pages adaptive fonts now handled by global adaptive rule */
 
 /* Cards/panels: semi-transparent so video shows through */
