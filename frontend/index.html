@@ -1,68 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PK_Tech_Warrior | Futuristic AI Systems by Praveen Kannan</title>
-  <meta name="description"
-    content="PK_Tech_Warrior by Praveen Kannan builds futuristic AI systems, AI chatbots, automation platforms, dashboards, and premium full-stack digital experiences.">
-  <meta name="keywords"
-    content="PK_Tech_Warrior, Praveen Kannan, AI Developer, Full Stack Developer, AI Automation, AI Chatbots, Premium Web Development">
-  <link rel="preload" href="assets/videos/home-bg.mp4" as="video" type="video/mp4">
+  <meta name="description" content="PK_Tech_Warrior by Praveen Kannan builds futuristic AI systems, AI chatbots, automation platforms, dashboards, and premium full-stack digital experiences.">
+  <meta name="keywords" content="PK_Tech_Warrior, Praveen Kannan, AI Developer, Full Stack Developer, AI Automation, AI Chatbots, Premium Web Development">
+  <!-- Video preloaded by JS on desktop only -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/index.css">
+  <script src="../assets/js/video-autoplay.js" defer></script>
 </head>
-
 <body data-page="home">
+  <script src="../assets/js/pk-loader.js"></script>
+
   <!-- Home-page video background -->
   <div class="home-video-bg" aria-hidden="true">
-    <video id="home-bg-video" autoplay muted loop playsinline preload="auto">
-      <source src="assets/videos/home-bg.mp4" type="video/mp4">
+    <video id="home-bg-video" autoplay muted loop playsinline preload="auto" poster="https://res.cloudinary.com/dtcws61gi/video/upload/so_0/home-bg_qyi9ab.jpg" webkit-playsinline x5-playsinline>
+      <source src="https://res.cloudinary.com/dtcws61gi/video/upload/q_60/v1781504803/home-bg_qyi9ab.mp4" type="video/mp4">
     </video>
   </div>
-  <script>
-    // Force video to load and play as early as possible — before any other scripts
-    (function () {
-      var v = document.getElementById('home-bg-video');
-      if (!v) return;
-      v.load();
-      var played = false;
-      function tryPlay() {
-        if (played) return;
-        played = true;
-        v.play().catch(function () { });
-      }
-      v.addEventListener('canplay', tryPlay);
-      v.addEventListener('loadeddata', tryPlay);
-      // Fallback: try immediately in case already cached
-      tryPlay();
-    })();
-  </script>
   <div data-navbar></div>
   <main class="page-shell">
     <section class="page-hero home-hero">
       <div>
         <p class="eyebrow">Next-gen AI platform</p>
-        <h1 class="display-title">Build Smarter.<br>Automate <span class="gradient-word">Everything.</span><br>With
-          PK_Tech_Warrior AI.</h1>
-        <p class="hero-copy">PK_Tech_Warrior builds intelligent AI systems, automated solutions, and digital platforms that help
-          businesses grow, scale, and lead in the future.</p>
+        <h1 class="display-title">Build Smarter.<br>Automate <span class="gradient-word">Everything.</span><br>With PK_Tech_Warrior.</h1>
+        <p class="hero-copy">PK_Tech_Warrior builds intelligent AI systems, automated solutions, and digital platforms that help businesses grow, scale, and lead in the future.</p>
         <div class="button-row">
           <a class="btn btn-primary" href="contact.html">Contact Me</a>
           <a class="btn btn-secondary" href="contact.html">Start Your Project</a>
           <a class="btn btn-secondary" href="portfolio.html">View Portfolio</a>
           <a class="btn btn-ghost" href="features.html">Explore Features</a>
         </div>
-        <div class="trust-panel glass-panel">
+        <div class="trust-section">
           <p class="trust-label">Trusted by innovators worldwide</p>
-          <div class="logo-row">
-            <span class="logo-mark">Google</span>
-            <span class="logo-mark">Microsoft</span>
-            <span class="logo-mark">OpenAI</span>
-            <span class="logo-mark">AWS</span>
-            <span class="logo-mark">Notion</span>
+          <div class="trust-cards-row">
+
+            <div class="trust-card" data-tilt>
+              <div class="trust-card-inner">
+                <div class="trust-card-icon trust-icon-google">
+                  <svg viewBox="0 0 48 48" width="48" height="48"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15 15.6 19.1 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 6.1 29.6 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#FBBC05" d="M24 44c5.2 0 10-1.8 13.6-4.8l-6.3-5.3C29.2 35.7 26.7 37 24 37c-6.1 0-10.6-3.1-11.8-8.5l-7 5.4C8.7 39.9 15.8 44 24 44z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-.9 2.6-2.6 4.7-5 6.2l6.3 5.3C41.4 35.7 46 30 46 24c0-1.3-.2-2.7-.5-4z"/></svg>
+                </div>
+                <h3 class="trust-card-name">Google</h3>
+                <p class="trust-card-desc">Cloud AI, Gemini APIs & Workspace integration powering intelligent experiences.</p>
+              </div>
+              <div class="trust-card-glow"></div>
+            </div>
+
+            <div class="trust-card" data-tilt>
+              <div class="trust-card-inner">
+                <div class="trust-card-icon trust-icon-microsoft">
+                  <svg viewBox="0 0 48 48" width="48" height="48"><rect x="2" y="2" width="20" height="20" fill="#F25022"/><rect x="26" y="2" width="20" height="20" fill="#7FBA00"/><rect x="2" y="26" width="20" height="20" fill="#00A4EF"/><rect x="26" y="26" width="20" height="20" fill="#FFB900"/></svg>
+                </div>
+                <h3 class="trust-card-name">Microsoft</h3>
+                <p class="trust-card-desc">Azure infrastructure, Copilot integrations & enterprise-grade AI deployment.</p>
+              </div>
+              <div class="trust-card-glow"></div>
+            </div>
+
+            <div class="trust-card" data-tilt>
+              <div class="trust-card-inner">
+                <div class="trust-card-icon trust-icon-openai">
+                  <svg viewBox="0 0 48 48" width="48" height="48"><path fill="#10A37F" d="M41.6 16.2c1-3.2.4-6.7-1.6-9.4-3-4-8.3-5.7-13-4.2C24.5.4 21.6-1 18.4.6c-4.1 1-7.1 4.3-7.7 8.4C7.5 10 4.6 12.2 3.2 15.4c-2 4.1-1 9 2.4 12l-.1.8c-1 3.2-.4 6.7 1.6 9.4 3 4 8.3 5.7 13 4.2 1.6 2.2 4.2 3.6 7 3.6h.4c4.1 0 7.7-2.7 9-6.6 3.2-1 5.6-3.4 6.9-6.4 2-4.1 1-9-2.4-12l.1-.8zm-14.8 24c-1.6 0-3-.5-4.2-1.5l.2-.1 7-4a1.1 1.1 0 00.6-1V22.2l3 1.7v10.8c0 3-2.5 5.5-5.6 5.5h-1zM9.6 34.4c-.8-1.4-1.1-3-.8-4.6l.2.1 7 4a1.1 1.1 0 001.1 0l8.6-5v3.4l-7.3 4.2c-2.6 1.5-6 .6-7.5-2l-1.3-2.1V34l0 .4zM7.4 16c.8-1.4 2-2.4 3.5-3V24a1.1 1.1 0 00.6 1l8.6 5-3 1.7-7.3-4.2c-2.6-1.5-3.6-5-2-7.6l-.4.1zm28 6.5l-8.6-5 3-1.7 7.3 4.2c2.6 1.5 3.6 5 2 7.6-.8 1.4-2 2.5-3.5 3V20a1.1 1.1 0 00-.5-1h.3zm3-4.7l-.2-.1-7-4a1.1 1.1 0 00-1.1 0l-8.6 5v-3.4l7.3-4.2c2.6-1.5 6-.6 7.5 2 .9 1.4 1.2 3.1.9 4.7h-.8zm-18.5 6.1l-3-1.7V11.4c0-3 2.5-5.5 5.6-5.5 1.7 0 3.3.8 4.3 2.1l-.2.1-7 4a1.1 1.1 0 00-.6 1L20 23.9zm1.6-3.5L24 18l2.5 1.4v2.8l-2.5 1.4-2.5-1.4v-2.8z"/></svg>
+                </div>
+                <h3 class="trust-card-name">OpenAI</h3>
+                <p class="trust-card-desc">GPT models, DALL·E & advanced language AI fueling next-gen automation.</p>
+              </div>
+              <div class="trust-card-glow"></div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -81,33 +89,27 @@
       </div>
       <div class="feature-grid home-service-band">
         <article class="feature-card">
-          <img class="card-img" src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80"
-            alt="AI Systems" loading="lazy">
+          <img class="card-img" src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80" alt="AI Systems" loading="lazy">
           <div class="card-body">
             <span class="icon-badge">AI</span>
             <h3 class="card-title">AI Systems</h3>
-            <p class="card-copy">Custom assistants, knowledge systems, and decision workflows built around your
-              business.</p>
+            <p class="card-copy">Custom assistants, knowledge systems, and decision workflows built around your business.</p>
           </div>
         </article>
         <article class="feature-card">
-          <img class="card-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80"
-            alt="Dashboards" loading="lazy">
+          <img class="card-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Dashboards" loading="lazy">
           <div class="card-body">
             <span class="icon-badge">DB</span>
             <h3 class="card-title">Dashboards</h3>
-            <p class="card-copy">Calm executive interfaces for analytics, automation, operations, and security
-              visibility.</p>
+            <p class="card-copy">Calm executive interfaces for analytics, automation, operations, and security visibility.</p>
           </div>
         </article>
         <article class="feature-card">
-          <img class="card-img" src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&q=80"
-            alt="Full-stack Apps" loading="lazy">
+          <img class="card-img" src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&q=80" alt="Full-stack Apps" loading="lazy">
           <div class="card-body">
             <span class="icon-badge">FS</span>
             <h3 class="card-title">Full-stack Apps</h3>
-            <p class="card-copy">Production-ready web platforms with APIs, databases, admin panels, and deployment
-              paths.</p>
+            <p class="card-copy">Production-ready web platforms with APIs, databases, admin panels, and deployment paths.</p>
           </div>
         </article>
       </div>
@@ -116,9 +118,10 @@
   <div data-footer></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="assets/js/global.js"></script>
   <script src="assets/js/index.js"></script>
   <script src="assets/js/scroll-animations.js"></script>
 </body>
-
 </html>
+
