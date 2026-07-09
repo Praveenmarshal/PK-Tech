@@ -62,6 +62,7 @@ const frontendPages  = require("path").join(frontendRoot, "src/pages");
 const frontendPublic = require("path").join(frontendRoot, "public");
 app.use(express.static(frontendPublic));
 app.use(express.static(frontendPages));
+app.use(express.static(frontendRoot));  // fallback: serves frontend/assets/videos/* etc.
 app.get("/", (_req, res) => res.sendFile(require("path").join(frontendPages, "index.html")));
 app.get("*.html", (req, res) => {
   const page = require("path").join(frontendPages, require("path").basename(req.path));

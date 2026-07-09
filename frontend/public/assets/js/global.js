@@ -21,9 +21,9 @@
   };
 
   const defaultApiBase = (() => {
-    if (window.PKTECH_API_BASE) return window.PKTECH_API_BASE;
+    if (window.pktech_API_BASE) return window.pktech_API_BASE;
     if (window.location.protocol === "file:" || ["8000", "8080", "5500"].includes(window.location.port)) {
-      return "https://PK_Tech_Warrior.onrender.com/api";
+      return "https://pktech-ai-1.onrender.com/api";
     }
     return `${window.location.origin}/api`;
   })();
@@ -34,7 +34,7 @@
   };
 
   function apiHeaders(json) {
-    const token = localStorage.getItem("pktech_admin_token");
+    const token = localStorage.getItem("PK_Tech_Warrior_admin_token");
     return {
       ...(json ? { "Content-Type": "application/json" } : {}),
       ...(token ? { Authorization: `Bearer ${token}` } : {})
@@ -408,7 +408,7 @@
         <button class="round-icon" data-chat-close type="button" aria-label="Close chat">×</button>
       </div>
       <div class="chat-body" data-chat-body>
-        <p class="chat-msg">Hello. I am your PK_Tech_Warrior assistant. How can I help you today?</p>
+        <p class="chat-msg">Hello. I am your PK_Tech_Warrior AI assistant. How can I help you today?</p>
       </div>
       <div class="chat-actions">
         <button class="chat-suggestion" type="button">Tell me about PK_Tech_Warrior</button>
@@ -509,7 +509,7 @@
     }).catch(() => {});
   }
 
-  window.PKTech = {
+  window.pktech = {
     owner,
     apiBase: state.apiBase,
     api: {
