@@ -88,32 +88,51 @@
 [data-page="about"] .glass-panel h3,
 [data-page="about"] .glass-panel .section-title,
 [data-page="about"] .portrait-card h2 {
-  color: #ffffff !important;
-  text-shadow: 0 0 30px rgba(139,92,246,0.3) !important;
+  color: #7dd3fc !important;
+  text-shadow: 0 0 30px rgba(56,189,248,0.35) !important;
   mix-blend-mode: normal !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.01em;
 }
 
 [data-page="about"] .glass-panel p,
 [data-page="about"] .glass-panel .body-copy,
 [data-page="about"] .glass-panel .card-copy,
 [data-page="about"] .portrait-card .card-copy {
-  color: rgba(220, 215, 240, 0.85) !important;
+  color: #e0d4f7 !important;
   mix-blend-mode: normal !important;
-  text-shadow: none !important;
+  text-shadow: 0 1px 8px rgba(139,92,246,0.15) !important;
+  font-weight: 600 !important;
+  line-height: 1.7;
 }
 
 /* ── Timeline cards text ────────────────────────────────── */
+[data-page="about"] .timeline-item:nth-child(1) .card-title {
+  color: #f9a8d4 !important;
+  text-shadow: 0 0 20px rgba(236,72,153,0.3) !important;
+}
+[data-page="about"] .timeline-item:nth-child(2) .card-title {
+  color: #7dd3fc !important;
+  text-shadow: 0 0 20px rgba(56,189,248,0.3) !important;
+}
+[data-page="about"] .timeline-item:nth-child(3) .card-title {
+  color: #6ee7b7 !important;
+  text-shadow: 0 0 20px rgba(16,185,129,0.3) !important;
+}
+
 [data-page="about"] .timeline-item .card-title {
-  color: #ffffff !important;
   mix-blend-mode: normal !important;
-  text-shadow: 0 0 20px rgba(139,92,246,0.2) !important;
-  font-weight: 700;
+  font-weight: 800 !important;
+  font-size: 1.1rem !important;
+  letter-spacing: -0.01em;
 }
 
 [data-page="about"] .timeline-item .card-copy {
-  color: rgba(200, 195, 220, 0.8) !important;
+  color: #d4c8ef !important;
   mix-blend-mode: normal !important;
-  text-shadow: none !important;
+  text-shadow: 0 1px 6px rgba(139,92,246,0.12) !important;
+  font-weight: 600 !important;
+  line-height: 1.65;
 }
 
 /* ── Metric cards: vibrant stats ────────────────────────── */
@@ -123,16 +142,17 @@
 
 [data-page="about"] .metric-card .stat {
   color: transparent !important;
-  background: linear-gradient(135deg, #a78bfa 0%, #818cf8 40%, #38bdf8 70%, #c084fc 100%);
+  background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 30%, #38bdf8 65%, #f0abfc 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 2.2rem !important;
+  font-size: 2.4rem !important;
   font-weight: 900 !important;
   letter-spacing: -1px;
   mix-blend-mode: normal !important;
   text-shadow: none !important;
   animation: statCount 0.6s cubic-bezier(0.22,1,0.36,1) both;
+  filter: drop-shadow(0 0 12px rgba(167,139,250,0.4));
 }
 
 [data-page="about"] .metric-card:nth-child(1) .stat { animation-delay: 0.1s; }
@@ -141,14 +161,20 @@
 [data-page="about"] .metric-card:nth-child(4) .stat { animation-delay: 0.4s; }
 
 [data-page="about"] .metric-card .card-copy {
-  color: rgba(200, 195, 225, 0.7) !important;
+  color: #c4b5fd !important;
   mix-blend-mode: normal !important;
-  text-shadow: none !important;
-  font-size: 0.82rem;
+  text-shadow: 0 0 10px rgba(167,139,250,0.2) !important;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 600;
+  letter-spacing: 0.1em;
+  font-weight: 700 !important;
 }
+
+/* Each metric label gets a unique tint */
+[data-page="about"] .metric-card:nth-child(1) .card-copy { color: #c4b5fd !important; }
+[data-page="about"] .metric-card:nth-child(2) .card-copy { color: #93c5fd !important; }
+[data-page="about"] .metric-card:nth-child(3) .card-copy { color: #67e8f9 !important; }
+[data-page="about"] .metric-card:nth-child(4) .card-copy { color: #f0abfc !important; }
 
 /* Each metric card gets a unique accent glow on hover */
 [data-page="about"] .metric-card:nth-child(1):hover { box-shadow: 0 0 40px rgba(167,139,250,0.3), 0 30px 80px rgba(12,10,30,0.5) !important; }
