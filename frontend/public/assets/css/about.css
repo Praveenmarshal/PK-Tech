@@ -35,10 +35,10 @@
 [data-page="about"] .glass-panel,
 [data-page="about"] .metric-card,
 [data-page="about"] .timeline-item {
-  background: rgba(12, 10, 30, 0.65) !important;
+  background: rgba(255, 255, 255, 0.88) !important;
   backdrop-filter: blur(20px) saturate(1.5) !important;
   -webkit-backdrop-filter: blur(20px) saturate(1.5) !important;
-  border: 1px solid rgba(139, 92, 246, 0.18) !important;
+  border: 1px solid rgba(139, 92, 246, 0.22) !important;
   border-radius: 18px !important;
   position: relative;
   overflow: hidden;
@@ -83,13 +83,13 @@
     inset 0 0 40px rgba(139,92,246,0.06) !important;
 }
 
-/* ── Text colors inside about cards: bright on dark ─────── */
+/* ── Text colors inside about cards: black for clarity ──── */
 [data-page="about"] .glass-panel h2,
 [data-page="about"] .glass-panel h3,
 [data-page="about"] .glass-panel .section-title,
 [data-page="about"] .portrait-card h2 {
-  color: #7dd3fc !important;
-  text-shadow: 0 0 30px rgba(56,189,248,0.35) !important;
+  color: #1a1a2e !important;
+  text-shadow: none !important;
   mix-blend-mode: normal !important;
   font-weight: 800 !important;
   letter-spacing: -0.01em;
@@ -99,38 +99,27 @@
 [data-page="about"] .glass-panel .body-copy,
 [data-page="about"] .glass-panel .card-copy,
 [data-page="about"] .portrait-card .card-copy {
-  color: #e0d4f7 !important;
+  color: #2d2d44 !important;
   mix-blend-mode: normal !important;
-  text-shadow: 0 1px 8px rgba(139,92,246,0.15) !important;
+  text-shadow: none !important;
   font-weight: 600 !important;
   line-height: 1.7;
 }
 
 /* ── Timeline cards text ────────────────────────────────── */
-[data-page="about"] .timeline-item:nth-child(1) .card-title {
-  color: #f9a8d4 !important;
-  text-shadow: 0 0 20px rgba(236,72,153,0.3) !important;
-}
-[data-page="about"] .timeline-item:nth-child(2) .card-title {
-  color: #7dd3fc !important;
-  text-shadow: 0 0 20px rgba(56,189,248,0.3) !important;
-}
-[data-page="about"] .timeline-item:nth-child(3) .card-title {
-  color: #6ee7b7 !important;
-  text-shadow: 0 0 20px rgba(16,185,129,0.3) !important;
-}
-
 [data-page="about"] .timeline-item .card-title {
+  color: #1a1a2e !important;
   mix-blend-mode: normal !important;
+  text-shadow: none !important;
   font-weight: 800 !important;
   font-size: 1.1rem !important;
   letter-spacing: -0.01em;
 }
 
 [data-page="about"] .timeline-item .card-copy {
-  color: #d4c8ef !important;
+  color: #2d2d44 !important;
   mix-blend-mode: normal !important;
-  text-shadow: 0 1px 6px rgba(139,92,246,0.12) !important;
+  text-shadow: none !important;
   font-weight: 600 !important;
   line-height: 1.65;
 }
@@ -142,7 +131,7 @@
 
 [data-page="about"] .metric-card .stat {
   color: transparent !important;
-  background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 30%, #38bdf8 65%, #f0abfc 100%);
+  background: linear-gradient(135deg, #6d28d9 0%, #4f46e5 40%, #0e7490 70%, #7c3aed 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -152,7 +141,7 @@
   mix-blend-mode: normal !important;
   text-shadow: none !important;
   animation: statCount 0.6s cubic-bezier(0.22,1,0.36,1) both;
-  filter: drop-shadow(0 0 12px rgba(167,139,250,0.4));
+  filter: drop-shadow(0 0 8px rgba(109,40,217,0.25));
 }
 
 [data-page="about"] .metric-card:nth-child(1) .stat { animation-delay: 0.1s; }
@@ -161,20 +150,14 @@
 [data-page="about"] .metric-card:nth-child(4) .stat { animation-delay: 0.4s; }
 
 [data-page="about"] .metric-card .card-copy {
-  color: #c4b5fd !important;
+  color: #3b3b54 !important;
   mix-blend-mode: normal !important;
-  text-shadow: 0 0 10px rgba(167,139,250,0.2) !important;
+  text-shadow: none !important;
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 700 !important;
 }
-
-/* Each metric label gets a unique tint */
-[data-page="about"] .metric-card:nth-child(1) .card-copy { color: #c4b5fd !important; }
-[data-page="about"] .metric-card:nth-child(2) .card-copy { color: #93c5fd !important; }
-[data-page="about"] .metric-card:nth-child(3) .card-copy { color: #67e8f9 !important; }
-[data-page="about"] .metric-card:nth-child(4) .card-copy { color: #f0abfc !important; }
 
 /* Each metric card gets a unique accent glow on hover */
 [data-page="about"] .metric-card:nth-child(1):hover { box-shadow: 0 0 40px rgba(167,139,250,0.3), 0 30px 80px rgba(12,10,30,0.5) !important; }
@@ -233,48 +216,47 @@
   animation: pulseGlow 3s ease-in-out infinite;
 }
 
-/* ── Buttons on about page: vibrant dark-mode ───────────── */
+/* ── Buttons on about page ──────────────────────────────── */
 [data-page="about"] .btn-primary {
   --btn-bg: linear-gradient(135deg, #8b5cf6, #6d28d9, #7c3aed) !important;
   --btn-color: #fff !important;
   border-color: rgba(139,92,246,0.4) !important;
-  box-shadow: 0 0 20px rgba(139,92,246,0.25), 0 12px 34px rgba(12,10,30,0.3) !important;
+  box-shadow: 0 0 20px rgba(139,92,246,0.25), 0 12px 34px rgba(80,70,120,0.2) !important;
   color: #fff !important;
 }
 
 [data-page="about"] .btn-primary:hover {
-  box-shadow: 0 0 35px rgba(139,92,246,0.4), 0 18px 44px rgba(12,10,30,0.4) !important;
+  box-shadow: 0 0 35px rgba(139,92,246,0.4), 0 18px 44px rgba(80,70,120,0.25) !important;
   transform: translateY(-3px);
 }
 
 [data-page="about"] .btn-secondary {
-  --btn-bg: rgba(20, 18, 40, 0.7) !important;
-  --btn-color: #c4b5fd !important;
-  border-color: rgba(139,92,246,0.25) !important;
-  color: #c4b5fd !important;
-  backdrop-filter: blur(12px);
+  --btn-bg: rgba(255,255,255,0.9) !important;
+  --btn-color: #4f46e5 !important;
+  border-color: rgba(139,92,246,0.3) !important;
+  color: #4f46e5 !important;
 }
 
 [data-page="about"] .btn-secondary:hover {
-  --btn-bg: rgba(139, 92, 246, 0.15) !important;
+  --btn-bg: rgba(139, 92, 246, 0.1) !important;
   border-color: rgba(139,92,246,0.5) !important;
-  color: #e9d5ff !important;
-  box-shadow: 0 0 25px rgba(139,92,246,0.2), 0 18px 44px rgba(12,10,30,0.3) !important;
+  color: #6d28d9 !important;
+  box-shadow: 0 0 25px rgba(139,92,246,0.15), 0 18px 44px rgba(80,70,120,0.15) !important;
 }
 
 [data-page="about"] .btn-ghost {
   --btn-bg: transparent !important;
-  --btn-color: rgba(200,195,225,0.7) !important;
-  color: rgba(200,195,225,0.7) !important;
-  border-color: rgba(139,92,246,0.15) !important;
+  --btn-color: #3b3b54 !important;
+  color: #3b3b54 !important;
+  border-color: rgba(139,92,246,0.2) !important;
   box-shadow: none !important;
 }
 
 [data-page="about"] .btn-ghost:hover {
-  --btn-color: #e9d5ff !important;
-  color: #e9d5ff !important;
-  border-color: rgba(139,92,246,0.35) !important;
-  background: rgba(139,92,246,0.08) !important;
+  --btn-color: #6d28d9 !important;
+  color: #6d28d9 !important;
+  border-color: rgba(139,92,246,0.4) !important;
+  background: rgba(139,92,246,0.06) !important;
 }
 
 /* ── Mobile: disable expensive animations, keep colors ──── */
