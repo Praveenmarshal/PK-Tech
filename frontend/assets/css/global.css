@@ -2143,3 +2143,61 @@ textarea.form-field {
   animation: gradientTextAnim 8s ease infinite !important;
   text-shadow: none !important;
 }
+
+/* ── MagicBento Card Overlays & Interactive Styling ── */
+.bento-border-glow {
+  position: absolute;
+  inset: 0;
+  padding: 1.5px; /* border thickness */
+  border-radius: inherit;
+  background: radial-gradient(
+    var(--glow-radius, 300px) circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(139, 92, 246, calc(var(--glow-intensity, 0) * 0.95)) 0%,
+    rgba(139, 92, 246, calc(var(--glow-intensity, 0) * 0.45)) 30%,
+    transparent 65%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.bento-active .bento-border-glow {
+  opacity: 1;
+}
+
+/* Card hover shadow and scale effects */
+.feature-card,
+.solution-card,
+.project-card,
+.resource-card,
+.metric-card,
+.timeline-item,
+.trust-card,
+.glass-panel {
+  will-change: transform;
+}
+
+.bento-active {
+  box-shadow:
+    0 12px 30px rgba(139, 92, 246, 0.12),
+    inset 0 0 30px rgba(139, 92, 246, 0.04) !important;
+}
+
+.bento-particle {
+  will-change: transform, opacity;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.bento-ripple {
+  pointer-events: none;
+}
