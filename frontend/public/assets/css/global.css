@@ -1858,8 +1858,9 @@ textarea.form-field {
   background: url('https://res.cloudinary.com/dtcws61gi/video/upload/so_0/admin-bg_m5oitd.jpg') center / cover no-repeat #0a0a0a;
 }
 
-/* About page uses plasma WebGL canvas — remove poster image */
-[data-page="about"] .pages-video-bg {
+/* About & Contact pages use WebGL canvas backgrounds — remove poster image */
+[data-page="about"] .pages-video-bg,
+[data-page="contact"] .pages-video-bg {
   background: #0a0a0a !important;
 }
 
