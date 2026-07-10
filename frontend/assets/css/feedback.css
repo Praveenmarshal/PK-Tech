@@ -350,7 +350,6 @@
 
 [data-page="feedback"] .fb-form-panel .section-title,
 [data-page="feedback"] .fb-wall-header .section-title {
-  color: #1a1a2e !important;
   font-weight: 800 !important;
   text-shadow: none !important;
 }

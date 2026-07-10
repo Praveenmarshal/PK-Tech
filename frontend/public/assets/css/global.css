@@ -2117,3 +2117,29 @@ textarea.form-field {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0);    }
 }
+
+/* ── GradientText animation & global selectors ── */
+@keyframes gradientTextAnim {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.display-title,
+.page-title,
+.section-title,
+.card-title,
+.trust-card-name,
+.gradient-word,
+.portrait-card h2,
+.fb-success-icon,
+.fb-empty-icon {
+  background-image: linear-gradient(to right, #5227FF, #FF9FFC, #B497CF, #5227FF) !important;
+  background-size: 300% 100% !important;
+  background-repeat: repeat !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  color: transparent !important;
+  animation: gradientTextAnim 8s ease infinite !important;
+  text-shadow: none !important;
+}

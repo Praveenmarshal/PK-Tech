@@ -88,7 +88,6 @@
 [data-page="about"] .glass-panel h3,
 [data-page="about"] .glass-panel .section-title,
 [data-page="about"] .portrait-card h2 {
-  color: #1a1a2e !important;
   text-shadow: none !important;
   mix-blend-mode: normal !important;
   font-weight: 800 !important;
@@ -108,7 +107,6 @@
 
 /* ── Timeline cards text ────────────────────────────────── */
 [data-page="about"] .timeline-item .card-title {
-  color: #1a1a2e !important;
   mix-blend-mode: normal !important;
   text-shadow: none !important;
   font-weight: 800 !important;

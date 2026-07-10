@@ -59,12 +59,10 @@
 }
 
 [data-page="solutions"] .solutions-hero .page-title {
-  color: #ffffff !important;
   font-weight: 800 !important;
 }
 
 [data-page="solutions"] .solution-card .card-title {
-  color: #1a1a2e !important;
   mix-blend-mode: normal !important;
   text-shadow: none !important;
   font-weight: 800 !important;
