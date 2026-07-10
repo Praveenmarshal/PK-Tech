@@ -11,3 +11,80 @@
   gap: 14px;
 }
 
+/* ── Solutions page overrides for bright readable cards ── */
+[data-page="solutions"] .solution-card {
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(20px) saturate(1.5) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.5) !important;
+  border: 1px solid rgba(139, 92, 246, 0.22) !important;
+  border-radius: 18px !important;
+  position: relative;
+  overflow: hidden;
+  transition: transform 280ms cubic-bezier(0.22,1,0.36,1),
+              box-shadow 280ms ease,
+              border-color 280ms ease !important;
+}
+
+[data-page="solutions"] .solution-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(139,92,246,0.7),
+    rgba(79,70,229,0.9),
+    rgba(14,165,233,0.7),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: borderGlow 4s linear infinite;
+  z-index: 1;
+}
+
+@keyframes borderGlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+[data-page="solutions"] .solution-card:hover {
+  transform: translateY(-6px) !important;
+  border-color: rgba(139, 92, 246, 0.4) !important;
+  box-shadow:
+    0 20px 40px rgba(139,92,246,0.15),
+    inset 0 0 40px rgba(139,92,246,0.06) !important;
+}
+
+[data-page="solutions"] .solutions-hero .page-title {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+[data-page="solutions"] .solution-card .card-title {
+  color: #1a1a2e !important;
+  mix-blend-mode: normal !important;
+  text-shadow: none !important;
+  font-weight: 800 !important;
+  font-size: 1.25rem !important;
+  letter-spacing: -0.01em;
+}
+
+[data-page="solutions"] .solution-card .card-copy {
+  color: #2d2d44 !important;
+  mix-blend-mode: normal !important;
+  text-shadow: none !important;
+  font-weight: 600 !important;
+  line-height: 1.65;
+}
+
+[data-page="solutions"] .solution-card .icon-badge {
+  background: linear-gradient(145deg, rgba(139,92,246,0.25), rgba(79,70,229,0.35)) !important;
+  color: #4f46e5 !important;
+  border: 1px solid rgba(139,92,246,0.3);
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+

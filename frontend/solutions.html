@@ -3,33 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Solutions | PK_Tech_Warrior AI</title>
+  <title>Solutions | PK_Tech_Warrior</title>
   <meta name="description" content="PK_Tech_Warrior delivers AI, machine learning, full-stack development, automation systems, cybersecurity, AI dashboards, data science, and analytics systems.">
   <meta name="keywords" content="AI Solutions, Machine Learning, Full Stack Development, Cybersecurity, AI Dashboards, Data Science, Analytics">
-  <link rel="preload" href="assets/videos/pages-bg.mp4" as="video" type="video/mp4">
+  <!-- Video preloaded by JS on desktop only -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/solutions.css">
 </head>
 <body data-page="solutions">
-  <!-- Pages video background -->
-  <div class="pages-video-bg" aria-hidden="true">
-    <video id="pages-bg-video" autoplay muted loop playsinline preload="auto">
-      <source src="assets/videos/pages-bg.mp4" type="video/mp4">
-    </video>
-  </div>
-  <script>
-    (function () {
-      var v = document.getElementById('pages-bg-video');
-      if (!v) return;
-      v.load();
-      var played = false;
-      function tryPlay() { if (played) return; played = true; v.play().catch(function(){}); }
-      v.addEventListener('canplay', tryPlay);
-      v.addEventListener('loadeddata', tryPlay);
-      tryPlay();
-    })();
-  </script>
+  <script src="../assets/js/pk-loader.js"></script>
+
+  <!-- Live EvilEye WebGL background (replaces video) -->
+  <div class="pages-video-bg" aria-hidden="true"></div>
   <div data-navbar></div>
   <main class="page-shell">
     <section class="page-hero solutions-hero">
@@ -62,8 +48,10 @@
   <div data-footer></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="assets/js/global.js"></script>
   <script src="assets/js/solutions.js"></script>
+  <script src="assets/js/evil-eye-bg.js"></script>
   <script src="assets/js/scroll-animations.js"></script>
 </body>
 </html>
