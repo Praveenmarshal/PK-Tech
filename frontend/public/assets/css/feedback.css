@@ -338,3 +338,34 @@
   .fb-cards-wrap { grid-template-columns: 1fr; }
   .fb-expanded-wrap { grid-template-columns: 1fr; max-height: 500px; }
 }
+
+/* ── Feedback page overrides for bright readable cards ── */
+[data-page="feedback"] .fb-form-panel,
+[data-page="feedback"] .fb-card {
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(20px) saturate(1.5) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.5) !important;
+  border: 1px solid rgba(139, 92, 246, 0.22) !important;
+}
+
+[data-page="feedback"] .fb-form-panel .section-title,
+[data-page="feedback"] .fb-wall-header .section-title {
+  color: #1a1a2e !important;
+  font-weight: 800 !important;
+  text-shadow: none !important;
+}
+
+[data-page="feedback"] .fb-label,
+[data-page="feedback"] .fb-card-email,
+[data-page="feedback"] .fb-card-body,
+[data-page="feedback"] .fb-avg-num,
+[data-page="feedback"] .fb-success-msg p {
+  color: #1a1a2e !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+}
+
+[data-page="feedback"] .fb-card-date {
+  color: #4a4a6a !important;
+  font-weight: 500 !important;
+}
