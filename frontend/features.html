@@ -10,35 +10,12 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/features.css">
-  <script src="../assets/js/video-autoplay.js" defer></script>
 </head>
 <body data-page="features">
   <script src="../assets/js/pk-loader.js"></script>
 
-  <!-- Pages video background -->
-  <!-- Pages video background -->
-  <div class="pages-video-bg" aria-hidden="true">
-    <video id="pages-bg-video" autoplay muted loop playsinline preload="auto" poster="https://res.cloudinary.com/dtcws61gi/video/upload/so_0/pages-bg_udgphy.jpg" webkit-playsinline x5-playsinline>
-      <source src="https://res.cloudinary.com/dtcws61gi/video/upload/q_60/v1781504944/pages-bg_udgphy.mp4" type="video/mp4">
-    </video>
-  </div>
-  <script>
-    (function () {
-      var v = document.getElementById('pages-bg-video');
-      if (!v) return;
-      v.muted = true;
-      v.load();
-      function tryPlay() { v.play().catch(function(){}); }
-      v.addEventListener('canplay', tryPlay);
-      v.addEventListener('loadedmetadata', tryPlay);
-      tryPlay();
-      document.addEventListener('touchstart', tryPlay, { once: true });
-      document.addEventListener('touchend', tryPlay, { once: true });
-      document.addEventListener('visibilitychange', function() {
-        if (!document.hidden) tryPlay();
-      });
-    })();
-  </script>
+  <!-- Pages LiquidEther background -->
+  <div class="pages-video-bg" aria-hidden="true"></div>
   <div data-navbar></div>
   <main class="page-shell">
     <section class="page-hero features-hero">
@@ -67,6 +44,7 @@
   <script src="assets/js/features.js"></script>
   <script src="assets/js/scroll-animations.js"></script>
   <script src="assets/js/magic-bento.js"></script>
+  <script src="assets/js/liquid-ether-bg.js"></script>
 </body>
 </html>
 

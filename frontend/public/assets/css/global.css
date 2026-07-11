@@ -1858,12 +1858,16 @@ textarea.form-field {
   background: url('https://res.cloudinary.com/dtcws61gi/video/upload/so_0/admin-bg_m5oitd.jpg') center / cover no-repeat #0a0a0a;
 }
 
-/* About, Contact, Feedback, Solutions & Home pages use WebGL canvas backgrounds — remove poster image */
+/* About, Contact, Feedback, Solutions, Home, Features, Portfolio, Projects & Resources pages use WebGL canvas backgrounds — remove poster image */
 [data-page="about"] .pages-video-bg,
 [data-page="contact"] .pages-video-bg,
 [data-page="feedback"] .pages-video-bg,
 [data-page="solutions"] .pages-video-bg,
-[data-page="home"] .home-video-bg {
+[data-page="home"] .home-video-bg,
+[data-page="features"] .pages-video-bg,
+[data-page="portfolio"] .pages-video-bg,
+[data-page="projects"] .pages-video-bg,
+[data-page="resources"] .pages-video-bg {
   background: #0a0a0a !important;
 }
 
