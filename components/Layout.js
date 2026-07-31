@@ -5,7 +5,6 @@ import Chatbot from './Chatbot';
 import { useEffect, useRef } from 'react';
 
 export default function Layout({ children, title = 'PK_Tech_Warrior — Build Smarter. Automate Everything.', noFooter = false }) {
-  const canvasRef = useRef(null);
   const cursorRef = useRef(null);
   const cursorRingRef = useRef(null);
 
@@ -34,49 +33,6 @@ export default function Layout({ children, title = 'PK_Tech_Warrior — Build Sm
     });
 
     return () => window.removeEventListener('mousemove', moveCursor);
-  }, []);
-
-  useEffect(() => {
-    // Three.js background
-    const canvas = canvasRef.current;
-    if (!canvas || typeof window === 'undefined') return;
-    if (!window.THREE) return;
-    const THREE = window.THREE;
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
-    camera.position.z = 5;
-    const particles = [];
-    const geo = new THREE.SphereGeometry(0.04, 8, 8);
-    for (let i = 0; i < 80; i++) {
-      const mat = new THREE.MeshBasicMaterial({ color: 0x8b5cf6, transparent: true, opacity: Math.random() * 0.4 + 0.1 });
-      const mesh = new THREE.Mesh(geo, mat);
-      mesh.position.set((Math.random() - 0.5) * 16, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 6);
-      mesh.userData = { vx: (Math.random() - 0.5) * 0.002, vy: (Math.random() - 0.5) * 0.002 };
-      scene.add(mesh);
-      particles.push(mesh);
-    }
-    let raf;
-    const animate = () => {
-      raf = requestAnimationFrame(animate);
-      particles.forEach(p => {
-        p.position.x += p.userData.vx;
-        p.position.y += p.userData.vy;
-        if (Math.abs(p.position.x) > 8) p.userData.vx *= -1;
-        if (Math.abs(p.position.y) > 5) p.userData.vy *= -1;
-      });
-      renderer.render(scene, camera);
-    };
-    animate();
-    const resize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    };
-    window.addEventListener('resize', resize);
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); renderer.dispose(); };
   }, []);
 
   // Scroll animations
@@ -109,7 +65,42 @@ export default function Layout({ children, title = 'PK_Tech_Warrior — Build Sm
 
       <div id="cursor" ref={cursorRef}></div>
       <div id="cursor-ring" ref={cursorRingRef}></div>
-      <canvas id="bg-canvas" ref={canvasRef}></canvas>
+
+      {/* Fullscreen background video — replaces Three.js canvas */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        id="bg-video"
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: 0,
+          pointerEvents: 'none',
+        }}
+      >
+        <source
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260606_154941_df1a96e1-a06f-450c-bd02-d863414cc1a0.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      {/* Semi-transparent overlay so existing content stays readable */}
+      <div id="bg-video-overlay" style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        background: 'rgba(240, 238, 235, 0.82)',
+        zIndex: 0,
+        pointerEvents: 'none',
+      }} />
 
       <Navbar />
       <main style={{ position: 'relative', zIndex: 1 }}>
