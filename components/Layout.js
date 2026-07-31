@@ -97,7 +97,7 @@ export default function Layout({ children, title = 'PK_Tech_Warrior — Build Sm
         left: 0,
         width: '100%',
         height: '100%',
-        background: 'rgba(240, 238, 235, 0.55)',
+        background: 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.65) 100%)',
         zIndex: 0,
         pointerEvents: 'none',
       }} />

@@ -17,11 +17,11 @@ export default function Navbar() {
     const handleScroll = () => {
       if (!navRef.current) return;
       if (window.scrollY > 40) {
-        navRef.current.style.background = 'rgba(255,255,255,0.92)';
-        navRef.current.style.boxShadow = '0 8px 40px rgba(0,0,0,0.09)';
+        navRef.current.style.background = 'rgba(0,0,0,0.55)';
+        navRef.current.style.boxShadow = '0 8px 40px rgba(0,0,0,0.25)';
       } else {
-        navRef.current.style.background = 'rgba(255,255,255,0.75)';
-        navRef.current.style.boxShadow = '0 4px 32px rgba(0,0,0,0.06)';
+        navRef.current.style.background = 'rgba(0,0,0,0.35)';
+        navRef.current.style.boxShadow = '0 4px 32px rgba(0,0,0,0.2)';
       }
     };
     window.addEventListener('scroll', handleScroll);
